@@ -1,14 +1,16 @@
-import { Container } from '../node_modules/@mui/material/index';
-import './App.css';
-import Header from './components/structure/Header';
-import Footer from './components/structure/Footer';
+import { Box } from "../node_modules/@mui/material/index";
+import "./App.css";
+import Content from "./components/structure/Content";
+import Header from "../src/components/structure/Header.js";
+import Footer from "../src/components/structure//Footer.js";
 
 function App() {
   return (
-   <Container>
-     <Header/>
-      <Footer/>
-   </Container>
+    <Box container>
+      <Header />
+      <Content />
+      <Footer />
+    </Box>
   );
 }
 

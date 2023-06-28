@@ -3,16 +3,24 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
-import homeLogo from "../../utils/main_logo.jpeg"
+import homeLogo from "../utils/main_logo.jpeg";
 
 export default function Header() {
     return (
-        <Box sx={{ color: "rgb(242, 247, 239)" }}>
-            <AppBar psotion="static">
-                <Toolbar sx={{ justifyContent: 'space-between', backgroundColor: 'black' }}>
-
+        <Box
+            sx={{
+                color: "rgb(242, 247, 239)",
+                zIndex: 1,
+                position: "sticky",
+                top: 0,
+            }}
+        >
+            <AppBar position="static">
+                <Toolbar
+                    sx={{ justifyContent: "space-between", backgroundColor: "black" }}
+                >
                     <Box>
-                        <img alt="Main_logo" src={homeLogo} style={{ maxWidth: '20%' }} />
+                        <img alt="Main_logo" src={homeLogo} style={{ maxWidth: "20%" }} />
                     </Box>
                     <Box>
                         <Button color="inherit"> Home </Button>
