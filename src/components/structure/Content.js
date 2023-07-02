@@ -5,7 +5,7 @@ import Home from "../elements/Home";
 export default function Content() {
     return (
         <Box
-            Container
+            container
             sx={{
                 minHeight: "100vh",
             }}
