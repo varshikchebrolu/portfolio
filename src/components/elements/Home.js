@@ -19,10 +19,11 @@ export default function Home() {
         );
         return () => clearTimeout(intervalId);
     }, []);
+    
     return (
         <Box
             container
-            sx={{ backgroundColor: "black", color: "white", paddingBottom: "2rem" }}
+            sx={{ backgroundColor: "black", color: "white", paddingBottom: "2rem", borderRadius:'10px' }}
         >
             <Grid sx={{ display: "grid", gridTemplateColumns: "1.5fr 1fr" }}>
                 <Grid item>
