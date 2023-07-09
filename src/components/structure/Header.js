@@ -6,32 +6,32 @@ import Button from "@mui/material/Button";
 import homeLogo from "../utils/main_logo.jpeg";
 
 export default function Header() {
-    return (
-        <Box
-            sx={{
-                color: "rgb(242, 247, 239)",
-                zIndex: 1,
-                position: "sticky",
-                top: 0,
-            }}
+  return (
+    <Box
+      sx={{
+        color: "rgb(242, 247, 239)",
+        zIndex: 1,
+        position: "sticky",
+        top: 0,
+      }}
+    >
+      <AppBar position="static">
+        <Toolbar
+          sx={{ justifyContent: "space-between", backgroundColor: "black" }}
         >
-            <AppBar position="static">
-                <Toolbar
-                    sx={{ justifyContent: "space-between", backgroundColor: "black" }}
-                >
-                    <Box>
-                        <img alt="Main_logo" src={homeLogo} style={{ maxWidth: "20%" }} />
-                    </Box>
-                    <Box>
-                        <Button color="inherit"> Home </Button>
-                        <Button color="inherit"> About </Button>
-                        <Button color="inherit"> Skills </Button>
-                        <Button color="inherit"> Experience </Button>
-                        <Button color="inherit"> Resume </Button>
-                        <Button color="inherit"> Projects </Button>
-                    </Box>
-                </Toolbar>
-            </AppBar>
-        </Box>
-    );
+          <Box>
+            <img alt="Main_logo" src={homeLogo} style={{ maxWidth: "20%" }} />
+          </Box>
+          <Box>
+            <Button color="inherit"> Home </Button>
+            <Button color="inherit"> About </Button>
+            <Button color="inherit"> Skills </Button>
+            <Button color="inherit"> Experience </Button>
+            <Button color="inherit"> Projects </Button>
+            <Button color="inherit"> Resume </Button>
+          </Box>
+        </Toolbar>
+      </AppBar>
+    </Box>
+  );
 }
