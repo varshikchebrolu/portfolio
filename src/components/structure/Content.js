@@ -3,6 +3,7 @@ import React from "react";
 import Home from "../elements/Home";
 import About from "../elements/About";
 import Skills from "../elements/Skills";
+import Experience from "../elements/Experience";
 
 export default function Content() {
   return (
@@ -15,6 +16,7 @@ export default function Content() {
       <Home />
       <About />
       <Skills />
+      <Experience />
     </Box>
   );
 }
