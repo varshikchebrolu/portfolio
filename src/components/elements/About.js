@@ -13,10 +13,10 @@ export default function About() {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        borderRadius: "5px",
         padding: "2rem",
         boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.1)",
       }}
+      id='about'
     >
       <Typography
         variant="h2"
