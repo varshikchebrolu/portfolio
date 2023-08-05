@@ -8,6 +8,7 @@ import homeImage from "../utils/home.png";
 import "../Styles/Home.css";
 import TextTransition, { presets } from "react-text-transition";
 
+
 export default function Home() {
   const Roles = ["Software Developer", "Front-End Developer", "Collobarator"];
   const [index, setIndex] = React.useState(0);
@@ -24,12 +25,12 @@ export default function Home() {
     <Box
       container
       sx={{
-        backgroundColor: "black",
+        backgroundColor: "#4A6FA5",
         color: "white",
-        borderRadius: "10px",
         boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.1)",
         paddingBottom: "2rem",
       }}
+      id='home'
     >
       <Grid sx={{ display: "grid", gridTemplateColumns: "1.5fr 1fr" }}>
         <Grid item>
@@ -42,9 +43,9 @@ export default function Home() {
               paddingLeft: "7vw",
             }}
           >
-            <Typography sx={{ fontSize: "3.5vw" }}> Hello!!</Typography>
+            <Typography sx={{ fontSize: "3.5rem" }}> Hello!!</Typography>
 
-            <Typography sx={{ fontSize: "3vw" }}>
+            <Typography sx={{ fontSize: "3rem" }}>
               {" "}
               I'M{" "}
               <span style={{ fontStyle: "oblique", fontFamily: "sans-serif" }}>
@@ -59,11 +60,11 @@ export default function Home() {
               flexWrap={"wrap"}
               justifyContent={"flex-start"}
             >
-              <Typography sx={{ fontSize: "2.5vw" }}>An ordinary</Typography>
+              <Typography sx={{ fontSize: "2rem" }}>An ordinary</Typography>
               <TextTransition
                 springConfig={presets.wobbly}
                 style={{
-                  fontSize: "2.5vw",
+                  fontSize: "2rem",
                   marginLeft: "1vw",
                   marginTop: "0.5vw",
                   color: "orangered",
@@ -71,16 +72,16 @@ export default function Home() {
               >
                 {Roles[index % Roles.length]}
               </TextTransition>
-              <Typography sx={{ fontSize: "2.5vw" }}>
+              <Typography sx={{ fontSize: "2rem" }}>
                 trying to build extra ordinary applications
               </Typography>
             </Box>
 
-            <Typography sx={{ fontSize: "2.5vw" }}></Typography>
+            <Typography sx={{ fontSize: "2.5rem" }}></Typography>
           </Box>
         </Grid>
         <Grid item>
-          <img src={homeImage} alt="homeImage" width="75%" />
+          <img src={homeImage} alt="homeImage" width="750vw" />
         </Grid>
       </Grid>
       <Box
@@ -89,7 +90,7 @@ export default function Home() {
         flexDirection={"column"}
         alignItems={"center"}
       >
-        <Typography sx={{ fontSize: "5vh", paddingBottom: "2vh" }}>
+        <Typography sx={{ fontSize: "3rem", paddingBottom: "2vh" }}>
           {" "}
           Connect with me{" "}
         </Typography>

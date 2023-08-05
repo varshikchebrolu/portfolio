@@ -52,6 +52,7 @@ export default function Skills() {
         borderRadius: "10px",
         boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.1)",
       }}
+      id='skills'
     >
       <Typography
         component="h1"

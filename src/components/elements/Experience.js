@@ -29,9 +29,9 @@ export default function Experience() {
         flexDirection: "column",
         padding: "2rem",
         paddingLeft: "3rem",
-        borderRadius: "10px",
         boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.1)",
       }}
+      id='experience'
     >
       <Typography
         component="h1"
