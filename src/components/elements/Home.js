@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { Box, Typography, Grid } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -7,16 +7,39 @@ import MailIcon from "@mui/icons-material/Mail";
 import homeImage from "../utils/home.png";
 import "../Styles/Home.css";
 import TextTransition, { presets } from "react-text-transition";
+import anime from "animejs/lib/anime.es.js";
 
 
 export default function Home() {
   const Roles = ["Software Developer", "Front-End Developer", "Collobarator"];
   const [index, setIndex] = React.useState(0);
 
-  React.useEffect(() => {
+    useEffect(() => {
+      const targetElement = document.querySelector(".text-transition");
+      
+      const animateText = () => {
+        anime({
+          targets: targetElement,
+          translateY: [0, -20], // Move current text upwards
+          opacity: [1, 0],
+          duration: 500,
+          easing: "easeInOutQuad",
+          complete: () => {
+            setIndex((prevIndex) => (prevIndex + 1) % Roles.length);
+            targetElement.innerText = Roles[index];
+            anime({
+              targets: targetElement,
+              translateY: [20, 0], // Move new text downwards
+              opacity: [0, 1],
+              duration: 500,
+              easing: "easeInOutQuad"
+            });
+          }
+        });
+      };
+      
     const intervalId = setInterval(
-      () => setIndex((index) => index + 1),
-      3000 // every 3 seconds
+      animateText, 3000
     );
     return () => clearTimeout(intervalId);
   }, []);
@@ -25,9 +48,6 @@ export default function Home() {
     <Box
       container
       sx={{
-        backgroundColor: "#4A6FA5",
-        color: "white",
-        boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.1)",
         paddingBottom: "2rem",
       }}
       id='home'
@@ -41,16 +61,17 @@ export default function Home() {
               justifyContent: "center",
               height: "100%",
               paddingLeft: "7vw",
+              color:'black'
             }}
           >
             <Typography sx={{ fontSize: "3.5rem" }}> Hello!!</Typography>
 
             <Typography sx={{ fontSize: "3rem" }}>
               {" "}
-              I'M{" "}
+              I'm{" "}
               <span style={{ fontStyle: "oblique", fontFamily: "sans-serif" }}>
                 {" "}
-                VARSHIK CHEBROLU
+                Varshik Chebrolu,
               </span>
             </Typography>
 
@@ -61,23 +82,23 @@ export default function Home() {
               justifyContent={"flex-start"}
             >
               <Typography sx={{ fontSize: "2rem" }}>An ordinary</Typography>
-              <TextTransition
-                springConfig={presets.wobbly}
-                style={{
-                  fontSize: "2rem",
-                  marginLeft: "1vw",
-                  marginTop: "0.5vw",
-                  color: "orangered",
-                }}
-              >
-                {Roles[index % Roles.length]}
-              </TextTransition>
-              <Typography sx={{ fontSize: "2rem" }}>
+              <div className="text-transition" style={{
+      fontSize: "2rem",
+      marginLeft: "1vh",
+      marginTop: "0.8vh",
+      marginRight: '1vh',
+      color: "#39e1ec",
+      transform: "translateY(0)",
+      opacity: 1
+    }}>
+      {Roles[index]}
+    </div>
+              <Typography sx={{ fontSize: "2rem", marginTop:'0.5vh' }}>
                 trying to build extra ordinary applications
               </Typography>
             </Box>
 
-            <Typography sx={{ fontSize: "2.5rem" }}></Typography>
+           
           </Box>
         </Grid>
         <Grid item>

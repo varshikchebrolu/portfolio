@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import homeLogo from "../utils/main_logo.jpeg";
 import { Link } from "react-scroll";
 
+
 export default function Header() {
   return (
     <Box
@@ -21,19 +22,19 @@ export default function Header() {
         <Toolbar
           sx={{
             justifyContent: "space-between",
-            backgroundColor: "black",
+            background: 'linear-gradient(90deg, #166088 18.97%, #4F6D7A 60%, #C0D6DF 90%, #DBE9EE 127.31%)',
           }}
         >
           <Box sx={{cursor:'pointer'}}>
           <Link to="home" smooth={true} duration={500} offset={-100}>
-            <img
+            {/* <img
               alt="Main_logo"
-              src={homeLogo}
+              src={}
               style={{ maxWidth: "20%", height: "50%" }}
-            />
+            /> */}
             </Link>
           </Box>
-          <Box>
+          <Box color='black'>
             <Link to="home" smooth={true} duration={500} offset={-100}>
               <Button
                 color="inherit"

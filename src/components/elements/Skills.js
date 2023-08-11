@@ -43,7 +43,6 @@ export default function Skills() {
     <Box
       container
       sx={{
-        backgroundColor: "black",
         color: "#333333",
         display: "flex",
         flexDirection: "column",

@@ -7,14 +7,12 @@ export default function About() {
     <Box
       container
       sx={{
-        backgroundColor: "whitesmoke",
-        color: "#333333",
+        color: "#BECCD5",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         padding: "2rem",
-        boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.1)",
       }}
       id='about'
     >

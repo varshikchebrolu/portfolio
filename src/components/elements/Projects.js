@@ -41,7 +41,6 @@ export default function Projects() {
     <Box
       container
       sx={{
-        backgroundColor: "black",
         color: "#333333",
         display: "flex",
         flexDirection: "column",
