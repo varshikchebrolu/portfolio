@@ -6,7 +6,10 @@ import Footer from "../src/components/structure//Footer.js";
 
 function App() {
   return (
-    <Box container>
+    <Box container sx={{
+      background: 'linear-gradient(180deg, #34a0a4 5%, #168aad 13%, #1a759f 60%, #1e6091 80%,#184e77 100%)'
+    }}
+    >
       <Header />
       <Content />
       <Footer />

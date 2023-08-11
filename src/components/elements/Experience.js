@@ -5,20 +5,45 @@ import VerticalTimelineComponent from "../utils/verticalTimeline";
 export default function Experience() {
   const experiences = [
     {
-      title: "Experience1",
-      subtitle: "Position1",
-      description: "some description",
+      title: "Parades",
+      subtitle: "Front end Developer",
+      description: `React, Typescript, NestJs, sequelize, Postgre SQL`,
       type: "experience",
-      start: "2019-11",
-      end: "2021-07",
+      start: "2022-10",
+      end: "2023-05",
     },
+    
     {
-      title: "Education1",
-      subtitle: "Some subtitle",
-      description: "some description",
+      title: "Colorado State University",
+      subtitle: "Masters of Science in Computer Science",
+      description: `Machine Learning, Object orineted Programming and Principles, Advanced Networking`,
       type: "education",
       start: "2021-08",
       end: "2023-05",
+    },
+    {
+      title: "ClearWater Analytics",
+      subtitle: "Software Develoment Intern",
+      description: `Angular, Typescript, Kotlin, Jira, Customazible UI`,
+      type: "experience",
+      start: "2022-06",
+      end: "2022-08",
+    },
+    {
+      title: "Colorado State University",
+      subtitle: "Teaching Assistant For Operating Systems",
+      description: `Java, Python, operating Systems, Linux, C, Threads`,
+      type: "experience",
+      start: "2022-01",
+      end: "2022-05",
+    },
+    {
+      title: "Infosys Ltd",
+      subtitle: "Full Stack Developer",
+      description: `React, Typescript, Java, Springboot, SQL, NextJs`,
+      type: "experience",
+      start: "2019-11",
+      end: "2021-07",
     },
   ];
   return (
