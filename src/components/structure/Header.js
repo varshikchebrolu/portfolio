@@ -3,8 +3,9 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
-import homeLogo from "../utils/main_logo.jpeg";
+import homeLogo from "../utils/logo.png";
 import { Link } from "react-scroll";
+import {Link as Link1} from 'react-router-dom'
 
 
 export default function Header() {
@@ -15,7 +16,6 @@ export default function Header() {
         zIndex: 1,
         position: "sticky",
         top: 0,
-        boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.2)",
       }}
     >
       <AppBar position="static" elevation={0}>
@@ -27,28 +27,34 @@ export default function Header() {
         >
           <Box sx={{cursor:'pointer'}}>
           <Link to="home" smooth={true} duration={500} offset={-100}>
-            {/* <img
+            <img
               alt="Main_logo"
-              src={}
-              style={{ maxWidth: "20%", height: "50%" }}
-            /> */}
+              src={homeLogo}
+              style={{ maxWidth: "15%", height: "30%" }}
+            />
             </Link>
           </Box>
           <Box color='black'>
+          
             <Link to="home" smooth={true} duration={500} offset={-100}>
               <Button
                 color="inherit"
                 sx={{ fontSize: "1rem", fontWeight: "bold",textTransform: "capitalize" }}
               >
+                <Link1 to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
                 Home
+                </Link1>
               </Button>
             </Link>
+            
             <Link to="about" smooth={true} duration={500} offset={-100}>
               <Button
                 color="inherit"
                 sx={{ fontSize: "1rem", fontWeight: "bold",textTransform: "capitalize" }}
               >
+                <Link1 to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
                 About
+                </Link1>
               </Button>
             </Link>
             <Link to="skills" smooth={true} duration={500} offset={-100}>
@@ -75,13 +81,17 @@ export default function Header() {
                 Projects
               </Button>
             </Link>
+            <Link1 to="/resume" style={{ textDecoration: 'none', color: 'inherit' }}>
             <Button
               color="primary"
               variant="contained"
               sx={{ fontSize: "1rem", fontWeight: "bold",textTransform: "capitalize" }}
             >
-              Resume
+             
+        Resume
+      
             </Button>
+            </Link1>
           </Box>
         </Toolbar>
       </AppBar>
