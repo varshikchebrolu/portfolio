@@ -9,6 +9,9 @@ import {
 } from "@mui/material";
 import React from "react";
 import imageT from "../utils/home.png";
+import chess from '../utils/chess.jpg';
+import brainTumor from '../utils/brainTumor.png';
+import testing from '../utils/auto_testing.jpeg';
 
 export default function Projects() {
   const ProjectsDetails = [
@@ -19,6 +22,7 @@ export default function Projects() {
         " Developed a full fledged legan chess game - a chess game with different rule - with a team of 5 developers and learned various concepts of Object Oriented Principles.",
       techStack: "React, Java, Object Oriented Principles",
       githubLink: "link to github",
+      imageURL: chess
     },
     {
       title: " Educational Project",
@@ -27,6 +31,7 @@ export default function Projects() {
         "Worked on a machine learning algorithm to detect the brain tumors through MRI scan images. Trained and tested the Model with more than 6000 images and increased the accuracy to 90%",
       techStack: "Machine Learning, CNN clusters",
       githubLink: "link to github",
+      imageURL:brainTumor
     },
     {
       title: " Educational Project",
@@ -35,6 +40,7 @@ export default function Projects() {
         "Tested more than 30 small scale open source java projects by generating automatic unit test cases using selenium to find the accuracy of the reaching the code coverage",
       techStack: "Java, Selenium",
       githubLink: "link to github",
+      imageURL: testing
     },
   ];
   return (
@@ -67,6 +73,7 @@ export default function Projects() {
         gap={"2vw"}
         justifyContent={"center"}
         flexWrap={"wrap"}
+        borderRadius={'10px'}
       >
         {ProjectsDetails.map((project) => {
           return (
@@ -79,11 +86,11 @@ export default function Projects() {
               >
                 <CardMedia
                   sx={{
-                    backgroundSize: "contain",
+                    
                     height: "15vw",
                     paddingTop: "3vw",
                   }}
-                  image={imageT}
+                  image={project.imageURL || imageT}
                   title={project.title}
                 />
                 <CardContent style={{ flexGrow: 1 }}>
