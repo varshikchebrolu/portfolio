@@ -79,15 +79,15 @@ export default function Projects() {
           return (
             <Box
               key={project.name}
-              style={{ flex: 1, minWidth: "300px", marginBottom: "1rem" }}
+              style={{ flex: 1, marginBottom: "1rem" }}
             >
               <Card
-                sx={{ width: "25vw", display: "flex", flexDirection: "column" }}
+                sx={{ width: "25rem", display: "flex", flexDirection: "column" }}
               >
                 <CardMedia
                   sx={{
                     
-                    height: "15vw",
+                    height: "15rem",
                     paddingTop: "3vw",
                   }}
                   image={project.imageURL || imageT}

@@ -42,7 +42,7 @@ export default function VerticalTimelineComponent({
             height: `${calculateTimelineHeight(
               new Date(start),
               new Date(end)
-            )}vw`,
+            )}rem`,
           }}
           contentArrowStyle={{ borderRight: "7px solid  rgb(33, 150, 24)" }}
           date={formatTimelineDate(new Date(start), new Date(end))}
