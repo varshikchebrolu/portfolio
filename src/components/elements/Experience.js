@@ -56,7 +56,6 @@ export default function Experience() {
         paddingLeft: "3rem",
         boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.1)",
       }}
-      id='experience'
     >
       <Typography
         component="h1"
@@ -66,6 +65,7 @@ export default function Experience() {
           paddingBottom: "3rem",
           fontWeight: "bold",
         }}
+        id='experience'
       >
         Experience
       </Typography>

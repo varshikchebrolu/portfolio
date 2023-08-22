@@ -5,8 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import homeLogo from "../utils/logo.png";
 import { Link } from "react-scroll";
-import {Link as Link1} from 'react-router-dom'
-
+import { Link as Link1 } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -22,75 +21,138 @@ export default function Header() {
         <Toolbar
           sx={{
             justifyContent: "space-between",
-            background: 'linear-gradient(90deg, #166088 18.97%, #4F6D7A 60%, #C0D6DF 90%, #DBE9EE 127.31%)',
+            background:
+              "linear-gradient(90deg, #166088 18.97%, #4F6D7A 60%, #C0D6DF 90%, #DBE9EE 127.31%)",
           }}
         >
-          <Box sx={{cursor:'pointer'}}>
-          <Link to="home" smooth={true} duration={500} offset={-100}>
-            <img
-              alt="Main_logo"
-              src={homeLogo}
-              style={{ maxWidth: "15%", height: "30%" }}
-            />
+          <Box sx={{ cursor: "pointer" }}>
+            <Link to="home" smooth={true} duration={500} offset={-100}>
+              <Link1
+                to="/"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <img
+                  alt="Main_logo"
+                  src={homeLogo}
+                  style={{ maxWidth: "15%", height: "30%" }}
+                />
+              </Link1>
             </Link>
           </Box>
-          <Box color='black'>
-          
+          <Box color="black">
             <Link to="home" smooth={true} duration={500} offset={-100}>
               <Button
                 color="inherit"
-                sx={{ fontSize: "1rem", fontWeight: "bold",textTransform: "capitalize" }}
+                sx={{
+                  fontSize: "1rem",
+                  fontWeight: "bold",
+                  textTransform: "capitalize",
+                }}
               >
-                <Link1 to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-                Home
+                <Link1
+                  to="/"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  Home
                 </Link1>
               </Button>
             </Link>
-            
+
             <Link to="about" smooth={true} duration={500} offset={-100}>
               <Button
                 color="inherit"
-                sx={{ fontSize: "1rem", fontWeight: "bold",textTransform: "capitalize" }}
+                sx={{
+                  fontSize: "1rem",
+                  fontWeight: "bold",
+                  textTransform: "capitalize",
+                }}
               >
-                <Link1 to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-                About
+                <Link1
+                  to="/"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  About
                 </Link1>
               </Button>
             </Link>
             <Link to="skills" smooth={true} duration={500} offset={-100}>
               <Button
                 color="inherit"
-                sx={{ fontSize: "1rem", fontWeight: "bold",textTransform: "capitalize" }}
+                sx={{
+                  fontSize: "1rem",
+                  fontWeight: "bold",
+                  textTransform: "capitalize",
+                }}
               >
-                Skills
+                <Link1
+                  to="/"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  Skills
+                </Link1>
               </Button>
             </Link>
             <Link to="experience" smooth={true} duration={500} offset={-100}>
               <Button
                 color="inherit"
-                sx={{ fontSize: "1rem", fontWeight: "bold",textTransform: "capitalize" }}
+                sx={{
+                  fontSize: "1rem",
+                  fontWeight: "bold",
+                  textTransform: "capitalize",
+                }}
               >
-                Experience
+                <Link1
+                  to="/"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  Experience
+                </Link1>
               </Button>
             </Link>
             <Link to="projects" smooth={true} duration={500} offset={-100}>
               <Button
                 color="inherit"
-                sx={{ fontSize: "1rem", fontWeight: "bold",textTransform: "capitalize" }}
+                sx={{
+                  fontSize: "1rem",
+                  fontWeight: "bold",
+                  textTransform: "capitalize",
+                }}
               >
-                Projects
+                <Link1
+                  to="/"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  Projects
+                </Link1>
               </Button>
             </Link>
-            <Link1 to="/resume" style={{ textDecoration: 'none', color: 'inherit' }}>
-            <Button
-              color="primary"
-              variant="contained"
-              sx={{ fontSize: "1rem", fontWeight: "bold",textTransform: "capitalize" }}
+            <Link to="contact" smooth={true} duration={500} offset={-100}>
+              <Button
+                color="inherit"
+                sx={{
+                  fontSize: "1rem",
+                  fontWeight: "bold",
+                  textTransform: "capitalize",
+                }}
+              >
+                Contact
+              </Button>
+            </Link>
+            <Link1
+              to="/resume"
+              style={{ textDecoration: "none", color: "inherit" }}
             >
-             
-        Resume
-      
-            </Button>
+              <Button
+                color="primary"
+                variant="contained"
+                sx={{
+                  fontSize: "1rem",
+                  fontWeight: "bold",
+                  textTransform: "capitalize",
+                }}
+              >
+                Resume
+              </Button>
             </Link1>
           </Box>
         </Toolbar>

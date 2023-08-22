@@ -80,6 +80,7 @@ export default function Contact() {
           paddingBottom: "3rem",
           fontWeight: "bold",
         }}
+        id="contact"
       >
         Contact
       </Typography>

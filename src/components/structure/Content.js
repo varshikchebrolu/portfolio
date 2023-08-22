@@ -10,9 +10,6 @@ export default function Content() {
   return (
     <Box
       container
-      sx={{
-        minHeight: "150vw",
-      }}
     >
       <Home />
       <About />
