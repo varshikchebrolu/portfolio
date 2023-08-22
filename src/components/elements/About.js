@@ -14,7 +14,6 @@ export default function About() {
         alignItems: "center",
         padding: "2rem",
       }}
-      id='about'
     >
       <Typography
         variant="h2"
@@ -24,6 +23,7 @@ export default function About() {
           marginBottom: "2rem",
           fontWeight: "bold",
         }}
+        id='about'
       >
         A Tiny Bit About Myself
       </Typography>

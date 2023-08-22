@@ -7,6 +7,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import homeImage from "../utils/home.png";
 import "../Styles/Home.css";
 import anime from "animejs/lib/anime.es.js";
+import { SocialIcon } from "react-social-icons";
 
 export default function Home() {
   const Roles = ["Software Developer", "Front-End Developer", "Collobarator"];
@@ -48,11 +49,13 @@ export default function Home() {
       }}
       id="home"
     >
-      <Box sx={{
-        display:'flex',
-        flexWrap:'wrap',
-        justifyContent:'center'
-      }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+        }}
+      >
         <Box>
           <Box
             sx={{
@@ -82,14 +85,14 @@ export default function Home() {
               justifyContent={"flex-start"}
               width={"42rem"}
             >
-              <Typography sx={{ fontSize: "1.5rem" }}>An ordinary</Typography>
+              <Typography sx={{ fontSize: "1.5rem" }}>Passionate</Typography>
               <div
                 className="text-transition"
                 style={{
                   fontSize: "1.5rem",
                   marginLeft: "1vh",
-                  marginTop: "0.8vh",
-                  marginRight: "1vh",
+                  marginTop: "0.5vh",
+                  marginX: "1vh",
                   color: "#39e1ec",
                   transform: "translateY(0)",
                   opacity: 1,
@@ -98,26 +101,22 @@ export default function Home() {
                 {Roles[index]}
               </div>
               <Typography sx={{ fontSize: "1.5rem", marginTop: "0.5vh" }}>
-                trying to build extra ordinary applications
+                crafting exceptional applications beyond the ordinary.
               </Typography>
             </Box>
             <Box
               sx={{
                 display: "flex",
-                width: "30%",
                 marginTop: "2rem",
+                gap:'2rem'
               }}
             >
-              <MailIcon style={{ fontSize: "2.5rem", width: "20%" }} />
-              <GitHubIcon
-                style={{ fontSize: "2.5rem", width: "20%", margin: "0 auto" }}
-              />
-              <LinkedInIcon
-                style={{ fontSize: "2.5rem", width: "20%", margin: "0 auto" }}
-              />
-              <InstagramIcon
-                style={{ fontSize: "2.5rem", width: "20%", margin: "0 auto" }}
-              />
+              <a href="mailto:chebroluvarshik@gmail.com">
+                <SocialIcon network="email" bgColor="white" fgColor="red"/>
+              </a>
+
+              <SocialIcon url="https://github.com/varshikchebrolu" bgColor="black" target="_blank"/>
+              <SocialIcon url="https://www.linkedin.com/in/varshikchebrolu/" bgColor="#0A66C2" fgColor="#FFFFFF" target="_blank"/>
             </Box>
           </Box>
         </Box>

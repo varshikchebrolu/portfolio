@@ -54,7 +54,6 @@ export default function Projects() {
         paddingLeft: "3rem",
         boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.1)",
       }}
-      id='projects'
     >
       <Typography
         component="h1"
@@ -65,6 +64,7 @@ export default function Projects() {
           paddingBottom: "3rem",
           fontWeight: "bold",
         }}
+        id='projects'
       >
         Projects
       </Typography>

@@ -7,31 +7,58 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import MailIcon from "@mui/icons-material/Mail";
 
 export default function Footer() {
-    return (
-        <Box
-            container
-            display="flex"
-            justifyContent="space-around"
-            spacing={3}
-            backgroundColor="rgb(3, 23, 64)"
-            sx={{ bottom: "0%" }}
-            alignItems={"center"}
-            color="rgb(242, 247, 239)"
-            minHeight={"10vh"}
+  return (
+    <Box
+      container
+      display="flex"
+      justifyContent="space-around"
+      spacing={3}
+      backgroundColor="rgb(3, 23, 64)"
+      sx={{ bottom: "0%" }}
+      alignItems={"center"}
+      color="rgb(242, 247, 239)"
+      minHeight={"10vh"}
+    >
+      <Box>
+        <Typography> Developed by Varshik Chebrolu</Typography>
+      </Box>
+      <Box display={"flex"}>
+        <CopyrightIcon />
+        <Typography> Rights Reserved</Typography>
+      </Box>
+      <Box display={"flex"}>
+        <a
+          href="mailto:chebroluvarshik@gmail.com"
+          style={{ marginRight: "25%" }}
         >
-            <Box>
-                <Typography> Developed by Varshik Chebrolu</Typography>
-            </Box>
-            <Box display={"flex"}>
-                <CopyrightIcon />
-                <Typography> Rights Reserved</Typography>
-            </Box>
-            <Box display={"flex"}>
-                <MailIcon sx={{ marginRight: "25%" }} />
-                <GitHubIcon sx={{ marginRight: "25%" }} />
-                <LinkedInIcon sx={{ marginRight: "25%" }} />
-                <InstagramIcon sx={{ marginRight: "25%" }} />
-            </Box>
-        </Box>
-    );
+          <MailIcon sx={{ color: "white" }} />
+        </a>
+        <a
+          href="https://github.com/varshikchebrolu"
+          target="_blank"
+          style={{ marginRight: "25%" }}
+          rel="noreferrer"
+        >
+          <GitHubIcon sx={{ color: "white" }} />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/varshikchebrolu/"
+          target="_blank"
+          style={{ marginRight: "25%" }}
+          rel="noreferrer"
+        >
+          <LinkedInIcon sx={{ color: "white" }} />
+        </a>
+
+        <a
+          href="https://www.instagram.com/varshik_chebrolu/"
+          target="_blank"
+          style={{ marginRight: "25%" }}
+          rel="noreferrer"
+        >
+          <InstagramIcon sx={{ color: "white" }} />
+        </a>
+      </Box>
+    </Box>
+  );
 }
