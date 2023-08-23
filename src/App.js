@@ -7,8 +7,10 @@ import Footer from "../src/components/structure//Footer.js";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Resume from '../src/components/elements/Resume';
 import Contact from "./components/elements/Contact";
+import { inject } from '@vercel/analytics';
 
 function App() {
+  inject()
   return (
     <Box container sx={{
       background: 'linear-gradient(0deg, #34a0a4 5%, #168aad 13%, #1a759f 60%)',
