@@ -17,12 +17,13 @@ export default function Header() {
         top: 0,
       }}
     >
-      <AppBar position="static" elevation={0}>
+      <AppBar position="static">
         <Toolbar
           sx={{
             justifyContent: "space-between",
             background:
               "linear-gradient(90deg, #166088 18.97%, #4F6D7A 60%, #C0D6DF 90%, #DBE9EE 127.31%)",
+              maxHeight:'1rem'
           }}
         >
           <Box sx={{ cursor: "pointer" }}>
@@ -34,7 +35,7 @@ export default function Header() {
                 <img
                   alt="Main_logo"
                   src={homeLogo}
-                  style={{ maxWidth: "15%", height: "30%" }}
+                  style={{ maxWidth: "3.5rem", height: "3.5rem" }}
                 />
               </Link1>
             </Link>

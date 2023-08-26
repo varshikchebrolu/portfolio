@@ -138,7 +138,8 @@ export default function Contact() {
         sx={{
           display: "flex",
           alignItems: "center",
-          justifyContent:'center'
+          justifyContent:'center',
+          flexWrap:'wrap'
         }}
       >
         <Box

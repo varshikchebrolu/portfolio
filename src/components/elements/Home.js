@@ -1,9 +1,5 @@
 import React, { useEffect } from "react";
-import { Box, Typography, Grid } from "@mui/material";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import MailIcon from "@mui/icons-material/Mail";
+import { Box, Typography } from "@mui/material";
 import homeImage from "../utils/home.png";
 import "../Styles/Home.css";
 import anime from "animejs/lib/anime.es.js";
