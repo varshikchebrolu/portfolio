@@ -14,6 +14,7 @@ function App() {
   return (
     <Box container sx={{
       background: 'linear-gradient(0deg, #34a0a4 5%, #168aad 13%, #1a759f 60%)',
+      overflow:'auto'
     }}
     >
       <Router>
