@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <Box
       container
-      display="flex"
+      display={{xs:'inline-flex',md:'flex'}}
       justifyContent="space-around"
       spacing={3}
       backgroundColor="rgb(3, 23, 64)"

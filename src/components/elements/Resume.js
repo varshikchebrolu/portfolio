@@ -24,7 +24,7 @@ export default function Resume() {
       sx={{
         display: "flex",
         justifyContent: "center",
-        marginTop: "10vh",
+        marginTop: "7rem",
         flexDirection: "column",
         alignItems: "center",
         gap: "3vh",
