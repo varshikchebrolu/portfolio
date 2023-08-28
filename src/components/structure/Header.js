@@ -17,17 +17,17 @@ export default function Header() {
         top: 0,
       }}
     >
-      <AppBar position="static">
+      <AppBar>
         <Toolbar
           sx={{
             justifyContent: "space-between",
             background:
               "linear-gradient(90deg, #166088 18.97%, #4F6D7A 60%, #C0D6DF 90%, #DBE9EE 127.31%)",
-              maxHeight:'1rem'
+              maxHeight:'1.5rem',
           }}
         >
           <Box sx={{ cursor: "pointer" }}>
-            <Link to="home" smooth={true} duration={500} offset={-100}>
+            <Link to="home" smooth={true} duration={500}>
               <Link1
                 to="/"
                 style={{ textDecoration: "none", color: "inherit" }}

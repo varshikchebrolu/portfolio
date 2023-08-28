@@ -77,7 +77,7 @@ export default function Contact() {
           color: "whitesmoke",
           alignSelf: "center",
           fontSize: "2rem",
-          paddingBottom: "3rem",
+          paddingBottom: "1rem",
           fontWeight: "bold",
         }}
         id="contact"
