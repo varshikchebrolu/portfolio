@@ -5,6 +5,7 @@ import * as RiIcons from "react-icons/ri";
 import * as BiIcons from "react-icons/bi";
 import * as SiIcons from "react-icons/si";
 import * as TbIcons from "react-icons/tb";
+import bgImage from '../utils/bg.png'
 
 const icons = [
   { IconName: FaIcons.FaReact, displayName: "React" },
@@ -43,19 +44,21 @@ export default function Skills() {
     <Box
       container
       sx={{
-        color: "#333333",
+        color: "black",
         display: "flex",
         flexDirection: "column",
         padding: "2rem",
         paddingLeft: "3rem",
         borderRadius: "10px",
         boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.1)",
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize:'cover'
       }}
     >
       <Typography
         component="h1"
         sx={{
-          color: "whitesmoke",
+          color: "white",
           alignSelf: "center",
           fontSize: "2rem",
           paddingBottom: "3rem",

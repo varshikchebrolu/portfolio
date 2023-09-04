@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { Box, Typography } from "@mui/material";
-import homeImage from "../utils/home.png";
+import homeImage from "../utils/home2.png";
 import "../Styles/Home.css";
 import anime from "animejs/lib/anime.es.js";
 import { SocialIcon } from "react-social-icons";
+import bgImage from '../utils/bg.png'
 
 export default function Home() {
   const Roles = ["Software Developer", "Front-End Developer", "Collobarator"];
@@ -46,7 +47,10 @@ export default function Home() {
         flexWrap: "wrap",
         justifyContent: "space-around",
         marginLeft: "3rem",
-        marginTop:'3rem'
+        marginTop:'3rem',
+        minHeight:'40rem',
+        alignItems:'center',
+        backgroundImage: `url(${bgImage})`,
       }}
       id="home"
     >
@@ -55,7 +59,7 @@ export default function Home() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          color:'black'
+          color:'white'
         }}
       >
         <Typography sx={{ fontSize: "3.5rem" }}> Hello!!</Typography>
@@ -67,9 +71,7 @@ export default function Home() {
             style={{
               fontStyle: "oblique",
               fontFamily: "sans-serif",
-              background:' linear-gradient(90deg, hsla(55, 100%, 50%, 1) 0%, hsla(42, 100%, 47%, 1) 50%, hsla(23, 96%, 49%, 1) 100%)',
-              WebkitBackgroundClip:'text',
-              WebkitTextFillColor:'transparent'
+             
             }}
           >
             {" "}
@@ -95,7 +97,9 @@ export default function Home() {
                   color: "#39e1ec",
               transform: "translateY(0)",
               opacity: 1,
-              
+              background: "linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)",
+              WebkitBackgroundClip:'text',
+              WebkitTextFillColor:'transparent'
             }}
           >
             {Roles[index]}
@@ -117,8 +121,9 @@ export default function Home() {
 
           <SocialIcon
             url="https://github.com/varshikchebrolu"
-            bgColor="black"
             target="_blank"
+            fgColor="black"
+            bgColor="grey"
           />
           <SocialIcon
             url="https://www.linkedin.com/in/varshikchebrolu/"
@@ -130,7 +135,7 @@ export default function Home() {
       </Box>
 
       <Box>
-        <img src={homeImage} alt="homeImage" width="500rem" />
+        <img src={homeImage} alt="homeImage" width="600rem" />
       </Box>
     </Box>
   );

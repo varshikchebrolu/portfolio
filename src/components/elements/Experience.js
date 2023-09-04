@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import VerticalTimelineComponent from "../utils/verticalTimeline";
+import bg from '../utils/whitebg.jpg'
 
 export default function Experience() {
   const experiences = [
@@ -55,6 +56,8 @@ export default function Experience() {
         padding: "2rem",
         paddingLeft: "3rem",
         boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.1)",
+        backgroundImage:`url(${bg})`,
+        backgroundSize:'contain'
       }}
     >
       <Typography

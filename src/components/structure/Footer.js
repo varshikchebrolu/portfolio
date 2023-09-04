@@ -13,8 +13,7 @@ export default function Footer() {
       display={{xs:'inline-flex',md:'flex'}}
       justifyContent="space-around"
       spacing={3}
-      backgroundColor="rgb(3, 23, 64)"
-      sx={{ bottom: "0%" }}
+      sx={{ bottom: "0%", backgroundColor:'black'}}
       alignItems={"center"}
       color="rgb(242, 247, 239)"
       minHeight={"10vh"}

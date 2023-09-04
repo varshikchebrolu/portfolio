@@ -11,7 +11,7 @@ export default function Header() {
   return (
     <Box
       sx={{
-        color: "rgb(242, 247, 239)",
+        color: "white",
         zIndex: 1,
         position: "sticky",
         top: 0,
@@ -22,7 +22,7 @@ export default function Header() {
           sx={{
             justifyContent: "space-between",
             background:
-              "linear-gradient(90deg, #166088 18.97%, #4F6D7A 60%, #C0D6DF 90%, #DBE9EE 127.31%)",
+              "black",
               maxHeight:'1.5rem',
           }}
         >
@@ -40,7 +40,7 @@ export default function Header() {
               </Link1>
             </Link>
           </Box>
-          <Box color="black">
+          <Box color="white">
             <Link to="home" smooth={true} duration={500} offset={-100}>
               <Button
                 color="inherit"
@@ -141,15 +141,15 @@ export default function Header() {
             </Link>
             <Link1
               to="/resume"
-              style={{ textDecoration: "none", color: "inherit" }}
+              style={{ textDecoration: "none" }}
             >
               <Button
-                color="primary"
                 variant="contained"
                 sx={{
                   fontSize: "1rem",
                   fontWeight: "bold",
                   textTransform: "capitalize",
+                  background: "linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)"
                 }}
               >
                 Resume
