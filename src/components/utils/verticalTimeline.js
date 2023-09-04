@@ -7,6 +7,8 @@ import React from "react";
 import "./verticalTimeline.css";
 import SchoolRoundedIcon from '@mui/icons-material/SchoolRounded';
 import WorkRoundedIcon from '@mui/icons-material/WorkRounded';
+import expbg from '../utils/expBG.jpeg'
+import educbg from '../utils/educBG.jpeg'
 
 export default function VerticalTimelineComponent({
   title,
@@ -32,21 +34,22 @@ export default function VerticalTimelineComponent({
   };
 
   return (
-    <VerticalTimeline animate lineColor="blue">
+    <VerticalTimeline animate lineColor="black">
       {type === "experience" && (
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
           contentStyle={{
-            background: "#61A0AF",
-            color: "#ffff",
+            background: `url(${expbg})`,
+            backgroundSize:'cover',
+            color: "white",
             height: `${calculateTimelineHeight(
               new Date(start),
               new Date(end)
             )}rem`,
           }}
-          contentArrowStyle={{ borderRight: "7px solid  rgb(33, 150, 24)" }}
+          contentArrowStyle={{ borderRight: "7px solid  black" }}
           date={formatTimelineDate(new Date(start), new Date(end))}
-          iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+          iconStyle={{ background: "linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)", color: "#000" }}
           position="left"
           icon={<WorkRoundedIcon/>}
         >
@@ -58,16 +61,17 @@ export default function VerticalTimelineComponent({
       {type === "education" && (
         <VerticalTimelineElement
           contentStyle={{
-            background: "rgb(33, 150, 241)",
-            color: "#ffff",
+            background: `url(${educbg})`,
+            backgroundSize:'cover',
+            color: "white",
             height: `${calculateTimelineHeight(
               new Date(start),
               new Date(end)
             )}vw`,
           }}
-          contentArrowStyle={{ borderRight: "7px solid  rgb(33, 150, 24)" }}
+          contentArrowStyle={{ borderRight: "7px solid black" }}
           date={formatTimelineDate(new Date(start), new Date(end))}
-          iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+          iconStyle={{ background: "linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)", color: "#fff" }}
           position="right"
           dateClassName="vertical-time-element-date"
           icon={<SchoolRoundedIcon/>}

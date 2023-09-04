@@ -4,6 +4,7 @@ import { Document, Page } from "react-pdf";
 import resume from "../utils/resume.pdf";
 import { pdfjs } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
+import bgImage from '../utils/bg.png'
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
@@ -28,6 +29,8 @@ export default function Resume() {
         flexDirection: "column",
         alignItems: "center",
         gap: "3vh",
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize:'contain'
       }}
     >
       <Box>
@@ -50,7 +53,7 @@ export default function Resume() {
         }}
       >
         <Document file={resume}>
-          <Page pageNumber={1} renderTextLayer={false} />
+          <Page pageNumber={1} renderTextLayer={false} scale={1.5}/>
         </Document>
       </Box>
     </Box>

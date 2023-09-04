@@ -12,6 +12,7 @@ import imageT from "../utils/home.png";
 import chess from '../utils/chess.jpg';
 import brainTumor from '../utils/brainTumor.png';
 import testing from '../utils/auto_testing.jpeg';
+import bg from '../utils/bg.png'
 
 export default function Projects() {
   const ProjectsDetails = [
@@ -53,6 +54,8 @@ export default function Projects() {
         padding: "2rem",
         paddingLeft: "3rem",
         boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.1)",
+        backgroundImage:`url(${bg})`,
+        backgroundSize:'cover'
       }}
     >
       <Typography
@@ -120,7 +123,7 @@ export default function Projects() {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button>Github</Button>
+                  {/* <Button>Github</Button> */}
                 </CardActions>
               </Card>
             </Box>

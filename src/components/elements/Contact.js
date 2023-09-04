@@ -8,11 +8,14 @@ import {
   Container,
   Button,
   Grid,
+  Snackbar,
+  Alert
 } from "@mui/material";
 import PhoneIphoneRoundedIcon from "@mui/icons-material/PhoneIphoneRounded";
 import MapsHomeWorkRoundedIcon from "@mui/icons-material/MapsHomeWorkRounded";
 import ChatBubbleRoundedIcon from "@mui/icons-material/ChatBubbleRounded";
 import emailjs from "emailjs-com";
+import bg from '../utils/whitebg.jpg'
 
 export default function Contact() {
   const cardStyles = {
@@ -24,11 +27,13 @@ export default function Contact() {
     padding: "1rem",
     gap: "3rem",
     borderRadius: "10px",
+    backgroundColor:'black',
+    color:'white'
   };
 
   const iconStyles = {
     fontSize: "3rem",
-    color: "primary.main",
+    
   };
 
   const [formData, setFormData] = useState({
@@ -36,6 +41,10 @@ export default function Contact() {
     email: "",
     message: "",
   });
+
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -47,7 +56,6 @@ export default function Contact() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Form data submitted:", formData);
     try {
       await emailjs.sendForm(
         "service_ab39axs",
@@ -55,7 +63,15 @@ export default function Contact() {
         event.target,
         "2SrRgYQ2dhzEZejOt"
       );
+
+      setSuccessMessage("Message sent successfully! Thank You!");
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
     } catch (error) {
+      setErrorMessage("Error sending message. Please try again later.");
       console.log(error);
     }
   };
@@ -69,12 +85,14 @@ export default function Contact() {
         padding: "2rem",
         paddingLeft: "3rem",
         gap: "3rem",
+        backgroundImage:`url(${bg})`, 
+        backgroundSize:'contain'
       }}
     >
       <Typography
         component="h1"
         sx={{
-          color: "whitesmoke",
+          color: "black",
           alignSelf: "center",
           fontSize: "2rem",
           paddingBottom: "1rem",
@@ -144,11 +162,12 @@ export default function Contact() {
       >
         <Box
           sx={{
-            maxWidth: "40rem",
-            backgroundColor: "white",
-            borderRadius: "10px",
+            backgroundColor: "black",
+            borderRadius: "100px",
             padding: "3rem",
             boxShadow: "0px 3px 6px rgba(0, 0, 0, 0.1)",
+            color:'white',
+            minWidth:'40rem'
           }}
         >
           <Typography
@@ -157,6 +176,7 @@ export default function Contact() {
             gutterBottom
             fontFamily={"sans-serif"}
             fontWeight={"bold"}
+            marginBottom={'1rem'}
           >
             Message Me
           </Typography>
@@ -167,8 +187,8 @@ export default function Contact() {
               flexDirection: "column",
             }}
           >
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
+            <Box display={'flex'} flexDirection='column' gap={'1rem'}>
+              <Box>
                 <TextField
                   placeholder="Enter your name"
                   name="name"
@@ -177,10 +197,11 @@ export default function Contact() {
                   required
                   fullWidth
                   variant="outlined"
-                  sx={{ backgroundColor: "#f5f3f4", borderRadius: "5px" }}
+                  sx={{ backgroundColor: "white", borderRadius:'100px'}}
+                  InputProps={{ sx: { borderRadius: '100px' } }}
                 />
-              </Grid>
-              <Grid item xs={12}>
+              </Box>
+              <Box>
                 <TextField
                   placeholder="Enter your email"
                   name="email"
@@ -190,10 +211,11 @@ export default function Contact() {
                   required
                   fullWidth
                   variant="outlined"
-                  sx={{ backgroundColor: "#f5f3f4", borderRadius: "5px" }}
+                  sx={{ backgroundColor: "white", borderRadius:'100px'}}
+                  InputProps={{ sx: { borderRadius: '100px' } }}
                 />
-              </Grid>
-              <Grid item xs={12}>
+              </Box>
+              <Box>
                 <TextField
                   placeholder="Enter Your message"
                   name="message"
@@ -204,24 +226,43 @@ export default function Contact() {
                   required
                   fullWidth
                   variant="outlined"
-                  sx={{ backgroundColor: "#f5f3f4", borderRadius: "5px" }}
+                  sx={{ backgroundColor: "white", borderRadius:'30px'}}
+                  InputProps={{ sx: { borderRadius: '30px' } }}
                 />
-              </Grid>
-            </Grid>
-            <Grid
-              item
-              xs={12}
+              </Box>
+            </Box>
+            <Box
               sx={{
                 textAlign: "end",
                 marginTop: "1.5rem",
                 marginRight: "1rem",
               }}
             >
-              <Button type="submit" variant="contained" color="primary">
+              <Button type="submit" variant="contained" sx={{background:'linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)'}}>
                 Submit
               </Button>
-            </Grid>
+            </Box>
           </form>
+          <Snackbar
+        open={!!successMessage}
+        autoHideDuration={6000}
+        onClose={() => setSuccessMessage("")}
+        anchorOrigin={{vertical:'top',horizontal:'center'}}
+      >
+        <Alert severity="success" variant='filled' onClose={() => setSuccessMessage("")}>
+          {successMessage}
+        </Alert>
+      </Snackbar>
+      <Snackbar
+        open={!!errorMessage}
+        autoHideDuration={6000}
+        onClose={() => setErrorMessage("")}
+        anchorOrigin={{vertical:'top',horizontal:'center'}}
+      >
+        <Alert severity="error"  variant='filled' onClose={() => setErrorMessage("")}>
+          {errorMessage}
+        </Alert>
+      </Snackbar>
         </Box>
         <Box
           sx={{
