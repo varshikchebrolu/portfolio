@@ -32,6 +32,7 @@ export default function Resume() {
         backgroundImage: `url(${bgImage})`,
         backgroundSize:'contain'
       }}
+      id='resume'
     >
       <Box>
         <Button

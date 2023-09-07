@@ -9,10 +9,10 @@ import {
 } from "@mui/material";
 import React from "react";
 import imageT from "../utils/home.png";
-import chess from '../utils/chess.jpg';
-import brainTumor from '../utils/brainTumor.png';
-import testing from '../utils/auto_testing.jpeg';
-import bg from '../utils/bg.png'
+import chess from "../utils/chess.jpg";
+import brainTumor from "../utils/brainTumor.png";
+import testing from "../utils/auto_testing.jpeg";
+import bg from "../utils/bg.png";
 
 export default function Projects() {
   const ProjectsDetails = [
@@ -23,7 +23,7 @@ export default function Projects() {
         " Developed a full fledged legan chess game - a chess game with different rule - with a team of 5 developers and learned various concepts of Object Oriented Principles.",
       techStack: "React, Java, Object Oriented Principles",
       githubLink: "link to github",
-      imageURL: chess
+      imageURL: chess,
     },
     {
       title: " Educational Project",
@@ -32,7 +32,7 @@ export default function Projects() {
         "Worked on a machine learning algorithm to detect the brain tumors through MRI scan images. Trained and tested the Model with more than 6000 images and increased the accuracy to 90%",
       techStack: "Machine Learning, CNN clusters",
       githubLink: "link to github",
-      imageURL:brainTumor
+      imageURL: brainTumor,
     },
     {
       title: " Educational Project",
@@ -41,7 +41,7 @@ export default function Projects() {
         "Tested more than 30 small scale open source java projects by generating automatic unit test cases using selenium to find the accuracy of the reaching the code coverage",
       techStack: "Java, Selenium",
       githubLink: "link to github",
-      imageURL: testing
+      imageURL: testing,
     },
   ];
   return (
@@ -54,8 +54,8 @@ export default function Projects() {
         padding: "2rem",
         paddingLeft: "3rem",
         boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.1)",
-        backgroundImage:`url(${bg})`,
-        backgroundSize:'cover'
+        backgroundImage: `url(${bg})`,
+        backgroundSize: "cover",
       }}
     >
       <Typography
@@ -67,29 +67,23 @@ export default function Projects() {
           paddingBottom: "3rem",
           fontWeight: "bold",
         }}
-        id='projects'
+        id="projects"
       >
         Projects
       </Typography>
-      <Box
-        display={"flex"}
-        gap={"2vw"}
-        justifyContent={"center"}
-        flexWrap={"wrap"}
-        borderRadius={'10px'}
-      >
+      <Box display={"flex"} flexWrap={"wrap"} borderRadius={"10px"}>
         {ProjectsDetails.map((project) => {
           return (
-            <Box
-              key={project.name}
-              style={{ flex: 1, marginBottom: "1rem" }}
-            >
+            <Box key={project.name} style={{ flex: 1, marginBottom: "1rem" }}>
               <Card
-                sx={{ width: "25rem", display: "flex", flexDirection: "column" }}
+                sx={{
+                  width: "25rem",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
               >
                 <CardMedia
                   sx={{
-                    
                     height: "15rem",
                     paddingTop: "3vw",
                   }}
@@ -122,9 +116,7 @@ export default function Projects() {
                     Tech Stack: {project.techStack}
                   </Typography>
                 </CardContent>
-                <CardActions>
-                  {/* <Button>Github</Button> */}
-                </CardActions>
+                <CardActions>{/* <Button>Github</Button> */}</CardActions>
               </Card>
             </Box>
           );

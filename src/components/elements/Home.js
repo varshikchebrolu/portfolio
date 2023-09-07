@@ -1,12 +1,15 @@
 import React, { useEffect } from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import homeImage from "../utils/home2.png";
 import "../Styles/Home.css";
 import anime from "animejs/lib/anime.es.js";
 import { SocialIcon } from "react-social-icons";
-import bgImage from '../utils/bg.png'
+import bgImage from "../utils/bg.png";
+import {useNavigate } from 'react-router-dom';
+import { Link } from "react-scroll";
 
 export default function Home() {
+  const navigate = useNavigate();
   const Roles = ["Software Developer", "Front-End Developer", "Collobarator"];
   const [index, setIndex] = React.useState(0);
 
@@ -47,9 +50,9 @@ export default function Home() {
         flexWrap: "wrap",
         justifyContent: "space-around",
         marginLeft: "3rem",
-        marginTop:'3rem',
-        minHeight:'40rem',
-        alignItems:'center',
+        marginTop: "3rem",
+        minHeight: "40rem",
+        alignItems: "center",
         backgroundImage: `url(${bgImage})`,
       }}
       id="home"
@@ -59,7 +62,7 @@ export default function Home() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          color:'white'
+          color: "white",
         }}
       >
         <Typography sx={{ fontSize: "3.5rem" }}> Hello!!</Typography>
@@ -71,7 +74,6 @@ export default function Home() {
             style={{
               fontStyle: "oblique",
               fontFamily: "sans-serif",
-             
             }}
           >
             {" "}
@@ -94,12 +96,13 @@ export default function Home() {
               marginLeft: "1vh",
               marginTop: "0.5vh",
               marginX: "1vh",
-                  color: "#39e1ec",
+              color: "#39e1ec",
               transform: "translateY(0)",
               opacity: 1,
-              background: "linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)",
-              WebkitBackgroundClip:'text',
-              WebkitTextFillColor:'transparent'
+              background:
+                "linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
             }}
           >
             {Roles[index]}
@@ -107,6 +110,39 @@ export default function Home() {
           <Typography sx={{ fontSize: "1.5rem", marginTop: "0.5vh" }}>
             crafting exceptional applications beyond the ordinary.
           </Typography>
+        </Box>
+        <Box sx={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
+          <Button
+            variant="contained"
+            sx={{
+              fontSize: "1rem",
+              fontWeight: "bold",
+              textTransform: "capitalize",
+              background:
+                "linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)",
+            }}
+            onClick={()=>navigate('/resume')}
+          >
+            Resume
+          </Button>
+          <Link to='contact' smooth={true} duration={1000} >
+          <Button
+            variant="outlined"
+            sx={{
+              fontSize: "1rem",
+              fontWeight: "bold",
+              textTransform: "capitalize",
+              ":hover": {
+                backgroundColor:'#5E21E0',
+                borderColor:'#5E21E0'
+              },
+              color:'white',
+              borderColor:'#5E21E0'
+            }}
+          >
+            Hire Me
+          </Button>
+          </Link>
         </Box>
         <Box
           sx={{

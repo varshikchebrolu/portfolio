@@ -33,6 +33,7 @@ export default function Contact() {
 
   const iconStyles = {
     fontSize: "3rem",
+    color:'#7D3DE4',
     
   };
 

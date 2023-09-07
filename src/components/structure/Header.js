@@ -5,9 +5,42 @@ import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import homeLogo from "../utils/logo.png";
 import { Link } from "react-scroll";
-import { Link as Link1 } from "react-router-dom";
+import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
+
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
+  const navigate = useNavigate();
+
+  const scrollButtonStyles = {
+    position: "fixed",
+    bottom: "20px",
+    right: "20px",
+    cursor: "pointer",
+    backgroundColor: "#7D3DE4",
+    color: "#fff",
+    padding: "10px 15px",
+    borderRadius: "50%",
+    fontSize: "16px",
+    textDecoration: "none",
+    transition: "background-color 0.3s ease",
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const scrollToSection = (path, section) => {
+    navigate(path); // Navigate to the root path '/'
+    setTimeout(() => {
+      document.getElementById(section).scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
+    }, 150); // Delay to allow time for routing to '/'
+  };
+
   return (
     <Box
       sx={{
@@ -21,27 +54,23 @@ export default function Header() {
         <Toolbar
           sx={{
             justifyContent: "space-between",
-            background:
-              "black",
-              maxHeight:'1.5rem',
+            background: "black",
+            maxHeight: "1.5rem",
           }}
         >
           <Box sx={{ cursor: "pointer" }}>
-            <Link to="home" smooth={true} duration={500}>
-              <Link1
-                to="/"
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                <img
-                  alt="Main_logo"
-                  src={homeLogo}
-                  style={{ maxWidth: "3.5rem", height: "3.5rem" }}
-                />
-              </Link1>
+            <Link to="home" smooth={true} duration={1000}>
+              <img
+                alt="Main_logo"
+                src={homeLogo}
+                style={{ maxWidth: "3.5rem", height: "3.5rem" }}
+                onClick={() => scrollToSection("/", "home")}
+              />
             </Link>
           </Box>
           <Box color="white">
-            <Link to="home" smooth={true} duration={500} offset={-100}>
+            <Link to="home" smooth={true} duration={1000} offset={-100}>
+              
               <Button
                 color="inherit"
                 sx={{
@@ -49,17 +78,13 @@ export default function Header() {
                   fontWeight: "bold",
                   textTransform: "capitalize",
                 }}
+                onClick={() => scrollToSection("/", "home")}
               >
-                <Link1
-                  to="/"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  Home
-                </Link1>
+                 Home
               </Button>
             </Link>
 
-            <Link to="about" smooth={true} duration={500} offset={-100}>
+            <Link to="about" smooth={true} duration={1000} offset={-100}>
               <Button
                 color="inherit"
                 sx={{
@@ -67,16 +92,12 @@ export default function Header() {
                   fontWeight: "bold",
                   textTransform: "capitalize",
                 }}
+                onClick={() => scrollToSection("/", "about")}
               >
-                <Link1
-                  to="/"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  About
-                </Link1>
+                About
               </Button>
             </Link>
-            <Link to="skills" smooth={true} duration={500} offset={-100}>
+            <Link to="skills" smooth={true} duration={1000} offset={-100}>
               <Button
                 color="inherit"
                 sx={{
@@ -84,16 +105,12 @@ export default function Header() {
                   fontWeight: "bold",
                   textTransform: "capitalize",
                 }}
+                onClick={() => scrollToSection("/", "skills")}
               >
-                <Link1
-                  to="/"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  Skills
-                </Link1>
+                Skills
               </Button>
             </Link>
-            <Link to="experience" smooth={true} duration={500} offset={-100}>
+            <Link to="experience" smooth={true} duration={1000} offset={-100}>
               <Button
                 color="inherit"
                 sx={{
@@ -101,16 +118,12 @@ export default function Header() {
                   fontWeight: "bold",
                   textTransform: "capitalize",
                 }}
+                onClick={() => scrollToSection("/", "experience")}
               >
-                <Link1
-                  to="/"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  Experience
-                </Link1>
+                Experience
               </Button>
             </Link>
-            <Link to="projects" smooth={true} duration={500} offset={-100}>
+            <Link to="projects" smooth={true} duration={1000} offset={-100}>
               <Button
                 color="inherit"
                 sx={{
@@ -118,16 +131,13 @@ export default function Header() {
                   fontWeight: "bold",
                   textTransform: "capitalize",
                 }}
+                onClick={() => scrollToSection("/", "projects")}
               >
-                <Link1
-                  to="/"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  Projects
-                </Link1>
+                Projects
               </Button>
             </Link>
-            <Link to="contact" smooth={true} duration={500} offset={-100}>
+
+            <Link to="contact" smooth={true} duration={1000} offset={-100}>
               <Button
                 color="inherit"
                 sx={{
@@ -139,22 +149,30 @@ export default function Header() {
                 Contact
               </Button>
             </Link>
-            <Link1
-              to="/resume"
-              style={{ textDecoration: "none" }}
-            >
+            <Link to="resume" smooth={true} duration={1000} offset={-100}>
               <Button
                 variant="contained"
                 sx={{
                   fontSize: "1rem",
                   fontWeight: "bold",
                   textTransform: "capitalize",
-                  background: "linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)"
+                  background:
+                    "linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)",
                 }}
+                onClick={() => navigate("/resume", "resume")}
               >
                 Resume
               </Button>
-            </Link1>
+            </Link>
+            <Link
+              to="top"
+              smooth={true}
+              duration={1000}
+              style={scrollButtonStyles}
+              onClick={scrollToTop}
+            >
+              <ArrowCircleUpIcon />
+            </Link>
           </Box>
         </Toolbar>
       </AppBar>
