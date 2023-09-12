@@ -1,16 +1,15 @@
 import React, { useEffect } from "react";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Typography, Grid, IconButton } from "@mui/material";
 import homeImage from "../utils/home2.png";
-import "../Styles/Home.css";
-import anime from "animejs/lib/anime.es.js";
-import { SocialIcon } from "react-social-icons";
 import bgImage from "../utils/bg.png";
-import {useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-scroll";
+import { SocialIcon } from "react-social-icons";
+import anime from "animejs";
 
 export default function Home() {
   const navigate = useNavigate();
-  const Roles = ["Software Developer", "Front-End Developer", "Collobarator"];
+  const Roles = ["Software Developer", "Front-End Developer", "Collaborator"];
   const [index, setIndex] = React.useState(0);
 
   useEffect(() => {
@@ -19,7 +18,7 @@ export default function Home() {
     const animateText = () => {
       anime({
         targets: targetElement,
-        translateY: [0, -20], // Move current text upwards
+        translateY: [0, -20],
         opacity: [1, 0],
         duration: 500,
         easing: "easeInOutQuad",
@@ -28,7 +27,7 @@ export default function Home() {
           targetElement.innerText = Roles[index];
           anime({
             targets: targetElement,
-            translateY: [20, 0], // Move new text downwards
+            translateY: [20, 0],
             opacity: [0, 1],
             duration: 500,
             easing: "easeInOutQuad",
@@ -44,133 +43,133 @@ export default function Home() {
   return (
     <Box
       container
-      sx={{
-        padding: "2rem",
-        display: { xs: "inline-flex", md: "flex" },
+      style={{
+        paddingTop: "2rem",
+        display: "flex",
+        flexDirection: "row",
         flexWrap: "wrap",
-        justifyContent: "space-around",
-        marginLeft: "3rem",
-        marginTop: "3rem",
-        minHeight: "40rem",
+        justifyContent: "center",
         alignItems: "center",
+        background: "black",
         backgroundImage: `url(${bgImage})`,
+        backgroundSize: 'cover',
+        minHeight: "90vh",
+        marginTop: "3rem",
+        gap: "3rem",
       }}
       id="home"
     >
+      <Grid
+        container
+        spacing={2}
+        sx={{ display: "flex", flexDirection: "column", width: "auto" }}
+      >
+        <Grid item xs={12} sm={6} sx={{ width: "max-content" }}>
+          <Box
+            style={{
+              display: "flex",
+              flexDirection: "column",
+
+              color: "white",
+              marginBottom: "2rem",
+              width: "max-content",
+            }}
+          >
+            <Typography variant="h3">Hello!!</Typography>
+            <Typography variant="h3" marginTop={'1rem'}>
+              I'm{" "}
+              <span
+                style={{
+                  fontStyle: "oblique",
+                  fontFamily: "sans-serif",
+                }}
+              >
+                Varshik Chebrolu,
+              </span>
+            </Typography>
+            <div style={{ display: 'flex', gap:'1rem', marginTop:'1rem' }}>
+              <Typography variant="h6">Passionate</Typography>
+              <div
+                className="text-transition"
+                style={{
+                  fontSize: "1.5rem",
+                  color: "#39e1ec",
+                  background:
+                    "linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                {Roles[index]}
+              </div>
+            </div>
+            <Typography variant="h6">
+              crafting exceptional applications beyond the ordinary.
+            </Typography>
+            <Grid item xs={12} sm={6} sx={{ display: "flex", gap: "1rem", marginTop: '1rem' }}>
+              <Button
+                variant="contained"
+                style={{
+                  fontSize: "1rem",
+                  fontWeight: "bold",
+                  textTransform: "capitalize",
+                  background:
+                    "linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)",
+                }}
+                onClick={() => navigate("/resume")}
+              >
+                Resume
+              </Button>
+              <Link to="contact" smooth={true} duration={1000}>
+                <Button
+                  variant="outlined"
+                  sx={{
+                    fontSize: "1rem",
+                    fontWeight: "bold",
+                    textTransform: "capitalize",
+                    ":hover": {
+                      backgroundColor: "#5E21E0",
+                      borderColor: "#5E21E0",
+                    },
+                    color: "white",
+                    borderColor: "#5E21E0",
+                  }}
+                >
+                  Hire Me
+                </Button>
+              </Link>
+            </Grid>
+            <Box
+              style={{
+                display: "flex",
+                marginTop: "2rem",
+                gap: "2rem",
+              }}
+            >
+              <a href="mailto:chebroluvarshik@gmail.com">
+                <SocialIcon network="email" bgColor="white" fgColor="red" />
+              </a>
+              <SocialIcon
+                url="https://github.com/varshikchebrolu"
+                target="_blank"
+                fgColor="black"
+                bgColor="grey"
+              />
+              <SocialIcon
+                url="https://www.linkedin.com/in/varshikchebrolu/"
+                bgColor="#0A66C2"
+                fgColor="#FFFFFF"
+                target="_blank"
+              />
+            </Box>
+          </Box>
+        </Grid>
+      </Grid>
       <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          color: "white",
+        style={{
+          marginBottom: "1rem",
         }}
       >
-        <Typography sx={{ fontSize: "3.5rem" }}> Hello!!</Typography>
-
-        <Typography sx={{ fontSize: "3rem" }}>
-          {" "}
-          I'm{" "}
-          <span
-            style={{
-              fontStyle: "oblique",
-              fontFamily: "sans-serif",
-            }}
-          >
-            {" "}
-            Varshik Chebrolu,
-          </span>
-        </Typography>
-
-        <Box
-          display={"flex"}
-          flexDirection={"row"}
-          flexWrap={"wrap"}
-          justifyContent={"flex-start"}
-          width={"42rem"}
-        >
-          <Typography sx={{ fontSize: "1.5rem" }}>Passionate</Typography>
-          <div
-            className="text-transition"
-            style={{
-              fontSize: "1.5rem",
-              marginLeft: "1vh",
-              marginTop: "0.5vh",
-              marginX: "1vh",
-              color: "#39e1ec",
-              transform: "translateY(0)",
-              opacity: 1,
-              background:
-                "linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-          >
-            {Roles[index]}
-          </div>
-          <Typography sx={{ fontSize: "1.5rem", marginTop: "0.5vh" }}>
-            crafting exceptional applications beyond the ordinary.
-          </Typography>
-        </Box>
-        <Box sx={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
-          <Button
-            variant="contained"
-            sx={{
-              fontSize: "1rem",
-              fontWeight: "bold",
-              textTransform: "capitalize",
-              background:
-                "linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)",
-            }}
-            onClick={()=>navigate('/resume')}
-          >
-            Resume
-          </Button>
-          <Link to='contact' smooth={true} duration={1000} >
-          <Button
-            variant="outlined"
-            sx={{
-              fontSize: "1rem",
-              fontWeight: "bold",
-              textTransform: "capitalize",
-              ":hover": {
-                backgroundColor:'#5E21E0',
-                borderColor:'#5E21E0'
-              },
-              color:'white',
-              borderColor:'#5E21E0'
-            }}
-          >
-            Hire Me
-          </Button>
-          </Link>
-        </Box>
-        <Box
-          sx={{
-            display: "flex",
-            marginTop: "2rem",
-            gap: "2rem",
-          }}
-        >
-          <a href="mailto:chebroluvarshik@gmail.com">
-            <SocialIcon network="email" bgColor="white" fgColor="red" />
-          </a>
-
-          <SocialIcon
-            url="https://github.com/varshikchebrolu"
-            target="_blank"
-            fgColor="black"
-            bgColor="grey"
-          />
-          <SocialIcon
-            url="https://www.linkedin.com/in/varshikchebrolu/"
-            bgColor="#0A66C2"
-            fgColor="#FFFFFF"
-            target="_blank"
-          />
-        </Box>
-      </Box>
-
-      <Box>
         <img src={homeImage} alt="homeImage" width="600rem" />
       </Box>
     </Box>

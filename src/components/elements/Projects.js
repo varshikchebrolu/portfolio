@@ -71,10 +71,10 @@ export default function Projects() {
       >
         Projects
       </Typography>
-      <Box display={"flex"} flexWrap={"wrap"} borderRadius={"10px"}>
+      <Box  sx={{display:'flex', flexWrap:'wrap', borderRadius:'10px'}}>
         {ProjectsDetails.map((project) => {
           return (
-            <Box key={project.name} style={{ flex: 1, marginBottom: "1rem" }}>
+            <Box key={project.name} style={{ flex: 1, marginBottom: "1rem"}}>
               <Card
                 sx={{
                   width: "25rem",

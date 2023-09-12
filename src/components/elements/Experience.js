@@ -4,14 +4,19 @@ import VerticalTimelineComponent from "../utils/verticalTimeline";
 import bg from '../utils/whitebg.jpg'
 
 export default function Experience() {
+  const currentDate = new Date();
+const month = (currentDate.getMonth() + 1).toString().padStart(2, '0'); // Add 1 to get the correct month (0-indexed)
+const year = currentDate.getFullYear().toString();
+
+const formattedDate = `${year}-${month}`;
   const experiences = [
     {
-      title: "Parades",
-      subtitle: "Front end Developer",
-      description: `React, Typescript, NestJs, sequelize, Postgre SQL`,
+      title: "Spectra Media Collective",
+      subtitle: "Software Developer",
+      description: `React, Typescript, NestJs, AWS, sequelize, Postgre SQL`,
       type: "experience",
       start: "2022-10",
-      end: "2023-05",
+      end: formattedDate,
     },
     
     {
