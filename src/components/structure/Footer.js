@@ -1,6 +1,5 @@
 import React from "react";
-import { Typography, Box } from "@mui/material";
-import CopyrightIcon from "@mui/icons-material/Copyright";
+import { Typography, Box, Grid, IconButton } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -10,54 +9,69 @@ export default function Footer() {
   return (
     <Box
       container
-      display={{xs:'inline-flex',md:'flex'}}
-      justifyContent="space-around"
-      spacing={3}
-      sx={{ bottom: "0%", backgroundColor:'black'}}
-      alignItems={"center"}
-      color="rgb(242, 247, 239)"
-      minHeight={"10vh"}
+      display="flex"
+      flexDirection={{ xs: "column", md: "row" }}
+      justifyContent="space-between"
+      alignItems="center"
+      sx={{
+        backgroundColor: "black",
+        color: "white",
+        minHeight: "8vh",
+        padding: "1rem",
+      }}
     >
-      <Box>
-        <Typography> Developed by Varshik Chebrolu</Typography>
-      </Box>
-      <Box display={"flex"}>
-        <CopyrightIcon />
-        <Typography> Rights Reserved</Typography>
-      </Box>
-      <Box display={"flex"}>
-        <a
-          href="mailto:chebroluvarshik@gmail.com"
-          style={{ marginRight: "25%" }}
-        >
-          <MailIcon sx={{ color: "white" }} />
-        </a>
-        <a
-          href="https://github.com/varshikchebrolu"
-          target="_blank"
-          style={{ marginRight: "25%" }}
-          rel="noreferrer"
-        >
-          <GitHubIcon sx={{ color: "white" }} />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/varshikchebrolu/"
-          target="_blank"
-          style={{ marginRight: "25%" }}
-          rel="noreferrer"
-        >
-          <LinkedInIcon sx={{ color: "white" }} />
-        </a>
+      <Typography variant="body1" width={'60%'}>
+        Developed by Varshik Chebrolu &copy; All Rights Reserved
+      </Typography>
 
-        <a
-          href="https://www.instagram.com/varshik_chebrolu/"
-          target="_blank"
-          style={{ marginRight: "25%" }}
-          rel="noreferrer"
-        >
-          <InstagramIcon sx={{ color: "white" }} />
-        </a>
-      </Box>
+      <Grid container spacing={2} justifyContent="flex-end">
+        <Grid item>
+          <a
+            href="mailto:chebroluvarshik@gmail.com"
+            style={{ textDecoration: "none", color: "white" }}
+          >
+            <IconButton aria-label="Mail">
+              <MailIcon sx={{ color: "white" }}/>
+            </IconButton>
+          </a>
+        </Grid>
+        <Grid item>
+          <a
+            href="https://github.com/varshikchebrolu"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none", color: "white" }}
+          >
+            <IconButton aria-label="GitHub">
+              <GitHubIcon sx={{ color: "white" }}/>
+            </IconButton>
+          </a>
+        </Grid>
+        <Grid item>
+          <a
+            href="https://www.linkedin.com/in/varshikchebrolu/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none", color: "white" }}
+          >
+            <IconButton aria-label="LinkedIn">
+              <LinkedInIcon sx={{ color: "white" }}/>
+            </IconButton>
+          </a>
+        </Grid>
+        <Grid item>
+          <a
+            href="https://www.instagram.com/varshik_chebrolu/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none", color: "white" }}
+          >
+            <IconButton aria-label="Instagram">
+              <InstagramIcon sx={{ color: "white" }}/>
+            </IconButton>
+          </a>
+        </Grid>
+      </Grid>
     </Box>
   );
 }

@@ -10,25 +10,29 @@ import Contact from "./components/elements/Contact";
 import { inject } from '@vercel/analytics';
 
 function App() {
-  inject()
+  inject();
+
   return (
-    <Box container sx={{
-      background: 'black',
-      overflow:'auto'
-    }}
+    <Box
+      container
+      sx={{
+        background: 'black',
+        overflow: 'hidden', 
+        minHeight: '100vh',
+      }}
     >
       <Router>
-      <Header />
-      
-      <Routes>
-        <Route path='/' Component={Content}/>
-        <Route path="/resume" Component={Resume} />
-      </Routes>
-    </Router>
-      <Contact/>
-      <Footer />
-    </Box>
+        <Header className="header" /> 
+        <Routes>
+          <Route path='/' element={<Content className="content" />} /> 
+          <Route path="/resume" element={<Resume />} />
+        </Routes>
+      </Router>
+      <Contact className="footer" /> 
+      <Footer className="footer" />
+      </Box>
   );
 }
+
 
 export default App;
