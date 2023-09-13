@@ -77,8 +77,8 @@ export default function Skills() {
         {icons.map((Icon, index) => (
           <Grid
             item
-            xs={12}
-            sm={4}
+            xs={5}
+            sm={8}
             md={2}
             key={index}
             sx={{

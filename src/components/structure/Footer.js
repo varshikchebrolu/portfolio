@@ -10,7 +10,7 @@ export default function Footer() {
     <Box
       container
       display="flex"
-      flexDirection={{ xs: "column", md: "row" }}
+      flexDirection={'column'}
       justifyContent="space-between"
       alignItems="center"
       sx={{
@@ -20,11 +20,15 @@ export default function Footer() {
         padding: "1rem",
       }}
     >
-      <Typography variant="body1" width={'60%'}>
-        Developed by Varshik Chebrolu &copy; All Rights Reserved
-      </Typography>
+     <div style={{ width: "100%", textAlign: "center" }}>
+        <p>
+          Developed by Varshik Chebrolu &copy;{" "}
+          <Typography sx={{ fontSize: '1rem' }}>All Rights Reserved</Typography>
+        </p>
+      </div>
+      
 
-      <Grid container spacing={2} justifyContent="flex-end">
+      <Grid container spacing={2} justifyContent="center">
         <Grid item>
           <a
             href="mailto:chebroluvarshik@gmail.com"
