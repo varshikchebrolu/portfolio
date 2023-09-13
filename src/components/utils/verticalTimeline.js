@@ -21,8 +21,8 @@ export default function VerticalTimelineComponent({
   const calculateTimelineHeight = (start, end) => {
     const timeDifference = end.getTime() - start.getTime();
     const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
-    const minHeight = 15;
-    const maxHeight = 20;
+    const minHeight = 20;
+    const maxHeight = 25;
     const height = minHeight + (daysDifference / 365) * (maxHeight - minHeight);
     return height;
   };

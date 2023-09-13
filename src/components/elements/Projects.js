@@ -77,9 +77,10 @@ export default function Projects() {
             <Box key={project.name} style={{ flex: 1, marginBottom: "1rem"}}>
               <Card
                 sx={{
-                  width: "25rem",
+                  width: {xs:'30ch',md:'25rem'},
                   display: "flex",
                   flexDirection: "column",
+
                 }}
               >
                 <CardMedia

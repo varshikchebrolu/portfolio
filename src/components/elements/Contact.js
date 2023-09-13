@@ -172,7 +172,7 @@ export default function Contact() {
             padding: "2rem",
             boxShadow: "0px 3px 6px rgba(0, 0, 0, 0.1)",
             color: "white",
-            width: "50vw",
+            width: {xs:'80vw',md:'50vw'},
           }}
         >
           <Typography
