@@ -107,7 +107,7 @@ export default function Contact() {
         spacing={2}
         paddingLeft={'4rem'}
       >
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={4} display={'flex'} justifyContent={'center'}>
           <Card sx={cardStyles}>
             <CardContent
               sx={{
@@ -122,7 +122,7 @@ export default function Contact() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={4} display={'flex'} justifyContent={'center'}>
           <Card sx={cardStyles}>
             <CardContent
               sx={{
@@ -139,7 +139,7 @@ export default function Contact() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={4} display={'flex'} justifyContent={'center'}>
           <Card sx={cardStyles}>
             <CardContent
               sx={{
