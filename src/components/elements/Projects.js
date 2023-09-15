@@ -56,6 +56,7 @@ export default function Projects() {
         boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.1)",
         backgroundImage: `url(${bg})`,
         backgroundSize: "cover",
+        alignItems:'center'
       }}
     >
       <Typography
@@ -71,7 +72,7 @@ export default function Projects() {
       >
         Projects
       </Typography>
-      <Box  sx={{display:'flex', flexWrap:'wrap', borderRadius:'10px'}}>
+      <Box  sx={{display:'flex', flexWrap:'wrap', borderRadius:'10px', gap:'2rem'}}>
         {ProjectsDetails.map((project) => {
           return (
             <Box key={project.name} style={{ flex: 1, marginBottom: "1rem"}}>

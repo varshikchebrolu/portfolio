@@ -6,30 +6,22 @@ import Button from "@mui/material/Button";
 import homeLogo from "../utils/logo.png";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import { useNavigate } from "react-router-dom";
-import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
+import {Menu,MenuItem} from '@mui/material'
 
 export default function Header() {
   const navigate = useNavigate();
 
-  const [isDrawerOpen, setDrawerOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  const toggleDrawer = () => {
-    setDrawerOpen(!isDrawerOpen);
-  };
 
   useEffect(() => {
-    // Check the screen width and update the isMobile state accordingly
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768); // Adjust the breakpoint as needed
+      setIsMobile(window.innerWidth <= 768);
     };
 
     window.addEventListener("resize", handleResize);
-    handleResize(); // Initial check
+    handleResize(); 
 
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -41,127 +33,88 @@ export default function Header() {
   };
 
   const scrollToSection = (path, section) => {
-    navigate(path); // Navigate to the root path '/'
+    navigate(path); 
     setTimeout(() => {
       document.getElementById(section).scrollIntoView({
         behavior: "smooth",
         block: "start",
         inline: "nearest",
       });
-    }, 150); // Delay to allow time for routing to '/'
+    }, 150); 
+  };
+
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleMenuItemClick = (section) => {
+    handleClose();
+    scrollToSection('/',section)
   };
 
   if (isMobile) {
     return (
       <Box
+      sx={{
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}
+    >
+      <Box
         sx={{
+          cursor: "pointer",
           display: "flex",
-          flexDirection: "row",
           alignItems: "center",
-          justifyContent: "space-between"
         }}
       >
-        <Box
-          sx={{
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
+        <img
+          alt="Main_logo"
+          src={homeLogo}
+          style={{
+            maxWidth: "3.5rem",
+            height: "3.5rem",
+            paddingLeft: "1rem",
           }}
-        >
-          <img
-            alt="Main_logo"
-            src={homeLogo}
-            style={{
-              maxWidth: "3.5rem",
-              height: "3.5rem",
-              paddingLeft:'1rem'
-            }}
-            onClick={() => scrollToSection("/", "home")}
-          />
-        </Box>
-        <MenuIcon
-          sx={{ color: "white", cursor: "pointer", marginLeft:'70vw'}}
-          onClick={() => toggleDrawer()}
+          onClick={() => scrollToSection("/", "home")}
         />
-        <Box>
-          <Drawer
-            anchor="right"
-            open={isDrawerOpen}
-            onClose={toggleDrawer}
-            sx={{
-              "& .MuiDrawer-paper": {
-                background: "white",
-                width: "25vw",
-                height: "20rem",
-                borderRadius:'1rem',
-                display: "flex",
-                alignItems: "center",
-                cursor: "pointer",
-                color:'#5E21E0'
-              },
-             
-             
-            }}
-          >
-            <List>
-              <ListItem
-                Button
-                onClick={() => {
-                  toggleDrawer();
-                  scrollToSection("/", "home");
-                }}
-              >
-                <ListItemText primary="Home" />
-              </ListItem>
-              <ListItem
-                Button
-                onClick={() => {
-                  toggleDrawer();
-                  scrollToSection("/", "about");
-                }}
-              >
-                <ListItemText primary="About" />
-              </ListItem>
-              <ListItem
-                Button
-                onClick={() => {
-                  toggleDrawer();
-                  scrollToSection("/", "skills");
-                }}
-              >
-                <ListItemText primary="Skills" />
-              </ListItem>
-              <ListItem
-                Button
-                onClick={() => {
-                  toggleDrawer();
-                  scrollToSection("/", "experience");
-                }}
-              >
-                <ListItemText primary="Experience" />
-              </ListItem>
-              <ListItem
-                Button
-                onClick={() => {
-                  toggleDrawer();
-                  scrollToSection("/", "projects");
-                }}
-              >
-                <ListItemText primary="Projects" />
-              </ListItem>
-              <ListItem
-                Button
-                onClick={() => {
-                  toggleDrawer();
-                  scrollToSection("/", "contact");
-                }}
-              >
-                <ListItemText primary="Contact" />
-              </ListItem>
-            </List>
-          </Drawer>
-        </Box>
       </Box>
+      <Box>
+      <MenuIcon
+        sx={{ color: "white", cursor: "pointer", marginRight:'1rem' }}
+        onClick={handleClick}
+      />
+      <Menu
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "right",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
+        getContentAnchorEl={null}
+       
+      >
+        <MenuItem sx={{fontWeight:'bold'}} onClick={() => handleMenuItemClick("home")}>Home</MenuItem>
+        <MenuItem sx={{fontWeight:'bold'}} onClick={() => handleMenuItemClick("about")}>About</MenuItem>
+        <MenuItem sx={{fontWeight:'bold'}} onClick={() => handleMenuItemClick("skills")}>Skills</MenuItem>
+        <MenuItem sx={{fontWeight:'bold'}} onClick={() => handleMenuItemClick("experience")}>Experience</MenuItem>
+        <MenuItem sx={{fontWeight:'bold'}} onClick={() => handleMenuItemClick("projects")}>Projects</MenuItem>
+        <MenuItem sx={{fontWeight:'bold'}} onClick={() => handleMenuItemClick("contact")}>Contact</MenuItem>
+      </Menu>
+      </Box>
+    </Box>
     );
   }
 
