@@ -9,7 +9,7 @@ import anime from "animejs";
 
 export default function Home() {
   const navigate = useNavigate();
-  const Roles = ["Software Developer", "Front-End Developer", "Collaborator"];
+  const Roles = ["Software Engineer", "Front-End Developer", "Collaborator"];
   const [index, setIndex] = React.useState(0);
 
   useEffect(() => {
@@ -168,7 +168,7 @@ export default function Home() {
           marginBottom: "1rem",
         }}
       >
-        <img src={homeImage} alt="homeImage" width="600rem" />
+        <img src={homeImage} alt="homeImage" width="600rem" className="home-image"/>
       </Box>
     </Box>
   );
