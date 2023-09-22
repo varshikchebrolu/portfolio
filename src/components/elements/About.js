@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import profilePhoto from "../utils/varshik.jpg";
-import bgImage from '../utils/whitebg.jpg'
+import bgImage from "../utils/whitebg.jpg";
 
 export default function About() {
   return (
@@ -15,20 +15,34 @@ export default function About() {
         alignItems: "center",
         padding: "2rem",
         backgroundImage: `url(${bgImage})`,
-        backgroundSize:'contain'
+        backgroundSize: "contain",
       }}
     >
       <Typography
         variant="h2"
         sx={{
           fontSize: "2.5rem",
-          
+          display: "flex",
           marginBottom: "2rem",
           fontWeight: "bold",
+          alignItems: "center",
+          flexWrap: "wrap",
         }}
-        id='about'
+        id="about"
       >
-        A Tiny Bit About Myself
+        Speak Peak{" "}
+        <Typography
+          sx={{
+            color: "#5E21E0",
+            fontWeight: "bold",
+            fontSize: "inherit",
+            marginLeft: "1rem",
+            marginRight: "1rem",
+          }}
+        >
+          About
+        </Typography>{" "}
+        Me
       </Typography>
       <Box
         sx={{
@@ -46,15 +60,12 @@ export default function About() {
         />
       </Box>
       <Typography
-        variant="body1"
+        variant="body"
         sx={{ fontSize: "1.5rem", marginBottom: "1rem" }}
       >
         Welcome to my portfolio! I'm excited to have you here.
       </Typography>
-      <Typography
-        variant="body1"
-        sx={{ fontSize: "1.5rem", marginBottom: "1rem" }}
-      >
+      <Typography variant="p" sx={{ fontSize: "1.5rem", marginBottom: "1rem" }}>
         A Software Developer and Computer Science Graduate with experience in
         developing modern web applications.
       </Typography>
@@ -72,7 +83,6 @@ export default function About() {
         I am interested in learning about Cloud, containerization, and Web
         Development.
       </Typography>
-      
     </Box>
   );
 }
