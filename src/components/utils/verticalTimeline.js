@@ -7,8 +7,8 @@ import React from "react";
 import "./verticalTimeline.css";
 import SchoolRoundedIcon from '@mui/icons-material/SchoolRounded';
 import WorkRoundedIcon from '@mui/icons-material/WorkRounded';
-import expbg from '../utils/expBG.jpeg'
-import educbg from '../utils/educBG.jpeg'
+import expbg from '../utils/expBG.jpg'
+import educbg from '../utils/educBG.jpg'
 
 export default function VerticalTimelineComponent({
   title,
