@@ -14,7 +14,7 @@ export default function Footer() {
       justifyContent="space-between"
       alignItems="center"
       sx={{
-        backgroundColor: "black",
+        background:"linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)",
         color: "white",
         minHeight: "8vh",
         padding: "1rem",
