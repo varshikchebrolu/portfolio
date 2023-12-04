@@ -19,6 +19,7 @@ function App() {
         background: 'black',
         overflow: 'hidden', 
         minHeight: '100vh',
+        scrollBehavior:'auto'
       }}
     >
       <Router>

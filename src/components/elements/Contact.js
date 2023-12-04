@@ -83,7 +83,7 @@ export default function Contact() {
         display: "flex",
         flexDirection: "column",
         padding: "2rem",
-        paddingLeft: "1rem", // Adjust padding for mobile view
+        paddingLeft: "1rem",
         gap: "3rem",
         backgroundImage: `url(${bg})`,
         backgroundSize: "contain",
@@ -105,7 +105,6 @@ export default function Contact() {
       <Grid
         container
         spacing={2}
-        paddingLeft={'4rem'}
       >
         <Grid item xs={12} sm={6} md={4} display={'flex'} justifyContent={'center'}>
           <Card sx={cardStyles}>
@@ -163,6 +162,7 @@ export default function Contact() {
           alignItems: "center",
           justifyContent: "center",
           flexWrap: "wrap",
+          gap:'1rem'
         }}
       >
         <Box
@@ -288,7 +288,6 @@ export default function Contact() {
           sx={{
             maxWidth: "12rem",
             padding: "2rem",
-            marginLeft: "5rem",
           }}
         >
           <Typography variant="h5" fontWeight="bold" marginBottom="1.5rem">

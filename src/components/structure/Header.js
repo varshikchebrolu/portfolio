@@ -7,13 +7,13 @@ import homeLogo from "../utils/logo.png";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import { useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
-import {Menu,MenuItem} from '@mui/material'
+import { Menu, MenuItem } from "@mui/material";
 
 export default function Header() {
   const navigate = useNavigate();
 
   const [isMobile, setIsMobile] = useState(false);
-
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleResize = () => {
@@ -21,7 +21,7 @@ export default function Header() {
     };
 
     window.addEventListener("resize", handleResize);
-    handleResize(); 
+    handleResize();
 
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -33,14 +33,15 @@ export default function Header() {
   };
 
   const scrollToSection = (path, section) => {
-    navigate(path); 
+    navigate(path);
     setTimeout(() => {
       document.getElementById(section).scrollIntoView({
         behavior: "smooth",
         block: "start",
         inline: "nearest",
       });
-    }, 150); 
+    }, 150);
+    setActiveSection(section);
   };
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -55,66 +56,79 @@ export default function Header() {
 
   const handleMenuItemClick = (section) => {
     handleClose();
-    scrollToSection('/',section)
+    scrollToSection("/", section);
+    setActiveSection(section);
   };
+
+  const headerItems = [
+    "home",
+    "about",
+    "skills",
+    "experience",
+    "projects",
+    "contact",
+  ];
 
   if (isMobile) {
     return (
       <Box
-      sx={{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
-      }}
-    >
-      <Box
         sx={{
-          cursor: "pointer",
           display: "flex",
+          flexDirection: "row",
           alignItems: "center",
+          justifyContent: "space-between",
         }}
       >
-        <img
-          alt="Main_logo"
-          src={homeLogo}
-          style={{
-            maxWidth: "3.5rem",
-            height: "3.5rem",
-            paddingLeft: "1rem",
+        <Box
+          sx={{
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
           }}
-          onClick={() => scrollToSection("/", "home")}
-        />
+        >
+          <img
+            alt="Main_logo"
+            src={homeLogo}
+            style={{
+              maxWidth: "3.5rem",
+              height: "3.5rem",
+              paddingLeft: "1rem",
+            }}
+            onClick={() => scrollToSection("/", "home")}
+          />
+        </Box>
+        <Box>
+          <MenuIcon
+            sx={{ color: "white", cursor: "pointer", marginRight: "1rem" }}
+            onClick={handleClick}
+          />
+          <Menu
+            anchorEl={anchorEl}
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "right",
+            }}
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+            getContentAnchorEl={null}
+          >
+            {headerItems.map((item) => {
+              return (
+                <MenuItem
+                  sx={{ fontWeight: "bold", textTransform: "capitalize" }}
+                  onClick={() => handleMenuItemClick(`${item}`)}
+                >
+                  {item}
+                </MenuItem>
+              );
+            })}
+          </Menu>
+        </Box>
       </Box>
-      <Box>
-      <MenuIcon
-        sx={{ color: "white", cursor: "pointer", marginRight:'1rem' }}
-        onClick={handleClick}
-      />
-      <Menu
-        anchorEl={anchorEl}
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "right",
-        }}
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "right",
-        }}
-        getContentAnchorEl={null}
-       
-      >
-        <MenuItem sx={{fontWeight:'bold'}} onClick={() => handleMenuItemClick("home")}>Home</MenuItem>
-        <MenuItem sx={{fontWeight:'bold'}} onClick={() => handleMenuItemClick("about")}>About</MenuItem>
-        <MenuItem sx={{fontWeight:'bold'}} onClick={() => handleMenuItemClick("skills")}>Skills</MenuItem>
-        <MenuItem sx={{fontWeight:'bold'}} onClick={() => handleMenuItemClick("experience")}>Experience</MenuItem>
-        <MenuItem sx={{fontWeight:'bold'}} onClick={() => handleMenuItemClick("projects")}>Projects</MenuItem>
-        <MenuItem sx={{fontWeight:'bold'}} onClick={() => handleMenuItemClick("contact")}>Contact</MenuItem>
-      </Menu>
-      </Box>
-    </Box>
     );
   }
 
@@ -132,7 +146,7 @@ export default function Header() {
           sx={{
             justifyContent: "space-between",
             background: "black",
-            padding: "5px 10px", // Increase padding for better mobile touch interaction
+            padding: "5px 10px",
           }}
         >
           <Box
@@ -148,7 +162,7 @@ export default function Header() {
               style={{
                 maxWidth: "3.5rem",
                 height: "3.5rem",
-                marginRight: "10px", // Add spacing between logo and text
+                marginRight: "10px",
               }}
               onClick={() => scrollToSection("/", "home")}
             />
@@ -160,78 +174,35 @@ export default function Header() {
               alignItems: "center",
             }}
           >
-            <Button
-              color="inherit"
-              sx={{
-                fontSize: "1rem",
-                fontWeight: "bold",
-                textTransform: "capitalize",
-                marginRight: "10px", // Add spacing between buttons
-              }}
-              onClick={() => scrollToSection("/", "home")}
-            >
-              Home
-            </Button>
-            <Button
-              color="inherit"
-              sx={{
-                fontSize: "1rem",
-                fontWeight: "bold",
-                textTransform: "capitalize",
-                marginRight: "10px", // Add spacing between buttons
-              }}
-              onClick={() => scrollToSection("/", "about")}
-            >
-              About
-            </Button>
-            <Button
-              color="inherit"
-              sx={{
-                fontSize: "1rem",
-                fontWeight: "bold",
-                textTransform: "capitalize",
-                marginRight: "10px", // Add spacing between buttons
-              }}
-              onClick={() => scrollToSection("/", "skills")}
-            >
-              Skills
-            </Button>
-            <Button
-              color="inherit"
-              sx={{
-                fontSize: "1rem",
-                fontWeight: "bold",
-                textTransform: "capitalize",
-                marginRight: "10px", // Add spacing between buttons
-              }}
-              onClick={() => scrollToSection("/", "experience")}
-            >
-              Experience
-            </Button>
-            <Button
-              color="inherit"
-              sx={{
-                fontSize: "1rem",
-                fontWeight: "bold",
-                textTransform: "capitalize",
-                marginRight: "10px", // Add spacing between buttons
-              }}
-              onClick={() => scrollToSection("/", "projects")}
-            >
-              Projects
-            </Button>
-            <Button
-              color="inherit"
-              sx={{
-                fontSize: "1rem",
-                fontWeight: "bold",
-                textTransform: "capitalize",
-                marginRight: "10px", // Add spacing between buttons
-              }}
-              onClick={() => scrollToSection("/", "contact")}
-            >
-              Contact
-            </Button>
+            {headerItems.map((item) => {
+              return (
+                <Button
+                  sx={{
+                    ...(activeSection === `${item}`
+                      ? {
+                          background:
+                            "linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)",
+                          WebkitBackgroundClip: "text",
+                          WebkitTextFillColor: "transparent",
+                        }
+                      : { color: "inherit" }),
+                    fontSize: "1rem",
+                    fontWeight: "bold",
+                    textTransform: "capitalize",
+                    marginRight: "10px",
+                    borderBottom: activeSection === `${item}` ? "2px solid" : "",
+                    borderImageSlice: 1,
+                    borderImageSource:
+                      activeSection === `${item}`
+                        ? "linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)"
+                        : "inherit",
+                  }}
+                  onClick={() => scrollToSection("/", `${item}`)}
+                >
+                  {item}
+                </Button>
+              );
+            })}
 
             <Button
               variant="contained"
@@ -241,7 +212,7 @@ export default function Header() {
                 textTransform: "capitalize",
                 background:
                   "linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)",
-                marginLeft: "10px", // Add spacing between buttons
+                marginLeft: "10px",
               }}
               onClick={() => scrollToSection("/resume", "resume")}
             >
@@ -260,7 +231,7 @@ export default function Header() {
                 transition: "background-color 0.3s ease",
                 fontSize: "2rem",
                 color: "white",
-                marginLeft: "10px", // Add spacing between button and icon
+                marginLeft: "10px",
               }}
               onClick={() => scrollToTop()}
             />

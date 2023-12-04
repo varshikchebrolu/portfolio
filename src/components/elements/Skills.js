@@ -121,7 +121,7 @@ export default function Skills() {
           alignSelf: "center",
           fontSize: "2rem",
           paddingTop:'2rem',
-          paddingBottom: "1rem",
+          paddingBottom: "2rem",
           fontWeight: "bold",
         }}
         id='skills'
@@ -137,8 +137,8 @@ export default function Skills() {
         {toolIcons.map((Icon, index) => (
           <Grid
             item
-            xs={5}
-            sm={8}
+            xs={4}
+            sm={4}
             md={2}
             key={index}
             sx={{
