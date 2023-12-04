@@ -1,11 +1,6 @@
 import {
   Box,
-  Card,
   Typography,
-  CardMedia,
-  CardContent,
-  CardActions,
-  Button,
 } from "@mui/material";
 import React from "react";
 import imageT from "../utils/home.png";
@@ -44,6 +39,7 @@ export default function Projects() {
       imageURL: testing,
     },
   ];
+
   return (
     <Box
       container
@@ -56,7 +52,8 @@ export default function Projects() {
         boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.1)",
         backgroundImage: `url(${bg})`,
         backgroundSize: "cover",
-        alignItems:'center'
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
       <Typography
@@ -72,54 +69,63 @@ export default function Projects() {
       >
         Projects
       </Typography>
-      <Box  sx={{display:'flex', flexWrap:'wrap', borderRadius:'10px', gap:'2rem'}}>
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          borderRadius: "10px",
+          gap: "2rem",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         {ProjectsDetails.map((project) => {
           return (
-            <Box key={project.name} style={{ flex: 1, marginBottom: "1rem"}}>
-              <Card
-                sx={{
-                  width: {xs:'30ch',md:'25rem'},
-                  display: "flex",
-                  flexDirection: "column",
-
-                }}
-              >
-                <CardMedia
-                  sx={{
-                    height: "15rem",
-                    paddingTop: "3vw",
-                  }}
-                  image={project.imageURL || imageT}
-                  title={project.title}
-                />
-                <CardContent style={{ flexGrow: 1 }}>
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="div"
-                    fontSize={"1.25rem"}
-                    color={"black"}
-                    fontWeight={"bold"}
-                  >
-                    {project.name}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="InfoText"
-                    fontSize={"0.95rem"}
-                  >
-                    {project.description}
-                  </Typography>
-                  <Typography
-                    fontSize={"1rem"}
-                    fontWeight={"bold"}
-                    paddingTop={"3%"}
-                  >
-                    Tech Stack: {project.techStack}
-                  </Typography>
-                </CardContent>
-                <CardActions>{/* <Button>Github</Button> */}</CardActions>
-              </Card>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                background: "white",
+                width: {
+                  xs: "60%",
+                  sm: "100%",
+                  md: "30%",
+                },
+                height: "35rem",
+                borderRadius: "1rem",
+              }}
+            >
+              <img
+                alt={project.title}
+                src={project.imageURL || imageT}
+                style={{ height: "60%", borderRadius: "1rem" }}
+              />
+              <Box sx={{ padding: "1rem" }}>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                  fontSize={"1.25rem"}
+                  color={"black"}
+                  fontWeight={"bold"}
+                >
+                  {project.name}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="InfoText"
+                  fontSize={"0.95rem"}
+                >
+                  {project.description}
+                </Typography>
+                <Typography
+                  fontSize={"1rem"}
+                  fontWeight={"bold"}
+                  paddingTop={"3%"}
+                >
+                  Tech Stack: {project.techStack}
+                </Typography>
+              </Box>
             </Box>
           );
         })}
