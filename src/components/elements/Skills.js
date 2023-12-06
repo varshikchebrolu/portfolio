@@ -5,7 +5,7 @@ import * as RiIcons from "react-icons/ri";
 import * as BiIcons from "react-icons/bi";
 import * as SiIcons from "react-icons/si";
 import * as TbIcons from "react-icons/tb";
-import bgImage from '../utils/bg.png'
+import bgImage from "../utils/bg.png";
 
 const icons = [
   { IconName: FaIcons.FaReact, displayName: "React" },
@@ -34,13 +34,13 @@ const icons = [
   { IconName: FaIcons.FaDocker, displayName: "Docker" },
 ];
 
-const toolIcons=[
+const toolIcons = [
   { IconName: TbIcons.TbBrandVscode, displayName: "Visual Studio Code" },
   { IconName: SiIcons.SiPostman, displayName: "Postman" },
   { IconName: FaIcons.FaSlack, displayName: "Slack" },
   { IconName: SiIcons.SiJira, displayName: "Jira" },
   { IconName: SiIcons.SiVercel, displayName: "Vercel" },
-]
+];
 
 export default function Skills() {
   return (
@@ -55,7 +55,7 @@ export default function Skills() {
         borderRadius: "10px",
         boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.1)",
         backgroundImage: `url(${bgImage})`,
-        backgroundSize:'cover'
+        backgroundSize: "cover",
       }}
     >
       <Typography
@@ -64,42 +64,42 @@ export default function Skills() {
           color: "white",
           alignSelf: "center",
           fontSize: "2rem",
-          paddingBottom: "3rem",
+          paddingBottom: "1rem",
           fontWeight: "bold",
         }}
-        id='skills'
+        id="skills"
       >
         Skills
       </Typography>
-      <Grid
-        container
-        rowSpacing={4}
-        columnSpacing={2}
-        justifyContent={"center"}
+      <Box
+        sx={{
+          display: "flex",
+          gap: "1rem",
+          flexWrap: "wrap",
+          justifyContent: "center",
+        }}
       >
         {icons.map((Icon, index) => (
-          <Grid
-            item
-            xs={5}
-            sm={8}
-            md={2}
+          <Box
             key={index}
             sx={{
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
+              justifyContent: "center",
               gap: "1rem",
-              paddingTop: "1rem",
-              paddingBottom: "1rem",
               backgroundColor: "whitesmoke",
               borderRadius: "10px",
               boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
-              marginRight: "1%",
-              marginTop: "2%",
               transition: "transform 0.2s ease-in-out",
               "&:hover": {
                 transform: "scale(1.05)",
               },
+              padding:'1rem',
+              width:{
+                xs:'30%',
+                md:'10%'
+              }
             }}
           >
             <Icon.IconName fontSize="250%" sx={{ color: "#555555" }} />
@@ -110,9 +110,9 @@ export default function Skills() {
             >
               {Icon.displayName}
             </Typography>
-          </Grid>
+          </Box>
         ))}
-      </Grid>
+      </Box>
 
       <Typography
         component="h3"
@@ -120,43 +120,43 @@ export default function Skills() {
           color: "white",
           alignSelf: "center",
           fontSize: "2rem",
-          paddingTop:'2rem',
+          paddingTop: "2rem",
           paddingBottom: "2rem",
           fontWeight: "bold",
         }}
-        id='skills'
+        id="skills"
       >
         Tools I Use
       </Typography>
-      <Grid
-        container
-        rowSpacing={4}
-        columnSpacing={2}
-        justifyContent={"center"}
+      <Box
+        sx={{
+          display: "flex",
+          gap: "1rem",
+          flexWrap: "wrap",
+          justifyContent: "center",
+        }}
       >
         {toolIcons.map((Icon, index) => (
-          <Grid
-            item
-            xs={4}
-            sm={4}
-            md={2}
+          <Box
             key={index}
             sx={{
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
+              justifyContent: "center",
               gap: "1rem",
-              paddingTop: "1rem",
-              paddingBottom: "1rem",
               backgroundColor: "whitesmoke",
               borderRadius: "10px",
               boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
-              marginRight: "1%",
-              marginTop: "2%",
               transition: "transform 0.2s ease-in-out",
               "&:hover": {
                 transform: "scale(1.05)",
               },
+              padding:'1rem',
+              width:{
+                xs:'30%',
+                md:'10%'
+              }
             }}
           >
             <Icon.IconName fontSize="250%" sx={{ color: "#555555" }} />
@@ -167,9 +167,9 @@ export default function Skills() {
             >
               {Icon.displayName}
             </Typography>
-          </Grid>
+          </Box>
         ))}
-      </Grid>
+      </Box>
     </Box>
   );
 }
