@@ -5,10 +5,10 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 import React from "react";
 import "./verticalTimeline.css";
-import SchoolRoundedIcon from '@mui/icons-material/SchoolRounded';
-import WorkRoundedIcon from '@mui/icons-material/WorkRounded';
-import expbg from '../utils/expBG.jpg'
-import educbg from '../utils/educBG.jpg'
+import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
+import WorkRoundedIcon from "@mui/icons-material/WorkRounded";
+import expbg from "../utils/expBG.jpg";
+import educbg from "../utils/educBG.jpg";
 
 export default function VerticalTimelineComponent({
   title,
@@ -40,7 +40,7 @@ export default function VerticalTimelineComponent({
           className="vertical-timeline-element--work"
           contentStyle={{
             background: `url(${expbg})`,
-            backgroundSize:'cover',
+            backgroundSize: "cover",
             color: "white",
             height: `${calculateTimelineHeight(
               new Date(start),
@@ -49,9 +49,18 @@ export default function VerticalTimelineComponent({
           }}
           contentArrowStyle={{ borderRight: "7px solid  black" }}
           date={formatTimelineDate(new Date(start), new Date(end))}
-          iconStyle={{ background: "linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)", color: "#000" }}
+          iconStyle={{
+            background:
+              "linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)",
+            color: "#000",
+            height: `${calculateTimelineHeight(
+              new Date(start),
+              new Date(end)
+            )*2}%`,
+            borderRadius:'3rem'
+          }}
           position="left"
-          icon={<WorkRoundedIcon/>}
+          icon={<WorkRoundedIcon />}
         >
           <h3 className="vertical-timeline-element-title">{title}</h3>
           <h4 className="vertical-timeline-element-subtitle">{subtitle}</h4>
@@ -62,7 +71,7 @@ export default function VerticalTimelineComponent({
         <VerticalTimelineElement
           contentStyle={{
             background: `url(${educbg})`,
-            backgroundSize:'cover',
+            backgroundSize: "cover",
             color: "white",
             height: `${calculateTimelineHeight(
               new Date(start),
@@ -71,10 +80,19 @@ export default function VerticalTimelineComponent({
           }}
           contentArrowStyle={{ borderRight: "7px solid black" }}
           date={formatTimelineDate(new Date(start), new Date(end))}
-          iconStyle={{ background: "linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)", color: "#fff" }}
+          iconStyle={{
+            background:
+              "linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)",
+            color: "#fff",
+            height: `${calculateTimelineHeight(
+              new Date(start),
+              new Date(end)
+            )*2}%`,
+            borderRadius:'3rem'
+          }}
           position="right"
           dateClassName="vertical-time-element-date"
-          icon={<SchoolRoundedIcon/>}
+          icon={<SchoolRoundedIcon />}
         >
           <h3 className="vertical-timeline-element-title">{title}</h3>
           <h4 className="vertical-timeline-element-subtitle">{subtitle}</h4>
