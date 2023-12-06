@@ -30,7 +30,7 @@ export default function About() {
         }}
         id="about"
       >
-        Speak Peak{" "}
+        Sneak Peak{" "}
         <Typography
           sx={{
             color: "#5E21E0",
