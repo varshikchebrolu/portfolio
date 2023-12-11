@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Box, Button, Typography, Grid, IconButton } from "@mui/material";
 import homeImage from "../utils/home2.png";
-import bgImage from "../utils/bg.png";
+import bgImage from "../utils/bg1.png";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-scroll";
 import { SocialIcon } from "react-social-icons";
@@ -53,6 +53,7 @@ export default function Home() {
         background: "black",
         backgroundImage: `url(${bgImage})`,
         backgroundSize: "cover",
+        backgroundPosition:'center',
         minHeight: "90vh",
         marginTop: "3rem",
         gap: "3rem",
