@@ -4,15 +4,6 @@ Welcome to my personal portfolio website built with React! 🌟 This space refle
 
 ![alt text](MainPage.png)
 
-### 📋 Table of Contents
-
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-
 ### ✨ Features
 
 - Responsive design for a seamless experience on various devices.
