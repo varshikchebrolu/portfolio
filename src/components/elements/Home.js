@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
 import { Box, Button, Typography, Grid, IconButton } from "@mui/material";
-import homeImage from "../utils/home2.png";
-import bgImage from "../utils/bg1.png";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-scroll";
 import { SocialIcon } from "react-social-icons";
@@ -51,7 +49,7 @@ export default function Home() {
         justifyContent: "center",
         alignItems: "center",
         background: "black",
-        backgroundImage: `url(${bgImage})`,
+        backgroundImage: `url(https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/bg1.png)`,
         backgroundSize: "cover",
         backgroundPosition:'center',
         minHeight: "90vh",
@@ -171,7 +169,7 @@ export default function Home() {
           marginBottom: "1rem",
         }}
       >
-        <img src={homeImage} alt="homeImage" width="600rem" className="home-image"/>
+        <img src={'https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/home2.png'} alt="homeImage" width="600rem" className="home-image"/>
       </Box>
     </Box>
   );

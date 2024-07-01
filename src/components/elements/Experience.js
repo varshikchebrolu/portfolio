@@ -1,7 +1,6 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import VerticalTimelineComponent from "../utils/verticalTimeline";
-import bg from "../utils/whitebg.jpg";
 
 export default function Experience() {
   const currentDate = new Date();
@@ -51,6 +50,14 @@ export default function Experience() {
       start: "2019-11",
       end: "2021-07",
     },
+    {
+      title: "Chaitanya Bharathi Institute of Technology",
+      subtitle: "Bachelors in Computer Engineering",
+      description: `Java, Object Oriented Programming`,
+      type: "education",
+      start: "2015-08",
+      end: "2019-05",
+    }
   ];
   return (
     <Box
@@ -61,7 +68,7 @@ export default function Experience() {
         padding: "2rem",
         paddingLeft: "3rem",
         boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.1)",
-        backgroundImage: `url(${bg})`,
+        backgroundImage: `url(https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/whitebg.jpg)`,
         backgroundSize: "contain",
       }}
     >

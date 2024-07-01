@@ -3,11 +3,6 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
-import imageT from "../utils/home.png";
-import chess from "../utils/chess.jpg";
-import brainTumor from "../utils/brainTumor.png";
-import testing from "../utils/auto_testing.jpeg";
-import bg from "../utils/bg.png";
 
 export default function Projects() {
   const ProjectsDetails = [
@@ -18,7 +13,7 @@ export default function Projects() {
         " Developed a full fledged legan chess game - a chess game with different rule - with a team of 5 developers and learned various concepts of Object Oriented Principles.",
       techStack: "React, Java, Object Oriented Principles",
       githubLink: "link to github",
-      imageURL: chess,
+      imageURL: 'https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/chess.jpg',
     },
     {
       title: " Educational Project",
@@ -27,7 +22,7 @@ export default function Projects() {
         "Worked on a machine learning algorithm to detect the brain tumors through MRI scan images. Trained and tested the Model with more than 6000 images and increased the accuracy to 90%",
       techStack: "Machine Learning, CNN clusters",
       githubLink: "link to github",
-      imageURL: brainTumor,
+      imageURL: 'https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/brainTumor.png',
     },
     {
       title: " Educational Project",
@@ -36,7 +31,7 @@ export default function Projects() {
         "Tested more than 30 small scale open source java projects by generating automatic unit test cases using selenium to find the accuracy of the reaching the code coverage",
       techStack: "Java, Selenium",
       githubLink: "link to github",
-      imageURL: testing,
+      imageURL: 'https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/auto_testing.jpeg',
     },
   ];
 
@@ -50,7 +45,7 @@ export default function Projects() {
         padding: "2rem",
         paddingLeft: "3rem",
         boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.1)",
-        backgroundImage: `url(${bg})`,
+        backgroundImage: `url(https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/bg.png)`,
         backgroundSize: "cover",
         alignItems: "center",
         justifyContent: "center",
@@ -97,7 +92,7 @@ export default function Projects() {
             >
               <img
                 alt={project.title}
-                src={project.imageURL || imageT}
+                src={project.imageURL}
                 style={{ height: "60%", borderRadius: "1rem" }}
               />
               <Box sx={{ padding: "1rem" }}>

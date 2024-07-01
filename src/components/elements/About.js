@@ -1,7 +1,5 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
-import profilePhoto from "../utils/varshik.jpg";
-import bgImage from "../utils/whitebg.jpg";
 
 export default function About() {
   return (
@@ -14,8 +12,8 @@ export default function About() {
         justifyContent: "center",
         alignItems: "center",
         padding: "2rem",
-        backgroundImage: `url(${bgImage})`,
-        backgroundSize: "contain",
+        backgroundImage: `url(https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/whitebg.jpg)`,
+        backgroundSize: "cover",
       }}
     >
       <Typography
@@ -26,6 +24,7 @@ export default function About() {
           marginBottom: "2rem",
           fontWeight: "bold",
           alignItems: "center",
+          justifyContent: "center",
           flexWrap: "wrap",
         }}
         id="about"
@@ -54,14 +53,14 @@ export default function About() {
         }}
       >
         <img
-          src={profilePhoto}
+          src={'https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/varshik.jpg'}
           alt="Picture with profile photo"
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
       </Box>
       <Typography
         variant="body"
-        sx={{ fontSize: "1.5rem", marginBottom: "1rem" }}
+        sx={{ fontSize: "1.5rem", marginBottom: "1rem", fontWeight: 400 }}
       >
         Welcome to my portfolio! I'm excited to have you here.
       </Typography>

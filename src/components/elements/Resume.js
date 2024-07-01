@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { Box, Button } from "@mui/material";
 import { Document, Page } from "react-pdf";
-import resume from "../utils/resume.pdf";
 import { pdfjs } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
-import bgImage from '../utils/bg.png'
+
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
 export default function Resume() {
-  const handleDownload = () => {
-    const filePath = "/resume.pdf";
+  const handleDownload =async () => {
+    const filePath = "https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/resume.pdf";
+    const response = await fetch(filePath);
+    if (!response.ok) throw new Error(`HTTP error status: ${response.status}`);
+    
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
     const link = document.createElement("a");
-    link.href = process.env.PUBLIC_URL + filePath;
+    link.href = url;
     link.download = "VarshikChebrolu_Resume.pdf";
     document.body.appendChild(link);
     link.click();
@@ -46,7 +50,7 @@ export default function Resume() {
         flexDirection: "column",
         alignItems: "center",
         gap: "3vh",
-        backgroundImage: `url(${bgImage})`,
+        backgroundImage:`url(https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/bg.png)`,
         backgroundSize:'contain'
       }}
       id='resume'
@@ -70,7 +74,7 @@ export default function Resume() {
           marginBottom: "3vh",
         }}
       >
-        <Document file={resume}>
+        <Document file={'https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/resume.pdf'}>
           <Page pageNumber={1} renderTextLayer={false} scale={0.87} width={docWidth} />
         </Document>
       </Box>
