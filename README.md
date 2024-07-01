@@ -16,8 +16,7 @@ Welcome to my personal portfolio website built with React! 🌟 This space refle
 
 - React
 - React Router
-- Styled Components (or your preferred styling library)
-- [Additional libraries or tools you've used]
+- Material UI
 
 ### 🚀 Installation
 
