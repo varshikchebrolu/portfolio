@@ -3,7 +3,6 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
-import homeLogo from "../utils/logo.png";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import { useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -88,7 +87,7 @@ export default function Header() {
         >
           <img
             alt="Main_logo"
-            src={homeLogo}
+            src={'https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/logo.png'}
             style={{
               maxWidth: "3.5rem",
               height: "3.5rem",
@@ -158,7 +157,7 @@ export default function Header() {
           >
             <img
               alt="Main_logo"
-              src={homeLogo}
+              src={'https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/logo.png'}
               style={{
                 maxWidth: "3.5rem",
                 height: "3.5rem",

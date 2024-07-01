@@ -7,8 +7,6 @@ import React from "react";
 import "./verticalTimeline.css";
 import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
 import WorkRoundedIcon from "@mui/icons-material/WorkRounded";
-import expbg from "../utils/expBG.jpg";
-import educbg from "../utils/educBG.jpg";
 
 export default function VerticalTimelineComponent({
   title,
@@ -18,11 +16,10 @@ export default function VerticalTimelineComponent({
   start,
   end,
 }) {
-  const calculateTimelineHeight = (start, end) => {
+  const calculateTimelineHeight = (start, end, maxHeight) => {
     const timeDifference = end.getTime() - start.getTime();
     const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
     const minHeight = 20;
-    const maxHeight = 25;
     const height = minHeight + (daysDifference / 365) * (maxHeight - minHeight);
     return height;
   };
@@ -39,13 +36,15 @@ export default function VerticalTimelineComponent({
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
           contentStyle={{
-            background: `url(${expbg})`,
+            background: `url(https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/expBG.jpg)`,
             backgroundSize: "cover",
             color: "white",
             height: `${calculateTimelineHeight(
               new Date(start),
-              new Date(end)
+              new Date(end),
+              18
             )}ch`,
+            borderRadius: "1rem",
           }}
           contentArrowStyle={{ borderRight: "7px solid  black" }}
           date={formatTimelineDate(new Date(start), new Date(end))}
@@ -53,11 +52,10 @@ export default function VerticalTimelineComponent({
             background:
               "linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)",
             color: "#000",
-            height: `${calculateTimelineHeight(
-              new Date(start),
-              new Date(end)
-            )*2}%`,
-            borderRadius:'3rem'
+            height: `${
+              calculateTimelineHeight(new Date(start), new Date(end), 30) * 2
+            }%`,
+            borderRadius: "3rem",
           }}
           position="left"
           icon={<WorkRoundedIcon />}
@@ -70,13 +68,15 @@ export default function VerticalTimelineComponent({
       {type === "education" && (
         <VerticalTimelineElement
           contentStyle={{
-            background: `url(${educbg})`,
+            background: `url(https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/educBG.jpg)`,
             backgroundSize: "cover",
             color: "white",
             height: `${calculateTimelineHeight(
               new Date(start),
-              new Date(end)
+              new Date(end),
+              20
             )}ch`,
+            borderRadius: "1rem",
           }}
           contentArrowStyle={{ borderRight: "7px solid black" }}
           date={formatTimelineDate(new Date(start), new Date(end))}
@@ -84,11 +84,10 @@ export default function VerticalTimelineComponent({
             background:
               "linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)",
             color: "#fff",
-            height: `${calculateTimelineHeight(
-              new Date(start),
-              new Date(end)
-            )*2}%`,
-            borderRadius:'3rem'
+            height: `${
+              calculateTimelineHeight(new Date(start), new Date(end)) * 2
+            }%`,
+            borderRadius: "3rem",
           }}
           position="right"
           dateClassName="vertical-time-element-date"

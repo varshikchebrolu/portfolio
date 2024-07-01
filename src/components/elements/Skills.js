@@ -5,7 +5,6 @@ import * as RiIcons from "react-icons/ri";
 import * as BiIcons from "react-icons/bi";
 import * as SiIcons from "react-icons/si";
 import * as TbIcons from "react-icons/tb";
-import bgImage from "../utils/bg.png";
 
 const icons = [
   { IconName: FaIcons.FaReact, displayName: "React" },
@@ -54,7 +53,7 @@ export default function Skills() {
         paddingLeft: "3rem",
         borderRadius: "10px",
         boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.1)",
-        backgroundImage: `url(${bgImage})`,
+        backgroundImage: `url(https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/bg.png)`,
         backgroundSize: "cover",
       }}
     >

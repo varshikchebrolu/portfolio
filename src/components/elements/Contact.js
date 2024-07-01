@@ -15,7 +15,6 @@ import PhoneIphoneRoundedIcon from "@mui/icons-material/PhoneIphoneRounded";
 import MapsHomeWorkRoundedIcon from "@mui/icons-material/MapsHomeWorkRounded";
 import ChatBubbleRoundedIcon from "@mui/icons-material/ChatBubbleRounded";
 import emailjs from "emailjs-com";
-import bg from "../utils/whitebg.jpg";
 
 export default function Contact() {
   const cardStyles = {
@@ -85,7 +84,7 @@ export default function Contact() {
         padding: "2rem",
         paddingLeft: "1rem",
         gap: "3rem",
-        backgroundImage: `url(${bg})`,
+        backgroundImage: `url(https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/whitebg.jpg)`,
         backgroundSize: "contain",
       }}
     >
