@@ -68,6 +68,31 @@ export default function Header() {
     "contact",
   ];
 
+  useEffect(() => {
+    const checkActiveSection = () => {
+      let active = false;
+      const sections = headerItems.reduce((acc, item) => {
+        acc.push(document.getElementById(item));
+        return acc;
+      }, []);
+      const scrollHeight = window.innerHeight;
+      sections.forEach(s => {
+        if (s && s?.getBoundingClientRect().top >= 0 && s?.getBoundingClientRect().top <= scrollHeight &&!active) {
+          setActiveSection(s.id);
+          active = true;
+        }
+      });
+    };
+  
+    window.addEventListener('scroll', checkActiveSection);
+    checkActiveSection();
+  
+    return () => {
+      window.removeEventListener('scroll', checkActiveSection);
+    };
+  }, [headerItems]);
+  
+
   if (isMobile) {
     return (
       <Box
