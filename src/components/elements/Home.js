@@ -51,7 +51,7 @@ export default function Home() {
         background: "black",
         backgroundImage: `url(https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/bg1.png)`,
         backgroundSize: "cover",
-        backgroundPosition:'center',
+        backgroundPosition: "center",
         minHeight: "90vh",
         marginTop: "3rem",
         gap: "3rem",
@@ -65,7 +65,7 @@ export default function Home() {
           color: "white",
           marginBottom: "2rem",
           width: "max-content",
-          marginLeft:'1rem'
+          marginLeft: "1rem",
         }}
       >
         <Typography variant="h3">Hello!!</Typography>
@@ -80,8 +80,13 @@ export default function Home() {
             Varshik Chebrolu,
           </span>
         </Typography>
-        <div style={{ display: "flex", marginTop: "1rem",gap:'0.5rem' }}>
-          <Typography variant="h6" sx={{ fontFamily: 'Roboto, sans-serif', fontWeight:'strong' }}>Passionate</Typography>
+        <div style={{ display: "flex", marginTop: "1rem", gap: "0.5rem" }}>
+          <Typography
+            variant="h6"
+            sx={{ fontFamily: "Roboto, sans-serif", fontWeight: "strong" }}
+          >
+            Passionate
+          </Typography>
           <div
             className="text-transition"
             style={{
@@ -91,14 +96,14 @@ export default function Home() {
                 "linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
-              fontWeight: 'bold',
-              whiteSpace: 'nowrap'
+              fontWeight: "bold",
+              whiteSpace: "nowrap",
             }}
           >
             {Roles[index]}
           </div>
         </div>
-        <Typography variant="h6" sx={{fontWeight:'strong'}}>
+        <Typography variant="h6" sx={{ fontWeight: "strong" }}>
           crafting exceptional applications beyond the ordinary.
         </Typography>
         <Grid
@@ -165,11 +170,18 @@ export default function Home() {
       </Box>
 
       <Box
-        style={{
+        sx={{
           marginBottom: "1rem",
         }}
       >
-        <img src={'https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/home2.png'} alt="homeImage" width="600rem" className="home-image"/>
+        <img
+          src={
+            "https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/home2.png"
+          }
+          alt="homeImage"
+          width="600rem"
+          className="home-image"
+        />
       </Box>
     </Box>
   );

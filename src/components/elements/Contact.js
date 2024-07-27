@@ -167,7 +167,7 @@ export default function Contact() {
         <Box
           sx={{
             backgroundColor: "black",
-            borderRadius: "4rem",
+            borderRadius: "2rem",
             padding: "2rem",
             boxShadow: "0px 3px 6px rgba(0, 0, 0, 0.1)",
             color: "white",
@@ -237,7 +237,7 @@ export default function Contact() {
             </Box>
             <Box
               sx={{
-                textAlign: "end",
+                textAlign: "center",
                 marginTop: "1.5rem",
                 marginRight: "1rem",
               }}

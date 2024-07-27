@@ -53,35 +53,49 @@ export default function About() {
         }}
       >
         <img
-          src={'https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/varshik.jpg'}
+          src={
+            "https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/varshik.jpg"
+          }
           alt="Picture with profile photo"
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
       </Box>
-      <Typography
-        variant="body"
-        sx={{ fontSize: "1.5rem", marginBottom: "1rem", fontWeight: 400 }}
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          textAlign: "center",
+        }}
       >
-        Welcome to my portfolio! I'm excited to have you here.
-      </Typography>
-      <Typography variant="p" sx={{ fontSize: "1.5rem", marginBottom: "1rem" }}>
-        A Software Developer and Computer Science Graduate with experience in
-        developing modern web applications.
-      </Typography>
-      <Typography
-        variant="body1"
-        sx={{ fontSize: "1.5rem", marginBottom: "1rem" }}
-      >
-        My primary focus is on creating exceptional user experiences by crafting
-        elegant and efficient solutions to complex problems.
-      </Typography>
-      <Typography
-        variant="body1"
-        sx={{ fontSize: "1.5rem", marginBottom: "1rem" }}
-      >
-        I am interested in learning about Cloud, containerization, and Web
-        Development.
-      </Typography>
+        <Typography
+          variant="body"
+          sx={{ fontSize: "1.5rem", marginBottom: "1rem", fontWeight: 400 }}
+        >
+          Welcome to my portfolio! I'm excited to have you here.
+        </Typography>
+        <Typography
+          variant="p"
+          sx={{ fontSize: "1.5rem", marginBottom: "1rem" }}
+        >
+          A Software Developer and Computer Science Graduate with experience in
+          developing modern web applications.
+        </Typography>
+        <Typography
+          variant="body1"
+          sx={{ fontSize: "1.5rem", marginBottom: "1rem" }}
+        >
+          My primary focus is on creating exceptional user experiences by
+          crafting elegant and efficient solutions to complex problems.
+        </Typography>
+        <Typography
+          variant="body1"
+          sx={{ fontSize: "1.5rem", marginBottom: "1rem" }}
+        >
+          I am interested in learning about Cloud, containerization, and Web
+          Development.
+        </Typography>
+      </Box>
     </Box>
   );
 }
