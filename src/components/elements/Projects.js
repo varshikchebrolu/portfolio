@@ -83,7 +83,7 @@ export default function Projects() {
                 background: "white",
                 width: {
                   xs: "60%",
-                  sm: "100%",
+                  sm: "40%",
                   md: "30%",
                 },
                 height: "35rem",
