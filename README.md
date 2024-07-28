@@ -1,6 +1,6 @@
 # My Portfolio
 
-Welcome to my personal portfolio website built with React! 🌟 This space reflects my journey as a passionate web developer.
+Welcome to my personal portfolio website built with React! 🌟 This space reflects my journey as a seasoned web developer.
 
 ![alt text](MainPage.png)
 
