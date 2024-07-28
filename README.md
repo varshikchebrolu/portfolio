@@ -1,6 +1,6 @@
 # My Portfolio
 
-Welcome to my personal portfolio website built with React! 🌟 This space reflects my journey as a passionate web developer.
+Welcome to my personal portfolio website built with React! 🌟 This space reflects my journey as a seasoned web developer.
 
 ![alt text](MainPage.png)
 
@@ -20,8 +20,8 @@ Welcome to my personal portfolio website built with React! 🌟 This space refle
 
 ### 🚀 Installation
 
-1. **Clone the repository:** git clone [repository-url]
-2. **Navigate to the project directory:**cd my-react-portfolio
+1. **Clone the repository:** git clone [[repository-url]](https://github.com/varshikchebrolu/portfolio.git)
+2. **Navigate to the project directory:**cd portfolio
 3. **Install dependencies:**npm install
    ▶Usage
    **Run the development server:**npm start
