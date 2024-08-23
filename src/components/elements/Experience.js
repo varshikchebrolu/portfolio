@@ -47,7 +47,7 @@ export default function Experience() {
       subtitle: "Full Stack Developer",
       description: `React, Typescript, Java, Springboot, SQL, NextJs`,
       type: "experience",
-      start: "2019-11",
+      start: "2019-07",
       end: "2021-07",
     },
     {
