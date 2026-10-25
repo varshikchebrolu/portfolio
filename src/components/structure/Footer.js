@@ -14,28 +14,29 @@ export default function Footer() {
       justifyContent="space-between"
       alignItems="center"
       sx={{
-        // background:"linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)",
+        background: "linear-gradient(180deg, #1a1a2e 0%, #0a0a0a 100%)",
         color: "white",
         minHeight: "8vh",
         padding: "1rem",
       }}
     >
      <div style={{ width: "100%", textAlign: "center" }}>
-        <p>
-          Developed by Varshik Chebrolu &copy;{" "}
-          <Typography sx={{ fontSize: '1rem' }}>All Rights Reserved</Typography>
-        </p>
+        <Typography sx={{ fontSize: '1.5rem' }}>
+          Developed by Varshik Chebrolu &copy; {new Date().getFullYear()}
+          <Typography sx={{ fontSize: '1rem', ml: 0.5 }}>All Rights Reserved</Typography>
+        </Typography>
       </div>
-      
 
-      <Grid container spacing={2} justifyContent="center">
+      <Grid container spacing={3} justifyContent="center">
         <Grid item>
           <a
             href="mailto:chebroluvarshik@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{ textDecoration: "none", color: "white" }}
           >
             <IconButton aria-label="Mail">
-              <MailIcon sx={{ color: "white" }}/>
+              <MailIcon sx={{ fontSize: 28, color: "#7D3DE4" }}/>
             </IconButton>
           </a>
         </Grid>
@@ -47,7 +48,7 @@ export default function Footer() {
             style={{ textDecoration: "none", color: "white" }}
           >
             <IconButton aria-label="GitHub">
-              <GitHubIcon sx={{ color: "white" }}/>
+              <GitHubIcon sx={{ fontSize: 28, color: "white" }}/>
             </IconButton>
           </a>
         </Grid>
@@ -59,7 +60,7 @@ export default function Footer() {
             style={{ textDecoration: "none", color: "white" }}
           >
             <IconButton aria-label="LinkedIn">
-              <LinkedInIcon sx={{ color: "white" }}/>
+              <LinkedInIcon sx={{ fontSize: 28, color: "#0A66C2" }}/>
             </IconButton>
           </a>
         </Grid>
@@ -71,7 +72,7 @@ export default function Footer() {
             style={{ textDecoration: "none", color: "white" }}
           >
             <IconButton aria-label="Instagram">
-              <InstagramIcon sx={{ color: "white" }}/>
+              <InstagramIcon sx={{ fontSize: 28, color: "#E4405F" }}/>
             </IconButton>
           </a>
         </Grid>

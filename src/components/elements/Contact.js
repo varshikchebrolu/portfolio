@@ -5,7 +5,6 @@ import {
   CardContent,
   Typography,
   TextField,
-  Container,
   Button,
   Grid,
   Snackbar,
@@ -13,13 +12,14 @@ import {
 } from "@mui/material";
 import PhoneIphoneRoundedIcon from "@mui/icons-material/PhoneIphoneRounded";
 import MapsHomeWorkRoundedIcon from "@mui/icons-material/MapsHomeWorkRounded";
-import ChatBubbleRoundedIcon from "@mui/icons-material/ChatBubbleRounded";
+import EmailIcon from "@mui/icons-material/Email";
+import { SocialIcon } from "react-social-icons";
 import emailjs from "emailjs-com";
 
 export default function Contact() {
   const cardStyles = {
     width: "70%",
-    maxWidth: "300px", 
+    maxWidth: "300px",
     boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.1)",
     display: "flex",
     flexDirection: "column",
@@ -77,7 +77,6 @@ export default function Contact() {
 
   return (
     <Box
-      container
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -104,9 +103,19 @@ export default function Contact() {
       <Grid
         container
         spacing={2}
+        sx={{ justifyContent: "center" }}
       >
-        <Grid item xs={12} sm={6} md={4} display={'flex'} justifyContent={'center'}>
-          <Card sx={cardStyles}>
+        <Grid item xs={12} sm={6} md={4} sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Card
+            sx={{
+              ...cardStyles,
+              "&:hover": {
+                transform: "translateY(-5px)",
+                boxShadow: "0px 10px 25px rgba(94, 33, 224, 0.3)"
+              },
+              transition: "transform 0.3s ease, box-shadow 0.3s ease"
+            }}
+          >
             <CardContent
               sx={{
                 display: "flex",
@@ -115,13 +124,22 @@ export default function Contact() {
                 gap: "1rem",
               }}
             >
-              <PhoneIphoneRoundedIcon sx={iconStyles} />
-              <Typography fontWeight={"bold"}>9706902665</Typography>
+              <PhoneIphoneRoundedIcon sx={{ ...iconStyles, transition: "transform 0.3s ease" }} />
+              <Typography fontWeight={"bold"} fontSize="1.1rem">+1 (970) 690-2665</Typography>
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} sm={6} md={4} display={'flex'} justifyContent={'center'}>
-          <Card sx={cardStyles}>
+        <Grid item xs={12} sm={6} md={4} sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Card
+            sx={{
+              ...cardStyles,
+              "&:hover": {
+                transform: "translateY(-5px)",
+                boxShadow: "0px 10px 25px rgba(94, 33, 224, 0.3)"
+              },
+              transition: "transform 0.3s ease, box-shadow 0.3s ease"
+            }}
+          >
             <CardContent
               sx={{
                 display: "flex",
@@ -130,15 +148,24 @@ export default function Contact() {
                 gap: "1rem",
               }}
             >
-              <MapsHomeWorkRoundedIcon sx={iconStyles} />
+              <MapsHomeWorkRoundedIcon sx={{ ...iconStyles, transition: "transform 0.3s ease" }} />
               <Typography fontWeight={"bold"}>
-                Fort Collins, Colorado, 80521.
+                Fort Collins, Colorado, 80521
               </Typography>
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} sm={6} md={4} display={'flex'} justifyContent={'center'}>
-          <Card sx={cardStyles}>
+        <Grid item xs={12} sm={6} md={4} sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Card
+            sx={{
+              ...cardStyles,
+              "&:hover": {
+                transform: "translateY(-5px)",
+                boxShadow: "0px 10px 25px rgba(94, 33, 224, 0.3)"
+              },
+              transition: "transform 0.3s ease, box-shadow 0.3s ease"
+            }}
+          >
             <CardContent
               sx={{
                 display: "flex",
@@ -147,67 +174,102 @@ export default function Contact() {
                 gap: "1rem",
               }}
             >
-              <ChatBubbleRoundedIcon sx={iconStyles} />
-              <Typography fontWeight={"bold"}>
-                chebroluvarshik@gmail.com
-              </Typography>
+              <EmailIcon sx={{ ...iconStyles, transition: "transform 0.3s ease" }} />
+              <Typography fontWeight={"bold"}>chebroluvarshik@gmail.com</Typography>
             </CardContent>
           </Card>
         </Grid>
       </Grid>
+
+      {/* Social Media Section */}
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "2rem",
+          flexWrap: "wrap",
+          alignItems: "center"
+        }}
+      >
+        <a href="mailto:chebroluvarshik@gmail.com">
+          <EmailIcon sx={{ fontSize: "3rem", color: "#7D3DE4", transition: "transform 0.3s ease", cursor: "pointer", "&:hover": { transform: "scale(1.2)" } }} />
+        </a>
+        <SocialIcon
+          url="https://github.com/varshikchebrolu"
+          target="_blank"
+          fgColor="#ffffff"
+          bgColor="#24292f"
+          style={{ height: 48, width: 48, transition: "transform 0.3s ease", cursor: "pointer" }}
+        />
+        <SocialIcon
+          url="https://www.linkedin.com/in/varshikchebrolu/"
+          bgColor="#0A66C2"
+          fgColor="#FFFFFF"
+          target="_blank"
+          style={{ height: 48, width: 48, transition: "transform 0.3s ease", cursor: "pointer" }}
+        />
+      </Box>
+
       <Box
         sx={{
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           flexWrap: "wrap",
-          gap:'1rem'
+          gap: '2rem'
         }}
       >
         <Box
           sx={{
             backgroundColor: "black",
-            borderRadius: "2rem",
-            padding: "2rem",
-            boxShadow: "0px 3px 6px rgba(0, 0, 0, 0.1)",
+            borderRadius: "20px",
+            padding: "3rem",
+            boxShadow: "0px 10px 40px rgba(94, 33, 224, 0.2)",
             color: "white",
-            width: {xs:'80vw',md:'50vw'},
+            width: { xs: '85vw', md: '60vw', lg: '50vw' },
           }}
         >
           <Typography
-            variant="h6"
+            variant="h5"
             align="center"
             gutterBottom
-            fontFamily={"sans-serif"}
-            fontWeight={"bold"}
-            marginBottom={"1rem"}
+            sx={{
+              fontFamily: "sans-serif",
+              fontWeight: "bold",
+              marginBottom: "2rem",
+              background: "linear-gradient(90deg, #FFD700 0%, #5E21E0 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
           >
             Message Me
           </Typography>
-          <form
+          <Box
+            component="form"
             onSubmit={handleSubmit}
             sx={{
               display: "flex",
               flexDirection: "column",
+              gap: "1.5rem",
             }}
           >
             <Box display={"flex"} flexDirection="column" gap={"1rem"}>
               <Box>
                 <TextField
-                  placeholder="Enter your name"
+                  placeholder="Your name *"
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
                   required
                   fullWidth
                   variant="outlined"
-                  sx={{ backgroundColor: "white", borderRadius: "100px" }}
-                  InputProps={{ sx: { borderRadius: "100px" } }}
+                  sx={{ backgroundColor: "white", borderRadius: "10px" }}
+                  InputProps={{ sx: { borderRadius: "10px", fontWeight: "500" } }}
                 />
               </Box>
               <Box>
                 <TextField
-                  placeholder="Enter your email"
+                  placeholder="Your email *"
                   name="email"
                   type="email"
                   value={formData.email}
@@ -215,31 +277,30 @@ export default function Contact() {
                   required
                   fullWidth
                   variant="outlined"
-                  sx={{ backgroundColor: "white", borderRadius: "100px" }}
-                  InputProps={{ sx: { borderRadius: "100px" } }}
+                  sx={{ backgroundColor: "white", borderRadius: "10px" }}
+                  InputProps={{ sx: { borderRadius: "10px", fontWeight: "500" } }}
                 />
               </Box>
               <Box>
                 <TextField
-                  placeholder="Enter Your message"
+                  placeholder="Your message *"
                   name="message"
                   multiline
-                  rows={5}
+                  rows={6}
                   value={formData.message}
                   onChange={handleInputChange}
                   required
                   fullWidth
                   variant="outlined"
-                  sx={{ backgroundColor: "white", borderRadius: "30px" }}
-                  InputProps={{ sx: { borderRadius: "30px" } }}
+                  sx={{ backgroundColor: "white", borderRadius: "10px" }}
+                  InputProps={{ sx: { borderRadius: "10px", fontWeight: "400" } }}
                 />
               </Box>
             </Box>
             <Box
               sx={{
                 textAlign: "center",
-                marginTop: "1.5rem",
-                marginRight: "1rem",
+                marginTop: "2rem",
               }}
             >
               <Button
@@ -247,13 +308,22 @@ export default function Contact() {
                 variant="contained"
                 sx={{
                   background:
-                    "linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)",
+                    "linear-gradient(90deg, #FFD700 0%, #5E21E0 100%)",
+                  padding: "1rem 4rem",
+                  fontSize: "1.1rem",
+                  fontWeight: "bold",
+                  borderRadius: "25px",
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  "&:hover": {
+                    transform: "translateY(-3px)",
+                    boxShadow: "0px 5px 20px rgba(94, 33, 224, 0.4)",
+                  },
                 }}
               >
-                Submit
+                Send Message
               </Button>
             </Box>
-          </form>
+          </Box>
           <Snackbar
             open={!!successMessage}
             autoHideDuration={6000}
@@ -264,6 +334,7 @@ export default function Contact() {
               severity="success"
               variant="filled"
               onClose={() => setSuccessMessage("")}
+              sx={{ borderRadius: "10px" }}
             >
               {successMessage}
             </Alert>
@@ -278,27 +349,11 @@ export default function Contact() {
               severity="error"
               variant="filled"
               onClose={() => setErrorMessage("")}
+              sx={{ borderRadius: "10px" }}
             >
               {errorMessage}
             </Alert>
           </Snackbar>
-        </Box>
-        <Box
-          sx={{
-            maxWidth: "12rem",
-            padding: "2rem",
-          }}
-        >
-          <Typography variant="h5" fontWeight="bold" marginBottom="1.5rem">
-            Get In Touch
-          </Typography>
-          <Typography fontSize="16px" lineHeight="1.6">
-            Please feel free to contact me via phone or email, or use the
-            provided contact card to reach out.
-          </Typography>
-          <Typography fontSize="16px" lineHeight="1.6" marginTop="1rem">
-            I am excited to hear from you!
-          </Typography>
         </Box>
       </Box>
     </Box>

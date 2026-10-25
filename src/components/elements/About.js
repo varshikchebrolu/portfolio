@@ -69,31 +69,18 @@ export default function About() {
         }}
       >
         <Typography
-          variant="body"
-          sx={{ fontSize: "1.5rem", marginBottom: "1rem", fontWeight: 400 }}
-        >
-          Welcome to my portfolio! I'm excited to have you here.
-        </Typography>
-        <Typography
-          variant="p"
-          sx={{ fontSize: "1.5rem", marginBottom: "1rem" }}
-        >
-          A Software Developer and Computer Science Graduate with experience in
-          developing modern web applications.
-        </Typography>
-        <Typography
           variant="body1"
-          sx={{ fontSize: "1.5rem", marginBottom: "1rem" }}
+          sx={{ fontSize: "1.3rem", marginBottom: "1rem", fontWeight: 400 }}
         >
-          My primary focus is on creating exceptional user experiences by
-          crafting elegant and efficient solutions to complex problems.
+          Software Engineer with 3+ years of full-stack web development experience.
+          Known for tackling challenging situations and understanding problems before solving them.
         </Typography>
         <Typography
-          variant="body1"
-          sx={{ fontSize: "1.5rem", marginBottom: "1rem" }}
+          variant="body2"
+          sx={{ fontSize: "1.1rem", marginBottom: "1rem", fontWeight: 400 }}
         >
-          I am interested in learning about Cloud, containerization, and Web
-          Development.
+          Proficient in React, JavaScript, Agile planning, and collaborative team environments,
+          always focused on delivering user-centric solutions.
         </Typography>
       </Box>
     </Box>

@@ -4,10 +4,17 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-scroll";
 import { SocialIcon } from "react-social-icons";
 import anime from "animejs";
+import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
+import CodeIcon from "@mui/icons-material/Code";
 
 export default function Home() {
   const navigate = useNavigate();
-  const Roles = ["Software Engineer", "Front-End Developer", "Collaborator"];
+  const Roles = [
+  "Full Stack Developer",
+  "Software Engineer",
+  "React & TypeScript Expert",
+  "JavaScript Enthusiast"
+];
   const [index, setIndex] = React.useState(0);
 
   useEffect(() => {
@@ -37,6 +44,21 @@ export default function Home() {
     const intervalId = setInterval(animateText, 3000);
     return () => clearTimeout(intervalId);
   }, []);
+
+  const certifications = [
+    {
+      name: "LinkedIn Certified Front-end Developer",
+      icon: VerifiedUserIcon,
+      color: "#0A66C2",
+      description: "JavaScript & ReactJS"
+    },
+    {
+      name: "JavaScript Certified",
+      icon: CodeIcon,
+      color: "#FFD700",
+      description: "HackerRank"
+    }
+  ];
 
   return (
     <Box
@@ -106,6 +128,36 @@ export default function Home() {
         <Typography variant="h6" sx={{ fontWeight: "strong" }}>
           crafting exceptional applications beyond the ordinary.
         </Typography>
+
+        {/* Certifications Section */}
+        <Box sx={{ display: "flex", gap: "1rem", marginTop: "2rem", flexWrap: "wrap" }}>
+          <Typography variant="body2" color="white" fontWeight="bold" marginBottom="0.5rem">
+            CERTIFICATIONS
+          </Typography>
+          {certifications.map((cert, idx) => (
+            <Box
+              key={idx}
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                backgroundColor: "rgba(255, 255, 255, 0.1)",
+                borderRadius: "10px",
+                padding: "1rem",
+                width: "200px",
+              }}
+            >
+              <cert.icon sx={{ fontSize: "2.5rem", color: cert.color }} />
+              <Typography variant="caption" fontWeight="bold" gutterBottom>
+                {cert.name}
+              </Typography>
+              <Typography variant="caption" color="#ccc" fontStyle="italic">
+                {cert.description}
+              </Typography>
+            </Box>
+          ))}
+        </Box>
+
         <Grid
           item
           xs={12}
@@ -179,6 +231,10 @@ export default function Home() {
             "https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/home2.png"
           }
           alt="homeImage"
+          loading="lazy"
+          onError={(e) => {
+            e.target.src = "https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/project-placeholder.png";
+          }}
           width="600rem"
           className="home-image"
         />
