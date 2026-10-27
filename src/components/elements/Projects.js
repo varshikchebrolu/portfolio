@@ -1,130 +1,186 @@
-import {
-  Box,
-  Typography,
-} from "@mui/material";
+import { Box, Typography, Chip } from "@mui/material";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 import React from "react";
+import Section from "../common/Section";
+import SectionHeading from "../common/SectionHeading";
+import { tokens } from "../../theme";
+
+const ProjectsDetails = [
+  {
+    tag: "AI / RAG",
+    name: "Multi-Tenant Namespaced RAG System",
+    description:
+      "A session-based RAG pipeline using parent/child chunking, hybrid search, and Reciprocal Rank Fusion for high-precision retrieval across isolated knowledge bases. Includes an MCP server that dynamically routes queries across session contexts, holding 80% session relevance with strict tenant isolation.",
+    tech: ["Python", "FastAPI", "Qdrant", "SQLAlchemy", "Cohere"],
+    githubLink: "https://github.com/varshikchebrolu",
+    image: "/projects/rag-system.svg",
+  },
+  {
+    tag: "AI / Agents",
+    name: "LangGraph AI Resume Optimization Suite",
+    description:
+      "An iterative LangGraph multi-agent pipeline for automated job-description matching, scoring, and targeted resume rewriting, backed by PostgreSQL. A low-latency RAG layer with sentence-aware chunking achieves 0.5s embedding builds and 185ms query retrieval via grounded generation.",
+    tech: ["LangGraph", "Python", "Pydantic AI", "Gemini", "Next.js"],
+    githubLink: "https://github.com/varshikchebrolu",
+    image: "/projects/langgraph-suite.svg",
+  },
+  {
+    tag: "Internal Tooling",
+    name: "AI Setup Assistant",
+    description:
+      "An internal developer tool built at DISH that parses onboarding documentation and auto-executes environment setup scripts. Uses Gemini models with server-sent events for streaming responses, cutting developer setup time by roughly 30%.",
+    tech: ["FastAPI", "Gemini", "SSE", "Python"],
+    githubLink: "https://github.com/varshikchebrolu",
+    image: "/projects/ai-setup-assistant.svg",
+  },
+];
 
 export default function Projects() {
-  const ProjectsDetails = [
-    {
-      title: "Educational project",
-      name: "Legan Chess",
-      description:
-        " Developed a full fledged legan chess game - a chess game with different rule - with a team of 5 developers and learned various concepts of Object Oriented Principles.",
-      techStack: "React, Java, Object Oriented Principles",
-      githubLink: "link to github",
-      imageURL: 'https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/chess.jpg',
-    },
-    {
-      title: " Educational Project",
-      name: "Detect the Brain Tumors using CNN clusters",
-      description:
-        "Worked on a machine learning algorithm to detect the brain tumors through MRI scan images. Trained and tested the Model with more than 6000 images and increased the accuracy to 90%",
-      techStack: "Machine Learning, CNN clusters",
-      githubLink: "link to github",
-      imageURL: 'https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/brainTumor.png',
-    },
-    {
-      title: " Educational Project",
-      name: "Automation testing approaches for small scale java projects",
-      description:
-        "Tested more than 30 small scale open source java projects by generating automatic unit test cases using selenium to find the accuracy of the reaching the code coverage",
-      techStack: "Java, Selenium",
-      githubLink: "link to github",
-      imageURL: 'https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/auto_testing.jpeg',
-    },
-  ];
-
   return (
-    <Box
-      container
-      sx={{
-        color: "#333333",
-        display: "flex",
-        flexDirection: "column",
-        padding: "2rem",
-        paddingLeft: "3rem",
-        boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.1)",
-        backgroundImage: `url(https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/bg.png)`,
-        backgroundSize: "cover",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <Typography
-        component="h1"
-        sx={{
-          color: "whitesmoke",
-          alignSelf: "center",
-          fontSize: "2rem",
-          paddingBottom: "3rem",
-          fontWeight: "bold",
-        }}
-        id="projects"
-      >
-        Projects
-      </Typography>
+    <Section id="projects-section">
+      <SectionHeading kicker="Things I've built" title="Featured Projects" id="projects" />
       <Box
         sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          borderRadius: "10px",
+          display: "grid",
+          gridTemplateColumns: {
+            xs: "1fr",
+            md: "repeat(2, 1fr)",
+            lg: "repeat(3, 1fr)",
+          },
           gap: "2rem",
-          justifyContent: "center",
-          alignItems: "center",
         }}
       >
-        {ProjectsDetails.map((project) => {
-          return (
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                background: "white",
-                width: {
-                  xs: "60%",
-                  sm: "40%",
-                  md: "30%",
-                },
-                height: "35rem",
-                borderRadius: "1rem",
-              }}
-            >
+        {ProjectsDetails.map((project) => (
+          <Box
+            key={project.name}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              background: tokens.surface,
+              border: `1px solid ${tokens.border}`,
+              borderRadius: "18px",
+              overflow: "hidden",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease",
+              "&:hover": {
+                transform: "translateY(-8px)",
+                borderColor: tokens.primary,
+                boxShadow: "0 18px 40px rgba(125,33,224,0.25)",
+              },
+            }}
+          >
+            {/* Cover */}
+            <Box sx={{ position: "relative", aspectRatio: "16 / 10", overflow: "hidden" }}>
               <img
-                alt={project.title}
-                src={project.imageURL}
-                style={{ height: "60%", borderRadius: "1rem" }}
+                alt={project.name}
+                src={project.image}
+                loading="lazy"
+                onError={(e) => {
+                  e.currentTarget.src =
+                    "https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/project-placeholder.png";
+                }}
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
               />
-              <Box sx={{ padding: "1rem" }}>
-                <Typography
-                  gutterBottom
-                  variant="h5"
-                  component="div"
-                  fontSize={"1.25rem"}
-                  color={"black"}
-                  fontWeight={"bold"}
+              <Chip
+                label={project.tag}
+                size="small"
+                sx={{
+                  position: "absolute",
+                  top: 12,
+                  left: 12,
+                  color: tokens.text,
+                  fontWeight: 700,
+                  fontSize: "0.7rem",
+                  background: "rgba(10,10,15,0.7)",
+                  border: `1px solid ${tokens.border}`,
+                  backdropFilter: "blur(6px)",
+                }}
+              />
+            </Box>
+
+            {/* Body */}
+            <Box sx={{ p: "1.5rem", display: "flex", flexDirection: "column", flex: 1 }}>
+              <Typography
+                sx={{ fontSize: "1.2rem", fontWeight: 700, color: tokens.text, mb: "0.75rem" }}
+              >
+                {project.name}
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "0.9rem",
+                  color: tokens.textMuted,
+                  lineHeight: 1.65,
+                  mb: "1.25rem",
+                  flex: 1,
+                }}
+              >
+                {project.description}
+              </Typography>
+
+              <Box sx={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", mb: "1.25rem" }}>
+                {project.tech.map((t) => (
+                  <Chip
+                    key={t}
+                    label={t}
+                    size="small"
+                    sx={{
+                      color: tokens.accent,
+                      fontWeight: 600,
+                      fontSize: "0.72rem",
+                      background: "rgba(57,225,236,0.08)",
+                      border: `1px solid ${tokens.border}`,
+                    }}
+                  />
+                ))}
+              </Box>
+
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "1rem",
+                  pt: "1rem",
+                  borderTop: `1px solid ${tokens.border}`,
+                }}
+              >
+                <a
+                  href={project.githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.4rem",
+                    fontSize: "0.9rem",
+                    fontWeight: 700,
+                    color: tokens.text,
+                    textDecoration: "none",
+                  }}
                 >
-                  {project.name}
-                </Typography>
-                <Typography
-                  variant="body2"
-                  color="InfoText"
-                  fontSize={"0.95rem"}
+                  <GitHubIcon sx={{ fontSize: 20 }} /> Code
+                </a>
+                <a
+                  href={project.githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.3rem",
+                    fontSize: "0.9rem",
+                    fontWeight: 700,
+                    color: tokens.accent,
+                    textDecoration: "none",
+                    marginLeft: "auto",
+                  }}
                 >
-                  {project.description}
-                </Typography>
-                <Typography
-                  fontSize={"1rem"}
-                  fontWeight={"bold"}
-                  paddingTop={"3%"}
-                >
-                  Tech Stack: {project.techStack}
-                </Typography>
+                  View project <ArrowOutwardRoundedIcon sx={{ fontSize: 18 }} />
+                </a>
               </Box>
             </Box>
-          );
-        })}
+          </Box>
+        ))}
       </Box>
-    </Box>
+    </Section>
   );
 }

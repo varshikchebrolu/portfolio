@@ -1,81 +1,64 @@
 import React from "react";
-import { Typography, Box, Grid, IconButton } from "@mui/material";
+import { Typography, Box, IconButton } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import MailIcon from "@mui/icons-material/Mail";
+import MailRoundedIcon from "@mui/icons-material/MailRounded";
+import { tokens } from "../../theme";
+
+const socials = [
+  { icon: MailRoundedIcon, href: "mailto:chebroluvarshik@gmail.com", label: "Email", color: "#39E1EC" },
+  { icon: GitHubIcon, href: "https://github.com/varshikchebrolu", label: "GitHub", color: "#ffffff" },
+  { icon: LinkedInIcon, href: "https://www.linkedin.com/in/varshikchebrolu/", label: "LinkedIn", color: "#0A66C2" },
+  { icon: InstagramIcon, href: "https://www.instagram.com/varshik_chebrolu/", label: "Instagram", color: "#E4405F" },
+];
 
 export default function Footer() {
   return (
     <Box
-      container
-      display="flex"
-      flexDirection={'column'}
-      justifyContent="space-between"
-      alignItems="center"
+      component="footer"
       sx={{
-        // background:"linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)",
-        color: "white",
-        minHeight: "8vh",
-        padding: "1rem",
+        background: tokens.bg,
+        borderTop: `1px solid ${tokens.border}`,
+        color: tokens.text,
+        py: "2.5rem",
+        px: "1.5rem",
       }}
     >
-     <div style={{ width: "100%", textAlign: "center" }}>
-        <p>
-          Developed by Varshik Chebrolu &copy;{" "}
-          <Typography sx={{ fontSize: '1rem' }}>All Rights Reserved</Typography>
-        </p>
-      </div>
-      
-
-      <Grid container spacing={2} justifyContent="center">
-        <Grid item>
-          <a
-            href="mailto:chebroluvarshik@gmail.com"
-            style={{ textDecoration: "none", color: "white" }}
-          >
-            <IconButton aria-label="Mail">
-              <MailIcon sx={{ color: "white" }}/>
+      <Box
+        sx={{
+          maxWidth: "1180px",
+          mx: "auto",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "1.25rem",
+        }}
+      >
+        <Box sx={{ display: "flex", gap: "0.5rem" }}>
+          {socials.map((s) => (
+            <IconButton
+              key={s.label}
+              aria-label={s.label}
+              component="a"
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                color: s.color,
+                border: `1px solid ${tokens.border}`,
+                transition: "transform 0.25s ease, border-color 0.25s ease",
+                "&:hover": { transform: "translateY(-3px)", borderColor: tokens.primary },
+              }}
+            >
+              <s.icon sx={{ fontSize: 22 }} />
             </IconButton>
-          </a>
-        </Grid>
-        <Grid item>
-          <a
-            href="https://github.com/varshikchebrolu"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: "none", color: "white" }}
-          >
-            <IconButton aria-label="GitHub">
-              <GitHubIcon sx={{ color: "white" }}/>
-            </IconButton>
-          </a>
-        </Grid>
-        <Grid item>
-          <a
-            href="https://www.linkedin.com/in/varshikchebrolu/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: "none", color: "white" }}
-          >
-            <IconButton aria-label="LinkedIn">
-              <LinkedInIcon sx={{ color: "white" }}/>
-            </IconButton>
-          </a>
-        </Grid>
-        <Grid item>
-          <a
-            href="https://www.instagram.com/varshik_chebrolu/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: "none", color: "white" }}
-          >
-            <IconButton aria-label="Instagram">
-              <InstagramIcon sx={{ color: "white" }}/>
-            </IconButton>
-          </a>
-        </Grid>
-      </Grid>
+          ))}
+        </Box>
+        <Typography sx={{ color: tokens.textMuted, fontSize: "0.9rem", textAlign: "center" }}>
+          © {new Date().getFullYear()} Varshik Chebrolu · Built with React & MUI
+        </Typography>
+      </Box>
     </Box>
   );
 }

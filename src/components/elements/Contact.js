@@ -1,56 +1,48 @@
 import React, { useState } from "react";
 import {
   Box,
-  Card,
-  CardContent,
   Typography,
   TextField,
-  Container,
   Button,
-  Grid,
   Snackbar,
   Alert,
 } from "@mui/material";
 import PhoneIphoneRoundedIcon from "@mui/icons-material/PhoneIphoneRounded";
-import MapsHomeWorkRoundedIcon from "@mui/icons-material/MapsHomeWorkRounded";
-import ChatBubbleRoundedIcon from "@mui/icons-material/ChatBubbleRounded";
+import PlaceRoundedIcon from "@mui/icons-material/PlaceRounded";
+import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
+import SendRoundedIcon from "@mui/icons-material/SendRounded";
+import { SocialIcon } from "react-social-icons";
 import emailjs from "emailjs-com";
+import Section from "../common/Section";
+import SectionHeading from "../common/SectionHeading";
+import { tokens } from "../../theme";
+
+const infoCards = [
+  { icon: PhoneIphoneRoundedIcon, label: "Phone", value: "+1 (970) 690-2665" },
+  { icon: PlaceRoundedIcon, label: "Location", value: "Denver, Colorado, 80601" },
+  { icon: EmailRoundedIcon, label: "Email", value: "chebroluvarshik@gmail.com" },
+];
+
+const fieldSx = {
+  "& .MuiOutlinedInput-root": {
+    background: tokens.bg,
+    borderRadius: "12px",
+    color: tokens.text,
+    "& fieldset": { borderColor: tokens.border },
+    "&:hover fieldset": { borderColor: tokens.primary },
+    "&.Mui-focused fieldset": { borderColor: tokens.accent },
+  },
+  "& .MuiInputBase-input::placeholder": { color: tokens.textMuted, opacity: 1 },
+};
 
 export default function Contact() {
-  const cardStyles = {
-    width: "70%",
-    maxWidth: "300px", 
-    boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.1)",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    padding: "1rem",
-    gap: "3rem",
-    borderRadius: "10px",
-    backgroundColor: "black",
-    color: "white",
-  };
-
-  const iconStyles = {
-    fontSize: "3rem",
-    color: "#7D3DE4",
-  };
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (event) => {
@@ -62,13 +54,8 @@ export default function Contact() {
         event.target,
         "2SrRgYQ2dhzEZejOt"
       );
-
-      setSuccessMessage("Message sent successfully! Thank You!");
-      setFormData({
-        name: "",
-        email: "",
-        message: "",
-      });
+      setSuccessMessage("Message sent successfully. Thank you!");
+      setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       setErrorMessage("Error sending message. Please try again later.");
       console.log(error);
@@ -76,231 +63,166 @@ export default function Contact() {
   };
 
   return (
-    <Box
-      container
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        padding: "2rem",
-        paddingLeft: "1rem",
-        gap: "3rem",
-        backgroundImage: `url(https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/whitebg.jpg)`,
-        backgroundSize: "contain",
-      }}
-    >
-      <Typography
-        component="h1"
-        sx={{
-          color: "black",
-          alignSelf: "center",
-          fontSize: "2rem",
-          paddingBottom: "1rem",
-          fontWeight: "bold",
-        }}
-        id="contact"
-      >
-        Contact
-      </Typography>
-      <Grid
-        container
-        spacing={2}
-      >
-        <Grid item xs={12} sm={6} md={4} display={'flex'} justifyContent={'center'}>
-          <Card sx={cardStyles}>
-            <CardContent
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                flexDirection: "column",
-                gap: "1rem",
-              }}
-            >
-              <PhoneIphoneRoundedIcon sx={iconStyles} />
-              <Typography fontWeight={"bold"}>9706902665</Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={12} sm={6} md={4} display={'flex'} justifyContent={'center'}>
-          <Card sx={cardStyles}>
-            <CardContent
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                flexDirection: "column",
-                gap: "1rem",
-              }}
-            >
-              <MapsHomeWorkRoundedIcon sx={iconStyles} />
-              <Typography fontWeight={"bold"}>
-                Fort Collins, Colorado, 80521.
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={12} sm={6} md={4} display={'flex'} justifyContent={'center'}>
-          <Card sx={cardStyles}>
-            <CardContent
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                flexDirection: "column",
-                gap: "1rem",
-              }}
-            >
-              <ChatBubbleRoundedIcon sx={iconStyles} />
-              <Typography fontWeight={"bold"}>
-                chebroluvarshik@gmail.com
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-      </Grid>
+    <Section id="contact-section" alt>
+      <SectionHeading kicker="Let's connect" title="Get in Touch" id="contact" />
+
       <Box
         sx={{
           display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
           flexWrap: "wrap",
-          gap:'1rem'
+          gap: "2.5rem",
+          justifyContent: "center",
+          alignItems: "flex-start",
         }}
       >
-        <Box
-          sx={{
-            backgroundColor: "black",
-            borderRadius: "2rem",
-            padding: "2rem",
-            boxShadow: "0px 3px 6px rgba(0, 0, 0, 0.1)",
-            color: "white",
-            width: {xs:'80vw',md:'50vw'},
-          }}
-        >
-          <Typography
-            variant="h6"
-            align="center"
-            gutterBottom
-            fontFamily={"sans-serif"}
-            fontWeight={"bold"}
-            marginBottom={"1rem"}
-          >
-            Message Me
+        {/* Left: info + socials */}
+        <Box sx={{ flex: "1 1 320px", maxWidth: "420px" }}>
+          <Typography sx={{ color: tokens.textMuted, lineHeight: 1.8, mb: "2rem" }}>
+            Have a role, a project, or just want to say hello? I'm always happy to
+            talk about engineering, AI, or building things that last.
           </Typography>
-          <form
-            onSubmit={handleSubmit}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <Box display={"flex"} flexDirection="column" gap={"1rem"}>
-              <Box>
-                <TextField
-                  placeholder="Enter your name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  required
-                  fullWidth
-                  variant="outlined"
-                  sx={{ backgroundColor: "white", borderRadius: "100px" }}
-                  InputProps={{ sx: { borderRadius: "100px" } }}
-                />
-              </Box>
-              <Box>
-                <TextField
-                  placeholder="Enter your email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                  fullWidth
-                  variant="outlined"
-                  sx={{ backgroundColor: "white", borderRadius: "100px" }}
-                  InputProps={{ sx: { borderRadius: "100px" } }}
-                />
-              </Box>
-              <Box>
-                <TextField
-                  placeholder="Enter Your message"
-                  name="message"
-                  multiline
-                  rows={5}
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  required
-                  fullWidth
-                  variant="outlined"
-                  sx={{ backgroundColor: "white", borderRadius: "30px" }}
-                  InputProps={{ sx: { borderRadius: "30px" } }}
-                />
-              </Box>
-            </Box>
-            <Box
-              sx={{
-                textAlign: "center",
-                marginTop: "1.5rem",
-                marginRight: "1rem",
-              }}
-            >
-              <Button
-                type="submit"
-                variant="contained"
+
+          <Box sx={{ display: "flex", flexDirection: "column", gap: "1rem", mb: "2rem" }}>
+            {infoCards.map((card) => (
+              <Box
+                key={card.label}
                 sx={{
-                  background:
-                    "linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "1rem",
+                  p: "1rem 1.25rem",
+                  background: tokens.surface,
+                  border: `1px solid ${tokens.border}`,
+                  borderRadius: "14px",
+                  transition: "border-color 0.25s ease, transform 0.25s ease",
+                  "&:hover": { borderColor: tokens.primary, transform: "translateX(4px)" },
                 }}
               >
-                Submit
-              </Button>
-            </Box>
-          </form>
-          <Snackbar
-            open={!!successMessage}
-            autoHideDuration={6000}
-            onClose={() => setSuccessMessage("")}
-            anchorOrigin={{ vertical: "top", horizontal: "center" }}
-          >
-            <Alert
-              severity="success"
-              variant="filled"
-              onClose={() => setSuccessMessage("")}
-            >
-              {successMessage}
-            </Alert>
-          </Snackbar>
-          <Snackbar
-            open={!!errorMessage}
-            autoHideDuration={6000}
-            onClose={() => setErrorMessage("")}
-            anchorOrigin={{ vertical: "top", horizontal: "center" }}
-          >
-            <Alert
-              severity="error"
-              variant="filled"
-              onClose={() => setErrorMessage("")}
-            >
-              {errorMessage}
-            </Alert>
-          </Snackbar>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: 44,
+                    height: 44,
+                    borderRadius: "12px",
+                    background: tokens.gradientSoft,
+                  }}
+                >
+                  <card.icon sx={{ color: tokens.accent }} />
+                </Box>
+                <Box>
+                  <Typography sx={{ color: tokens.textMuted, fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.1em" }}>
+                    {card.label}
+                  </Typography>
+                  <Typography sx={{ color: tokens.text, fontWeight: 600 }}>
+                    {card.value}
+                  </Typography>
+                </Box>
+              </Box>
+            ))}
+          </Box>
+
+          <Box sx={{ display: "flex", gap: "1rem" }}>
+            <a href="mailto:chebroluvarshik@gmail.com" aria-label="Email">
+              <SocialIcon network="email" bgColor={tokens.surfaceAlt} fgColor="#39E1EC" style={{ height: 46, width: 46 }} />
+            </a>
+            <SocialIcon url="https://github.com/varshikchebrolu" target="_blank" fgColor="#ffffff" bgColor={tokens.surfaceAlt} style={{ height: 46, width: 46 }} />
+            <SocialIcon url="https://www.linkedin.com/in/varshikchebrolu/" bgColor={tokens.surfaceAlt} fgColor="#0A66C2" target="_blank" style={{ height: 46, width: 46 }} />
+          </Box>
         </Box>
+
+        {/* Right: form */}
         <Box
+          component="form"
+          onSubmit={handleSubmit}
           sx={{
-            maxWidth: "12rem",
-            padding: "2rem",
+            flex: "1 1 420px",
+            maxWidth: "560px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "1.25rem",
+            p: { xs: "1.5rem", md: "2.5rem" },
+            background: tokens.surface,
+            border: `1px solid ${tokens.border}`,
+            borderRadius: "20px",
           }}
         >
-          <Typography variant="h5" fontWeight="bold" marginBottom="1.5rem">
-            Get In Touch
-          </Typography>
-          <Typography fontSize="16px" lineHeight="1.6">
-            Please feel free to contact me via phone or email, or use the
-            provided contact card to reach out.
-          </Typography>
-          <Typography fontSize="16px" lineHeight="1.6" marginTop="1rem">
-            I am excited to hear from you!
-          </Typography>
+          <TextField
+            placeholder="Your name"
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
+            required
+            fullWidth
+            sx={fieldSx}
+          />
+          <TextField
+            placeholder="Your email"
+            name="email"
+            type="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            required
+            fullWidth
+            sx={fieldSx}
+          />
+          <TextField
+            placeholder="Your message"
+            name="message"
+            multiline
+            rows={6}
+            value={formData.message}
+            onChange={handleInputChange}
+            required
+            fullWidth
+            sx={fieldSx}
+          />
+          <Button
+            type="submit"
+            variant="contained"
+            endIcon={<SendRoundedIcon />}
+            sx={{
+              alignSelf: "flex-start",
+              px: "2rem",
+              py: "0.75rem",
+              fontSize: "1rem",
+              borderRadius: "999px",
+              color: "#0a0a0f",
+              background: tokens.gradient,
+              boxShadow: "0 8px 24px rgba(125,91,255,0.35)",
+              transition: "transform 0.25s ease, box-shadow 0.25s ease",
+              "&:hover": {
+                transform: "translateY(-3px)",
+                boxShadow: "0 12px 30px rgba(125,91,255,0.5)",
+              },
+            }}
+          >
+            Send Message
+          </Button>
         </Box>
       </Box>
-    </Box>
+
+      <Snackbar
+        open={!!successMessage}
+        autoHideDuration={6000}
+        onClose={() => setSuccessMessage("")}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      >
+        <Alert severity="success" variant="filled" onClose={() => setSuccessMessage("")} sx={{ borderRadius: "10px" }}>
+          {successMessage}
+        </Alert>
+      </Snackbar>
+      <Snackbar
+        open={!!errorMessage}
+        autoHideDuration={6000}
+        onClose={() => setErrorMessage("")}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      >
+        <Alert severity="error" variant="filled" onClose={() => setErrorMessage("")} sx={{ borderRadius: "10px" }}>
+          {errorMessage}
+        </Alert>
+      </Snackbar>
+    </Section>
   );
 }
