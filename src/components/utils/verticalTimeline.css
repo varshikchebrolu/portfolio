@@ -1,3 +1,14 @@
-.vertical-timeline-element-date {
-    color: rgb(0, 0, 0);
-  }
+.timeline-date {
+  color: #f4f4f8 !important;
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+/* Make the timeline vertical line subtle on the dark theme */
+.vertical-timeline::before {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.vertical-timeline-element-content p {
+  font-weight: 400;
+}

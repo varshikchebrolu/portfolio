@@ -1,243 +1,286 @@
 import React, { useEffect } from "react";
-import { Box, Button, Typography, Grid, IconButton } from "@mui/material";
+import { Box, Button, Typography, Chip } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-scroll";
 import { SocialIcon } from "react-social-icons";
 import anime from "animejs";
-import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
-import CodeIcon from "@mui/icons-material/Code";
+import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
+import { tokens, gradientText } from "../../theme";
+
+const Roles = [
+  "Software Engineer II",
+  "Full Stack Developer",
+  "React & TypeScript Expert",
+  "AI & RAG Engineer",
+];
+
+const stats = [
+  { value: "6+", label: "Years experience" },
+  { value: "99.9%", label: "Payment uptime" },
+  { value: "$300K", label: "Audit cost saved" },
+];
 
 export default function Home() {
   const navigate = useNavigate();
-  const Roles = [
-  "Full Stack Developer",
-  "Software Engineer",
-  "React & TypeScript Expert",
-  "JavaScript Enthusiast"
-];
   const [index, setIndex] = React.useState(0);
 
   useEffect(() => {
     const targetElement = document.querySelector(".text-transition");
+    if (!targetElement) return;
 
     const animateText = () => {
       anime({
         targets: targetElement,
-        translateY: [0, -20],
+        translateY: [0, -18],
         opacity: [1, 0],
-        duration: 500,
+        duration: 450,
         easing: "easeInOutQuad",
         complete: () => {
-          setIndex((prevIndex) => (prevIndex + 1) % Roles.length);
-          targetElement.innerText = Roles[index];
+          setIndex((prev) => {
+            const next = (prev + 1) % Roles.length;
+            targetElement.innerText = Roles[next];
+            return next;
+          });
           anime({
             targets: targetElement,
-            translateY: [20, 0],
+            translateY: [18, 0],
             opacity: [0, 1],
-            duration: 500,
+            duration: 450,
             easing: "easeInOutQuad",
           });
         },
       });
     };
 
-    const intervalId = setInterval(animateText, 3000);
-    return () => clearTimeout(intervalId);
+    const intervalId = setInterval(animateText, 2800);
+    return () => clearInterval(intervalId);
   }, []);
-
-  const certifications = [
-    {
-      name: "LinkedIn Certified Front-end Developer",
-      icon: VerifiedUserIcon,
-      color: "#0A66C2",
-      description: "JavaScript & ReactJS"
-    },
-    {
-      name: "JavaScript Certified",
-      icon: CodeIcon,
-      color: "#FFD700",
-      description: "HackerRank"
-    }
-  ];
 
   return (
     <Box
-      container
-      style={{
-        paddingTop: "2rem",
-        display: "flex",
-        flexDirection: "row",
-        flexWrap: "wrap",
-        justifyContent: "center",
-        alignItems: "center",
-        background: "black",
-        backgroundImage: `url(https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/bg1.png)`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        minHeight: "90vh",
-        marginTop: "3rem",
-        gap: "3rem",
-      }}
       id="home"
+      sx={{
+        position: "relative",
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        px: { xs: "1.25rem", md: "2rem" },
+        pt: { xs: "7rem", md: "6rem" },
+        pb: { xs: "4rem", md: "3rem" },
+        background: `radial-gradient(1000px 600px at 80% 10%, rgba(125,91,255,0.18), transparent 60%),
+                     radial-gradient(800px 500px at 10% 90%, rgba(57,225,236,0.12), transparent 60%),
+                     ${tokens.bg}`,
+        overflow: "hidden",
+      }}
     >
       <Box
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          color: "white",
-          marginBottom: "2rem",
-          width: "max-content",
-          marginLeft: "1rem",
-        }}
-      >
-        <Typography variant="h3">Hello!!</Typography>
-        <Typography variant="h3" marginTop={"1rem"}>
-          I'm{" "}
-          <span
-            style={{
-              fontStyle: "oblique",
-              fontFamily: "sans-serif",
-            }}
-          >
-            Varshik Chebrolu,
-          </span>
-        </Typography>
-        <div style={{ display: "flex", marginTop: "1rem", gap: "0.5rem" }}>
-          <Typography
-            variant="h6"
-            sx={{ fontFamily: "Roboto, sans-serif", fontWeight: "strong" }}
-          >
-            Passionate
-          </Typography>
-          <div
-            className="text-transition"
-            style={{
-              fontSize: "1.5rem",
-              color: "#39e1ec",
-              background:
-                "linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              fontWeight: "bold",
-              whiteSpace: "nowrap",
-            }}
-          >
-            {Roles[index]}
-          </div>
-        </div>
-        <Typography variant="h6" sx={{ fontWeight: "strong" }}>
-          crafting exceptional applications beyond the ordinary.
-        </Typography>
-
-        {/* Certifications Section */}
-        <Box sx={{ display: "flex", gap: "1rem", marginTop: "2rem", flexWrap: "wrap" }}>
-          <Typography variant="body2" color="white" fontWeight="bold" marginBottom="0.5rem">
-            CERTIFICATIONS
-          </Typography>
-          {certifications.map((cert, idx) => (
-            <Box
-              key={idx}
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                backgroundColor: "rgba(255, 255, 255, 0.1)",
-                borderRadius: "10px",
-                padding: "1rem",
-                width: "200px",
-              }}
-            >
-              <cert.icon sx={{ fontSize: "2.5rem", color: cert.color }} />
-              <Typography variant="caption" fontWeight="bold" gutterBottom>
-                {cert.name}
-              </Typography>
-              <Typography variant="caption" color="#ccc" fontStyle="italic">
-                {cert.description}
-              </Typography>
-            </Box>
-          ))}
-        </Box>
-
-        <Grid
-          item
-          xs={12}
-          sm={6}
-          sx={{ display: "flex", gap: "1rem", marginTop: "1rem" }}
-        >
-          <Button
-            variant="contained"
-            style={{
-              fontSize: "1rem",
-              fontWeight: "bold",
-              textTransform: "capitalize",
-              background:
-                "linear-gradient(90deg, hsla(307, 93%, 84%, 1) 0%, hsla(256, 96%, 44%, 1) 100%)",
-            }}
-            onClick={() => navigate("/resume")}
-          >
-            Resume
-          </Button>
-          <Link to="contact" smooth={true} duration={1000}>
-            <Button
-              variant="outlined"
-              sx={{
-                fontSize: "1rem",
-                fontWeight: "bold",
-                textTransform: "capitalize",
-                ":hover": {
-                  backgroundColor: "#5E21E0",
-                  borderColor: "#5E21E0",
-                },
-                color: "white",
-                borderColor: "#5E21E0",
-              }}
-            >
-              Hire Me
-            </Button>
-          </Link>
-        </Grid>
-        <Box
-          style={{
-            display: "flex",
-            marginTop: "2rem",
-            gap: "2rem",
-          }}
-        >
-          <a href="mailto:chebroluvarshik@gmail.com">
-            <SocialIcon network="email" bgColor="white" fgColor="red" />
-          </a>
-          <SocialIcon
-            url="https://github.com/varshikchebrolu"
-            target="_blank"
-            fgColor="black"
-            bgColor="grey"
-          />
-          <SocialIcon
-            url="https://www.linkedin.com/in/varshikchebrolu/"
-            bgColor="#0A66C2"
-            fgColor="#FFFFFF"
-            target="_blank"
-          />
-        </Box>
-      </Box>
-
-      <Box
         sx={{
-          marginBottom: "1rem",
+          maxWidth: "1180px",
+          mx: "auto",
+          width: "100%",
+          display: "flex",
+          flexWrap: "wrap",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: { xs: "3rem", md: "2rem" },
         }}
       >
-        <img
-          src={
-            "https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/home2.png"
-          }
-          alt="homeImage"
-          loading="lazy"
-          onError={(e) => {
-            e.target.src = "https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/project-placeholder.png";
+        {/* Left: intro */}
+        <Box sx={{ flex: "1 1 460px", maxWidth: "640px" }}>
+          <Chip
+            label="Open to opportunities"
+            size="small"
+            sx={{
+              mb: "1.5rem",
+              color: tokens.accent,
+              fontWeight: 700,
+              letterSpacing: "0.04em",
+              border: `1px solid ${tokens.border}`,
+              background: "rgba(57,225,236,0.08)",
+              "& .MuiChip-label": { px: 1.5 },
+            }}
+          />
+          <Typography
+            sx={{ color: tokens.textMuted, fontSize: "1.1rem", mb: "0.5rem" }}
+          >
+            Hi, I'm
+          </Typography>
+          <Typography
+            component="h1"
+            sx={{
+              fontSize: { xs: "2.6rem", md: "3.8rem" },
+              fontWeight: 800,
+              lineHeight: 1.05,
+              mb: "1rem",
+              ...gradientText,
+            }}
+          >
+            Varshik Chebrolu
+          </Typography>
+
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "baseline",
+              gap: "0.6rem",
+              mb: "1.5rem",
+              flexWrap: "wrap",
+            }}
+          >
+            <Typography sx={{ color: tokens.text, fontSize: "1.4rem", fontWeight: 600 }}>
+              Passionate
+            </Typography>
+            <Box
+              className="text-transition"
+              sx={{
+                fontSize: "1.4rem",
+                fontWeight: 800,
+                whiteSpace: "nowrap",
+                ...gradientText,
+              }}
+            >
+              {Roles[index]}
+            </Box>
+          </Box>
+
+          <Typography
+            sx={{
+              color: tokens.textMuted,
+              fontSize: "1.1rem",
+              lineHeight: 1.7,
+              maxWidth: "34rem",
+              mb: "2.25rem",
+            }}
+          >
+            I build high-availability web applications, secure payment systems, and
+            applied-AI tooling — bridging solid product engineering with RAG
+            architectures and LangGraph agent workflows.
+          </Typography>
+
+          {/* CTAs */}
+          <Box sx={{ display: "flex", gap: "1rem", flexWrap: "wrap", mb: "2.5rem" }}>
+            <Button
+              variant="contained"
+              startIcon={<DownloadRoundedIcon />}
+              onClick={() => navigate("/resume")}
+              sx={{
+                px: "1.75rem",
+                py: "0.75rem",
+                fontSize: "1rem",
+                borderRadius: "999px",
+                color: "#0a0a0f",
+                background: tokens.gradient,
+                boxShadow: "0 8px 24px rgba(125,91,255,0.35)",
+                transition: "transform 0.25s ease, box-shadow 0.25s ease",
+                "&:hover": {
+                  transform: "translateY(-3px)",
+                  boxShadow: "0 12px 30px rgba(125,91,255,0.5)",
+                },
+              }}
+            >
+              View Resume
+            </Button>
+            <Link to="contact" smooth duration={800} offset={-70}>
+              <Button
+                variant="outlined"
+                sx={{
+                  px: "1.75rem",
+                  py: "0.75rem",
+                  fontSize: "1rem",
+                  borderRadius: "999px",
+                  color: tokens.text,
+                  borderColor: tokens.border,
+                  transition: "all 0.25s ease",
+                  "&:hover": {
+                    borderColor: tokens.primary,
+                    background: "rgba(125,91,255,0.1)",
+                  },
+                }}
+              >
+                Get in touch
+              </Button>
+            </Link>
+          </Box>
+
+          {/* Stats */}
+          <Box sx={{ display: "flex", gap: { xs: "1.5rem", md: "2.5rem" }, flexWrap: "wrap", mb: "2rem" }}>
+            {stats.map((s) => (
+              <Box key={s.label}>
+                <Typography sx={{ fontSize: "1.8rem", fontWeight: 800, ...gradientText }}>
+                  {s.value}
+                </Typography>
+                <Typography sx={{ color: tokens.textMuted, fontSize: "0.85rem" }}>
+                  {s.label}
+                </Typography>
+              </Box>
+            ))}
+          </Box>
+
+          {/* Socials */}
+          <Box sx={{ display: "flex", gap: "1rem" }}>
+            <a href="mailto:chebroluvarshik@gmail.com" aria-label="Email">
+              <SocialIcon network="email" bgColor={tokens.surfaceAlt} fgColor="#39E1EC" style={{ height: 44, width: 44 }} />
+            </a>
+            <SocialIcon
+              url="https://github.com/varshikchebrolu"
+              target="_blank"
+              fgColor="#ffffff"
+              bgColor={tokens.surfaceAlt}
+              style={{ height: 44, width: 44 }}
+            />
+            <SocialIcon
+              url="https://www.linkedin.com/in/varshikchebrolu/"
+              bgColor={tokens.surfaceAlt}
+              fgColor="#0A66C2"
+              target="_blank"
+              style={{ height: 44, width: 44 }}
+            />
+          </Box>
+        </Box>
+
+        {/* Right: portrait */}
+        <Box
+          sx={{
+            flex: "1 1 320px",
+            display: "flex",
+            justifyContent: "center",
+            position: "relative",
           }}
-          width="600rem"
-          className="home-image"
-        />
+        >
+          <Box
+            sx={{
+              position: "absolute",
+              inset: "-10%",
+              background: tokens.gradient,
+              filter: "blur(70px)",
+              opacity: 0.25,
+              borderRadius: "50%",
+            }}
+          />
+          <Box
+            sx={{
+              position: "relative",
+              borderRadius: "28px",
+              padding: "4px",
+              background: tokens.gradient,
+              animation: "floatY 6s ease-in-out infinite",
+              maxWidth: "420px",
+              width: "100%",
+            }}
+          >
+            <img
+              src="https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/home2.png"
+              alt="Varshik Chebrolu"
+              loading="lazy"
+              onError={(e) => {
+                e.target.src =
+                  "https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/project-placeholder.png";
+              }}
+              className="home-image"
+              style={{ borderRadius: "24px" }}
+            />
+          </Box>
+        </Box>
       </Box>
     </Box>
   );

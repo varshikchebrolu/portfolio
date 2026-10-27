@@ -1,88 +1,122 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Chip } from "@mui/material";
+import Section from "../common/Section";
+import SectionHeading from "../common/SectionHeading";
+import { tokens } from "../../theme";
+
+const highlights = [
+  "Payment systems",
+  "Enterprise AEM",
+  "RAG architectures",
+  "LangGraph agents",
+  "MCP servers",
+];
 
 export default function About() {
   return (
-    <Box
-      container
-      sx={{
-        color: "black",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        padding: "2rem",
-        backgroundImage: `url(https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/whitebg.jpg)`,
-        backgroundSize: "cover",
-      }}
-    >
-      <Typography
-        variant="h2"
+    <Section id="about-section">
+      <SectionHeading kicker="Get to know me" title="About Me" id="about" />
+      <Box
         sx={{
-          fontSize: "2.5rem",
           display: "flex",
-          marginBottom: "2rem",
-          fontWeight: "bold",
+          flexWrap: "wrap",
+          gap: { xs: "2.5rem", md: "4rem" },
           alignItems: "center",
           justifyContent: "center",
-          flexWrap: "wrap",
         }}
-        id="about"
       >
-        Sneak Peak{" "}
-        <Typography
+        {/* Portrait */}
+        <Box
           sx={{
-            color: "#5E21E0",
-            fontWeight: "bold",
-            fontSize: "inherit",
-            marginLeft: "1rem",
-            marginRight: "1rem",
+            position: "relative",
+            flex: "0 0 auto",
           }}
         >
-          About
-        </Typography>{" "}
-        Me
-      </Typography>
-      <Box
-        sx={{
-          width: "200px",
-          height: "200px",
-          borderRadius: "50%",
-          overflow: "hidden",
-          marginBottom: "2rem",
-        }}
-      >
-        <img
-          src={
-            "https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/varshik.jpg"
-          }
-          alt="Picture with profile photo"
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-        />
+          <Box
+            sx={{
+              width: { xs: "200px", md: "260px" },
+              height: { xs: "200px", md: "260px" },
+              borderRadius: "28px",
+              padding: "4px",
+              background: tokens.gradient,
+              boxShadow: "0 20px 50px rgba(125,91,255,0.25)",
+            }}
+          >
+            <img
+              src="https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/varshik.jpg"
+              alt="Varshik Chebrolu"
+              onError={(e) => {
+                e.target.src =
+                  "https://fwrqd2wnfbppmvdo.public.blob.vercel-storage.com/project-placeholder.png";
+              }}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                borderRadius: "24px",
+                display: "block",
+              }}
+            />
+          </Box>
+        </Box>
+
+        {/* Text */}
+        <Box sx={{ flex: "1 1 420px", maxWidth: "620px" }}>
+          <Typography
+            sx={{
+              color: tokens.text,
+              fontSize: { xs: "1.15rem", md: "1.3rem" },
+              fontWeight: 600,
+              lineHeight: 1.6,
+              mb: "1.25rem",
+            }}
+          >
+            Software Engineer II with 6 years of experience building
+            high-availability web applications, secure payment gateways, and
+            enterprise AEM platforms.
+          </Typography>
+          <Typography
+            sx={{
+              color: tokens.textMuted,
+              fontSize: "1.05rem",
+              lineHeight: 1.8,
+              mb: "1.25rem",
+            }}
+          >
+            I care about understanding a problem deeply before solving it, and about
+            shipping software that holds up in production. Skilled in React,
+            TypeScript, Redux, Java (Spring Boot), and Python.
+          </Typography>
+          <Typography
+            sx={{
+              color: tokens.textMuted,
+              fontSize: "1.05rem",
+              lineHeight: 1.8,
+              mb: "2rem",
+            }}
+          >
+            Currently expanding into RAG architectures, LangGraph agent workflows,
+            and MCP server integrations — bridging solid product engineering with
+            applied AI.
+          </Typography>
+
+          <Box sx={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
+            {highlights.map((h) => (
+              <Chip
+                key={h}
+                label={h}
+                sx={{
+                  color: tokens.text,
+                  fontWeight: 600,
+                  border: `1px solid ${tokens.border}`,
+                  background: tokens.surface,
+                  "&:hover": { borderColor: tokens.primary },
+                }}
+              />
+            ))}
+          </Box>
+        </Box>
       </Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          textAlign: "center",
-        }}
-      >
-        <Typography
-          variant="body1"
-          sx={{ fontSize: "1.3rem", marginBottom: "1rem", fontWeight: 400 }}
-        >
-          Software Engineer with 3+ years of full-stack web development experience.
-          Known for tackling challenging situations and understanding problems before solving them.
-        </Typography>
-        <Typography
-          variant="body2"
-          sx={{ fontSize: "1.1rem", marginBottom: "1rem", fontWeight: 400 }}
-        >
-          Proficient in React, JavaScript, Agile planning, and collaborative team environments,
-          always focused on delivering user-centric solutions.
-        </Typography>
-      </Box>
-    </Box>
+    </Section>
   );
 }
