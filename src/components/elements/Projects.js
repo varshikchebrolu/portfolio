@@ -65,12 +65,14 @@ export default function Projects() {
               "&:hover": {
                 transform: "translateY(-8px)",
                 borderColor: tokens.primary,
-                boxShadow: "0 18px 40px rgba(125,33,224,0.25)",
+                boxShadow: `0 18px 40px rgba(${tokens.glow},0.3)`,
               },
+              width:{sm:"80%",md:"90%", lg:"100%"},
+              justifyItems:{sm:"center",lg:'start'}
             }}
           >
             {/* Cover */}
-            <Box sx={{ position: "relative", aspectRatio: "16 / 10", overflow: "hidden" }}>
+            <Box sx={{ position: "relative", aspectRatio: "16/10", overflow: "hidden"}}>
               <img
                 alt={project.name}
                 src={project.image}
@@ -127,7 +129,7 @@ export default function Projects() {
                       color: tokens.accent,
                       fontWeight: 600,
                       fontSize: "0.72rem",
-                      background: "rgba(57,225,236,0.08)",
+                      background: `rgba(${tokens.glow},0.1)`,
                       border: `1px solid ${tokens.border}`,
                     }}
                   />

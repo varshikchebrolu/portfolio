@@ -67,8 +67,8 @@ export default function Home() {
         px: { xs: "1.25rem", md: "2rem" },
         pt: { xs: "7rem", md: "6rem" },
         pb: { xs: "4rem", md: "3rem" },
-        background: `radial-gradient(1000px 600px at 80% 10%, rgba(125,91,255,0.18), transparent 60%),
-                     radial-gradient(800px 500px at 10% 90%, rgba(57,225,236,0.12), transparent 60%),
+        background: `radial-gradient(1000px 600px at 80% 10%, rgba(155,109,255,0.18), transparent 60%),
+                     radial-gradient(800px 500px at 10% 90%, rgba(91,141,239,0.14), transparent 60%),
                      ${tokens.bg}`,
         overflow: "hidden",
       }}
@@ -86,7 +86,18 @@ export default function Home() {
         }}
       >
         {/* Left: intro */}
-        <Box sx={{ flex: "1 1 460px", maxWidth: "640px" }}>
+        <Box
+          sx={{
+            flex: "1 1 460px",
+            maxWidth: "680px",
+            display: "flex",
+            flexDirection: "column",
+            // Center content on phone + tablet, left-align on desktop
+            alignItems: { xs: "center", md: "flex-start" },
+            textAlign: { xs: "center", md: "left" },
+            marginLeft:{lg:"5%"}
+          }}
+        >
           <Chip
             label="Open to opportunities"
             size="small"
@@ -96,7 +107,7 @@ export default function Home() {
               fontWeight: 700,
               letterSpacing: "0.04em",
               border: `1px solid ${tokens.border}`,
-              background: "rgba(57,225,236,0.08)",
+              background: "rgba(155,109,255,0.1)",
               "& .MuiChip-label": { px: 1.5 },
             }}
           />
@@ -125,11 +136,12 @@ export default function Home() {
               gap: "0.6rem",
               mb: "1.5rem",
               flexWrap: "wrap",
+              justifyContent: { xs: "center", md: "flex-start" },
             }}
           >
-            <Typography sx={{ color: tokens.text, fontSize: "1.4rem", fontWeight: 600 }}>
+            {/* <Typography sx={{ color: tokens.text, fontSize: "1.4rem", fontWeight: 600 }}>
               Passionate
-            </Typography>
+            </Typography> */}
             <Box
               className="text-transition"
               sx={{
@@ -158,7 +170,7 @@ export default function Home() {
           </Typography>
 
           {/* CTAs */}
-          <Box sx={{ display: "flex", gap: "1rem", flexWrap: "wrap", mb: "2.5rem" }}>
+          <Box sx={{ display: "flex", gap: "1rem", flexWrap: "wrap", mb: "2.5rem", justifyContent: { xs: "center", md: "flex-start" } }}>
             <Button
               variant="contained"
               startIcon={<DownloadRoundedIcon />}
@@ -168,13 +180,13 @@ export default function Home() {
                 py: "0.75rem",
                 fontSize: "1rem",
                 borderRadius: "999px",
-                color: "#0a0a0f",
+                color: "#ffffff",
                 background: tokens.gradient,
-                boxShadow: "0 8px 24px rgba(125,91,255,0.35)",
+                boxShadow: `0 8px 24px rgba(${tokens.glow},0.4)`,
                 transition: "transform 0.25s ease, box-shadow 0.25s ease",
                 "&:hover": {
                   transform: "translateY(-3px)",
-                  boxShadow: "0 12px 30px rgba(125,91,255,0.5)",
+                  boxShadow: `0 12px 30px rgba(${tokens.glow},0.6)`,
                 },
               }}
             >
@@ -193,7 +205,7 @@ export default function Home() {
                   transition: "all 0.25s ease",
                   "&:hover": {
                     borderColor: tokens.primary,
-                    background: "rgba(125,91,255,0.1)",
+                    background: `rgba(${tokens.glow},0.12)`,
                   },
                 }}
               >
@@ -203,9 +215,17 @@ export default function Home() {
           </Box>
 
           {/* Stats */}
-          <Box sx={{ display: "flex", gap: { xs: "1.5rem", md: "2.5rem" }, flexWrap: "wrap", mb: "2rem" }}>
+          <Box
+            sx={{
+              display: "flex",
+              gap: { xs: "1.5rem", md: "2.5rem" },
+              flexWrap: "wrap",
+              mb: "2rem",
+              justifyContent: { xs: "center", md: "flex-start" },
+            }}
+          >
             {stats.map((s) => (
-              <Box key={s.label}>
+              <Box key={s.label} sx={{ textAlign: { xs: "center", md: "left" } }}>
                 <Typography sx={{ fontSize: "1.8rem", fontWeight: 800, ...gradientText }}>
                   {s.value}
                 </Typography>
@@ -217,9 +237,9 @@ export default function Home() {
           </Box>
 
           {/* Socials */}
-          <Box sx={{ display: "flex", gap: "1rem" }}>
+          <Box sx={{ display: "flex", gap: "1rem", justifyContent: { xs: "center", md: "flex-start" } }}>
             <a href="mailto:chebroluvarshik@gmail.com" aria-label="Email">
-              <SocialIcon network="email" bgColor={tokens.surfaceAlt} fgColor="#39E1EC" style={{ height: 44, width: 44 }} />
+              <SocialIcon network="email" bgColor={tokens.surfaceAlt} fgColor="#9B6DFF" style={{ height: 44, width: 44 }} />
             </a>
             <SocialIcon
               url="https://github.com/varshikchebrolu"

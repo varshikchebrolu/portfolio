@@ -39,7 +39,7 @@ export default function About() {
               borderRadius: "28px",
               padding: "4px",
               background: tokens.gradient,
-              boxShadow: "0 20px 50px rgba(125,91,255,0.25)",
+              boxShadow: `0 20px 50px rgba(${tokens.glow},0.3)`,
             }}
           >
             <img

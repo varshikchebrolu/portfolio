@@ -3,27 +3,30 @@ import { createTheme } from "@mui/material/styles";
 // Central design tokens for the portfolio. Keeping these in one place keeps
 // the look cohesive across every section.
 export const tokens = {
-  // Core surfaces (dark, modern developer aesthetic)
-  bg: "#0a0a0f",
-  bgAlt: "#101018",
-  surface: "#15151f",
-  surfaceAlt: "#1c1c29",
-  border: "rgba(255, 255, 255, 0.08)",
+  // Core surfaces (Midnight Indigo — cool, calm, corporate-safe)
+  bg: "#0b0f1e",
+  bgAlt: "#0e1326",
+  surface: "#161c33",
+  surfaceAlt: "#1e2645",
+  border: "rgba(255, 255, 255, 0.09)",
 
   // Text
-  text: "#f4f4f8",
-  textMuted: "#a8a8b8",
+  text: "#e8ebf5",
+  textMuted: "#8a93b0",
 
   // Brand accents
-  primary: "#7D5BFF", // violet
-  primaryDeep: "#5E21E0",
-  accent: "#39E1EC", // cyan
+  primary: "#5B8DEF", // blue
+  primaryDeep: "#3a63c7",
+  accent: "#9B6DFF", // violet
   gold: "#FFD166",
 
+  // Signature glow (used for shadows/halos). RGB of primary.
+  glow: "91,141,239",
+
   // The signature gradient used for headings, buttons, highlights
-  gradient: "linear-gradient(90deg, #39E1EC 0%, #7D5BFF 55%, #C86DD7 100%)",
+  gradient: "linear-gradient(90deg, #5B8DEF 0%, #7D78F5 55%, #9B6DFF 100%)",
   gradientSoft:
-    "linear-gradient(135deg, rgba(57,225,236,0.12) 0%, rgba(125,91,255,0.12) 100%)",
+    "linear-gradient(135deg, rgba(91,141,239,0.12) 0%, rgba(155,109,255,0.12) 100%)",
 };
 
 export const gradientText = {

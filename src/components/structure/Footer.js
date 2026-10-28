@@ -7,7 +7,7 @@ import MailRoundedIcon from "@mui/icons-material/MailRounded";
 import { tokens } from "../../theme";
 
 const socials = [
-  { icon: MailRoundedIcon, href: "mailto:chebroluvarshik@gmail.com", label: "Email", color: "#39E1EC" },
+  { icon: MailRoundedIcon, href: "mailto:chebroluvarshik@gmail.com", label: "Email", color: "#9B6DFF" },
   { icon: GitHubIcon, href: "https://github.com/varshikchebrolu", label: "GitHub", color: "#ffffff" },
   { icon: LinkedInIcon, href: "https://www.linkedin.com/in/varshikchebrolu/", label: "LinkedIn", color: "#0A66C2" },
   { icon: InstagramIcon, href: "https://www.instagram.com/varshik_chebrolu/", label: "Instagram", color: "#E4405F" },

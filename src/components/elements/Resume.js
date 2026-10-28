@@ -51,7 +51,7 @@ export default function Resume() {
         pt: { xs: "7rem", md: "8rem" },
         pb: "4rem",
         px: "1.5rem",
-        background: `radial-gradient(900px 500px at 50% 0%, rgba(125,91,255,0.12), transparent 60%), ${tokens.bg}`,
+        background: `radial-gradient(900px 500px at 50% 0%, rgba(${tokens.glow},0.14), transparent 60%), ${tokens.bg}`,
       }}
     >
       <Typography component="h1" sx={{ fontSize: { xs: "2.2rem", md: "2.75rem" }, fontWeight: 800, ...gradientText }}>
@@ -69,13 +69,13 @@ export default function Resume() {
           py: "0.75rem",
           fontSize: "1rem",
           borderRadius: "999px",
-          color: "#0a0a0f",
+          color: "#ffffff",
           background: tokens.gradient,
-          boxShadow: "0 8px 24px rgba(125,91,255,0.35)",
+          boxShadow: `0 8px 24px rgba(${tokens.glow},0.4)`,
           transition: "transform 0.25s ease, box-shadow 0.25s ease",
           "&:hover": {
             transform: "translateY(-3px)",
-            boxShadow: "0 12px 30px rgba(125,91,255,0.5)",
+            boxShadow: `0 12px 30px rgba(${tokens.glow},0.6)`,
           },
         }}
       >

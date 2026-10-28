@@ -80,7 +80,7 @@ function SkillCard({ Icon, displayName }) {
         "&:hover": {
           transform: "translateY(-6px)",
           borderColor: tokens.primary,
-          boxShadow: "0 12px 28px rgba(125,91,255,0.25)",
+          boxShadow: `0 12px 28px rgba(${tokens.glow},0.3)`,
         },
         padding: "1.25rem 0.75rem",
         width: { xs: "28%", sm: "20%", md: "120px" },
