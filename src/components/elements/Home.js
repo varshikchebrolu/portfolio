@@ -10,8 +10,8 @@ import { tokens, gradientText } from "../../theme";
 const Roles = [
   "Software Engineer II",
   "Full Stack Developer",
-  "React & TypeScript Expert",
-  "AI & RAG Engineer",
+  "React & Javascript Expert",
+  "AI & RAG Enthusiast",
 ];
 
 const stats = [

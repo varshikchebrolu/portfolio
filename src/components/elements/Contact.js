@@ -6,16 +6,24 @@ import {
   Button,
   Snackbar,
   Alert,
+  CircularProgress,
 } from "@mui/material";
 import PhoneIphoneRoundedIcon from "@mui/icons-material/PhoneIphoneRounded";
 import PlaceRoundedIcon from "@mui/icons-material/PlaceRounded";
 import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import { SocialIcon } from "react-social-icons";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 import Section from "../common/Section";
 import SectionHeading from "../common/SectionHeading";
 import { tokens } from "../../theme";
+
+// EmailJS configuration. Manage these at https://dashboard.emailjs.com
+const EMAILJS = {
+  serviceId: "service_e6jdejc",
+  templateId: "template_portfolio",
+  publicKey: "2SrRgYQ2dhzEZejOt",
+};
 
 const infoCards = [
   { icon: PhoneIphoneRoundedIcon, label: "Phone", value: "+1 (970) 690-2665" },
@@ -39,6 +47,7 @@ export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [sending, setSending] = useState(false);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -47,18 +56,23 @@ export default function Contact() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const form = event.target;
+
+    // Honeypot: bots fill hidden fields; humans never see this one.
+    if (form.company && form.company.value) return;
+
+    setSending(true);
     try {
-      await emailjs.sendForm(
-        "service_ab39axs",
-        "template_portfolio",
-        event.target,
-        "2SrRgYQ2dhzEZejOt"
-      );
+      await emailjs.sendForm(EMAILJS.serviceId, EMAILJS.templateId, form, {
+        publicKey: EMAILJS.publicKey,
+      });
       setSuccessMessage("Message sent successfully. Thank you!");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       setErrorMessage("Error sending message. Please try again later.");
-      console.log(error);
+      console.error(error);
+    } finally {
+      setSending(false);
     }
   };
 
@@ -148,6 +162,15 @@ export default function Contact() {
             borderRadius: "20px",
           }}
         >
+          {/* Honeypot field — hidden from humans, catches bots */}
+          <input
+            type="text"
+            name="company"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+          />
           <TextField
             placeholder="Your name"
             name="name"
@@ -181,7 +204,14 @@ export default function Contact() {
           <Button
             type="submit"
             variant="contained"
-            endIcon={<SendRoundedIcon />}
+            disabled={sending}
+            endIcon={
+              sending ? (
+                <CircularProgress size={18} sx={{ color: "#ffffff" }} />
+              ) : (
+                <SendRoundedIcon />
+              )
+            }
             sx={{
               alignSelf: "flex-start",
               px: "2rem",
@@ -196,9 +226,14 @@ export default function Contact() {
                 transform: "translateY(-3px)",
                 boxShadow: `0 12px 30px rgba(${tokens.glow},0.6)`,
               },
+              "&.Mui-disabled": {
+                color: "rgba(255,255,255,0.7)",
+                background: tokens.gradient,
+                opacity: 0.7,
+              },
             }}
           >
-            Send Message
+            {sending ? "Sending…" : "Send Message"}
           </Button>
         </Box>
       </Box>
