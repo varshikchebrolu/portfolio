@@ -16,8 +16,12 @@ body {
     'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #0a0a0f;
-  color: #f4f4f8;
+  background-color: #0b0f1e;
+  color: #e8ebf5;
+  /* Prevent horizontal scroll from hero glows without breaking sticky header.
+     (overflow on an ancestor of a sticky element disables stickiness, so we
+     keep this on body rather than the app wrapper.) */
+  overflow-x: hidden;
 }
 
 code {
@@ -25,7 +29,7 @@ code {
 }
 
 ::selection {
-  background: rgba(125, 91, 255, 0.35);
+  background: rgba(91, 141, 239, 0.4);
   color: #ffffff;
 }
 
@@ -35,16 +39,16 @@ code {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0f;
+  background: #0b0f1e;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #39E1EC 0%, #7D5BFF 100%);
+  background: linear-gradient(180deg, #5B8DEF 0%, #9B6DFF 100%);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #5df0fa 0%, #9170ff 100%);
+  background: linear-gradient(180deg, #74a0f5 0%, #ab82ff 100%);
 }
 
 @media (prefers-reduced-motion: reduce) {

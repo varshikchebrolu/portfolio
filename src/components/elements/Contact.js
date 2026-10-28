@@ -125,7 +125,7 @@ export default function Contact() {
 
           <Box sx={{ display: "flex", gap: "1rem" }}>
             <a href="mailto:chebroluvarshik@gmail.com" aria-label="Email">
-              <SocialIcon network="email" bgColor={tokens.surfaceAlt} fgColor="#39E1EC" style={{ height: 46, width: 46 }} />
+              <SocialIcon network="email" bgColor={tokens.surfaceAlt} fgColor="#9B6DFF" style={{ height: 46, width: 46 }} />
             </a>
             <SocialIcon url="https://github.com/varshikchebrolu" target="_blank" fgColor="#ffffff" bgColor={tokens.surfaceAlt} style={{ height: 46, width: 46 }} />
             <SocialIcon url="https://www.linkedin.com/in/varshikchebrolu/" bgColor={tokens.surfaceAlt} fgColor="#0A66C2" target="_blank" style={{ height: 46, width: 46 }} />
@@ -188,13 +188,13 @@ export default function Contact() {
               py: "0.75rem",
               fontSize: "1rem",
               borderRadius: "999px",
-              color: "#0a0a0f",
+              color: "#ffffff",
               background: tokens.gradient,
-              boxShadow: "0 8px 24px rgba(125,91,255,0.35)",
+              boxShadow: `0 8px 24px rgba(${tokens.glow},0.4)`,
               transition: "transform 0.25s ease, box-shadow 0.25s ease",
               "&:hover": {
                 transform: "translateY(-3px)",
-                boxShadow: "0 12px 30px rgba(125,91,255,0.5)",
+                boxShadow: `0 12px 30px rgba(${tokens.glow},0.6)`,
               },
             }}
           >

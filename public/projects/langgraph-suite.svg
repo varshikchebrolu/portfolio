@@ -1,17 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-label="LangGraph AI Resume Optimization Suite">
   <defs>
     <linearGradient id="lgBg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0d1a24"/>
-      <stop offset="1" stop-color="#101026"/>
+      <stop offset="0" stop-color="#101633"/>
+      <stop offset="1" stop-color="#0d1326"/>
     </linearGradient>
     <linearGradient id="lgAccent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#39E1EC"/>
-      <stop offset="0.55" stop-color="#7D5BFF"/>
-      <stop offset="1" stop-color="#C86DD7"/>
+      <stop offset="0" stop-color="#5B8DEF"/>
+      <stop offset="0.55" stop-color="#7D78F5"/>
+      <stop offset="1" stop-color="#9B6DFF"/>
     </linearGradient>
     <radialGradient id="lgGlow" cx="0.5" cy="0.45" r="0.6">
-      <stop offset="0" stop-color="#39E1EC" stop-opacity="0.3"/>
-      <stop offset="1" stop-color="#39E1EC" stop-opacity="0"/>
+      <stop offset="0" stop-color="#7D78F5" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#7D78F5" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <rect width="640" height="400" fill="url(#lgBg)"/>
@@ -26,16 +26,16 @@
     <line x1="400" y1="170" x2="400" y2="250"/>
   </g>
   <g>
-    <rect x="92" y="148" width="56" height="44" rx="10" fill="#15151f" stroke="url(#lgAccent)" stroke-width="2.5"/>
-    <rect x="232" y="88" width="56" height="44" rx="10" fill="#15151f" stroke="url(#lgAccent)" stroke-width="2.5"/>
-    <rect x="372" y="148" width="56" height="44" rx="10" fill="#15151f" stroke="url(#lgAccent)" stroke-width="2.5"/>
+    <rect x="92" y="148" width="56" height="44" rx="10" fill="#161c33" stroke="url(#lgAccent)" stroke-width="2.5"/>
+    <rect x="232" y="88" width="56" height="44" rx="10" fill="#161c33" stroke="url(#lgAccent)" stroke-width="2.5"/>
+    <rect x="372" y="148" width="56" height="44" rx="10" fill="#161c33" stroke="url(#lgAccent)" stroke-width="2.5"/>
     <rect x="512" y="88" width="56" height="44" rx="10" fill="url(#lgAccent)"/>
-    <rect x="232" y="228" width="56" height="44" rx="10" fill="#15151f" stroke="url(#lgAccent)" stroke-width="2.5"/>
-    <rect x="372" y="228" width="56" height="44" rx="10" fill="#15151f" stroke="url(#lgAccent)" stroke-width="2.5"/>
+    <rect x="232" y="228" width="56" height="44" rx="10" fill="#161c33" stroke="url(#lgAccent)" stroke-width="2.5"/>
+    <rect x="372" y="228" width="56" height="44" rx="10" fill="#161c33" stroke="url(#lgAccent)" stroke-width="2.5"/>
   </g>
   <!-- feedback loop arc -->
-  <path d="M540 132 C 600 220, 540 320, 420 300" fill="none" stroke="#C86DD7" stroke-width="2.5" stroke-dasharray="6 6" opacity="0.8"/>
+  <path d="M540 132 C 600 220, 540 320, 420 300" fill="none" stroke="#9B6DFF" stroke-width="2.5" stroke-dasharray="6 6" opacity="0.85"/>
 
-  <text x="40" y="360" fill="#f4f4f8" font-family="Inter, sans-serif" font-size="26" font-weight="700">LangGraph Suite</text>
-  <text x="40" y="384" fill="#a8a8b8" font-family="Inter, sans-serif" font-size="14">Multi-agent · scoring · iterative rewriting</text>
+  <text x="40" y="360" fill="#e8ebf5" font-family="Inter, sans-serif" font-size="26" font-weight="700">LangGraph Suite</text>
+  <text x="40" y="384" fill="#8a93b0" font-family="Inter, sans-serif" font-size="14">Multi-agent · scoring · iterative rewriting</text>
 </svg>

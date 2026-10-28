@@ -21,7 +21,6 @@ function App() {
       <Box
         sx={{
           background: tokens.bg,
-          overflowX: "hidden",
           minHeight: "100vh",
         }}
       >

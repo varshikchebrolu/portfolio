@@ -39,6 +39,18 @@ const experiences = [
     ],
   },
   {
+    title: "Clearwater Analytics",
+    subtitle: "Software Developer Intern",
+    location: "Boise, ID",
+    date: "Jun 2022 – Aug 2022",
+    type: "experience",
+    points: [
+      "Co-developed a version-management tool for three organizational applications in 6 weeks using Angular, JavaScript, and Bootstrap.",
+      "Designed and deployed RESTful APIs with Kotlin and Bitbucket, improving data integration and performance by 25%.",
+      "Performed unit and integration testing with Jenkins following TDD and Agile practices, raising the bug-resolution rate by 20% and ensuring 80% code coverage.",
+    ],
+  },
+  {
     title: "Colorado State University",
     subtitle: "M.S. in Computer Science",
     location: "Fort Collins, CO",
@@ -83,7 +95,7 @@ export default function Experience() {
               contentArrowStyle={{ borderRight: `7px solid ${tokens.surface}` }}
               iconStyle={{
                 background: tokens.gradient,
-                color: "#0a0a0f",
+                color: "#ffffff",
                 boxShadow: `0 0 0 4px ${tokens.bg}, 0 0 0 5px ${tokens.border}`,
               }}
               icon={isEdu ? <SchoolRoundedIcon /> : <WorkRoundedIcon />}
