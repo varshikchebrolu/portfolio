@@ -49,6 +49,7 @@ export default function Projects() {
             lg: "repeat(3, 1fr)",
           },
           gap: "2rem",
+          justifyItems:{sm:"center",lg:'start'}
         }}
       >
         {ProjectsDetails.map((project) => (
@@ -68,7 +69,6 @@ export default function Projects() {
                 boxShadow: `0 18px 40px rgba(${tokens.glow},0.3)`,
               },
               width:{sm:"80%",md:"90%", lg:"100%"},
-              justifyItems:{sm:"center",lg:'start'}
             }}
           >
             {/* Cover */}
